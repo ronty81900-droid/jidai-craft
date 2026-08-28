@@ -1,0 +1,1018 @@
+{
+  "schema_version": 1,
+  "package": {
+    "name": "JidaiCraft Tokushu v5",
+    "namespace": "jidaiui",
+    "minecraft": "1.20.1",
+    "texture_directory": "assets/jidaiui/textures/item/",
+    "production_texture_count": 5,
+    "preview_count": 5,
+    "source_request_sha256": "10C73A8EBD0FFD95EF82A452597C6542034FA58611584A2CFBE2D6EC213E62D7"
+  },
+  "provenance": {
+    "method": "native 16x16 deterministic pixel placement with a fixed palette and integer coordinates",
+    "image_generation_model_used": false,
+    "source_image_used": false,
+    "baked_text_used": false,
+    "anti_aliasing_used": false,
+    "blur_or_photographic_effects_used": false,
+    "randomness_used": false,
+    "light_direction": "top_left",
+    "common_outline_rgba": "#102329FF"
+  },
+  "items": [
+    {
+      "era": "鉄器",
+      "name": "古びた護符",
+      "file": "assets/jidaiui/textures/item/gofu.png",
+      "resource_location": "jidaiui:textures/item/gofu.png",
+      "preview": "preview/gofu.png",
+      "identity": "土色",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 131
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 62
+        },
+        {
+          "role": "cord_shadow",
+          "rgba": "#3C3025FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "cord_base",
+          "rgba": "#5B4632FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "cord_light",
+          "rgba": "#806548FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "stone_shadow",
+          "rgba": "#514235FF",
+          "pixel_count": 8
+        },
+        {
+          "role": "soil",
+          "rgba": "#69452FFF",
+          "pixel_count": 4
+        },
+        {
+          "role": "stone_base",
+          "rgba": "#8B7250FF",
+          "pixel_count": 34
+        },
+        {
+          "role": "stone_light",
+          "rgba": "#BDA77AFF",
+          "pixel_count": 5
+        },
+        {
+          "role": "bone_highlight",
+          "rgba": "#D7C69AFF",
+          "pixel_count": 6
+        }
+      ]
+    },
+    {
+      "era": "中世",
+      "name": "聖杯の欠片",
+      "file": "assets/jidaiui/textures/item/seihai.png",
+      "resource_location": "jidaiui:textures/item/seihai.png",
+      "preview": "preview/seihai.png",
+      "identity": "金＋青い宝石",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 157
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 51
+        },
+        {
+          "role": "gold_deep",
+          "rgba": "#5E3E1FFF",
+          "pixel_count": 5
+        },
+        {
+          "role": "gold_shadow",
+          "rgba": "#8A5E27FF",
+          "pixel_count": 9
+        },
+        {
+          "role": "gold_base",
+          "rgba": "#C4934BFF",
+          "pixel_count": 17
+        },
+        {
+          "role": "gold_light",
+          "rgba": "#E1B95FFF",
+          "pixel_count": 6
+        },
+        {
+          "role": "gold_highlight",
+          "rgba": "#FFE29AFF",
+          "pixel_count": 8
+        },
+        {
+          "role": "jewel_shadow",
+          "rgba": "#24545EFF",
+          "pixel_count": 1
+        },
+        {
+          "role": "jewel_base",
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 1
+        },
+        {
+          "role": "jewel_highlight",
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 1
+        }
+      ]
+    },
+    {
+      "era": "中世",
+      "name": "羊皮紙の海図",
+      "file": "assets/jidaiui/textures/item/kaizu.png",
+      "resource_location": "jidaiui:textures/item/kaizu.png",
+      "preview": "preview/kaizu.png",
+      "identity": "生成り＋Navigation青緑",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 100
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 52
+        },
+        {
+          "role": "parchment_deep",
+          "rgba": "#6C583BFF",
+          "pixel_count": 10
+        },
+        {
+          "role": "parchment_shadow",
+          "rgba": "#9A7D50FF",
+          "pixel_count": 12
+        },
+        {
+          "role": "parchment_base",
+          "rgba": "#C9AE76FF",
+          "pixel_count": 52
+        },
+        {
+          "role": "parchment_light",
+          "rgba": "#E5D09CFF",
+          "pixel_count": 13
+        },
+        {
+          "role": "parchment_highlight",
+          "rgba": "#F5E8C8FF",
+          "pixel_count": 6
+        },
+        {
+          "role": "coast_deep",
+          "rgba": "#17313AFF",
+          "pixel_count": 5
+        },
+        {
+          "role": "coast_light",
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "bearing_brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 4
+        }
+      ]
+    },
+    {
+      "era": "近代",
+      "name": "蒸気機関の歯車",
+      "file": "assets/jidaiui/textures/item/haguruma.png",
+      "resource_location": "jidaiui:textures/item/haguruma.png",
+      "preview": "preview/haguruma.png",
+      "identity": "真鍮＋煤",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 102
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 72
+        },
+        {
+          "role": "metal_deep",
+          "rgba": "#3E3527FF",
+          "pixel_count": 11
+        },
+        {
+          "role": "brass_shadow",
+          "rgba": "#5D482CFF",
+          "pixel_count": 25
+        },
+        {
+          "role": "brass_base",
+          "rgba": "#C4934BFF",
+          "pixel_count": 15
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D8AD63FF",
+          "pixel_count": 9
+        },
+        {
+          "role": "brass_highlight",
+          "rgba": "#F1D48BFF",
+          "pixel_count": 17
+        },
+        {
+          "role": "soot",
+          "rgba": "#242527FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "rust",
+          "rgba": "#824B32FF",
+          "pixel_count": 3
+        }
+      ]
+    },
+    {
+      "era": "現代",
+      "name": "月の石",
+      "file": "assets/jidaiui/textures/item/tsukinoishi.png",
+      "resource_location": "jidaiui:textures/item/tsukinoishi.png",
+      "preview": "preview/tsukinoishi.png",
+      "identity": "灰＋青緑ケース",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 88
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 52
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#203A40FF",
+          "pixel_count": 1
+        },
+        {
+          "role": "glass_shadow",
+          "rgba": "#24545EFF",
+          "pixel_count": 13
+        },
+        {
+          "role": "glass_base",
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 24
+        },
+        {
+          "role": "glass_highlight",
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 7
+        },
+        {
+          "role": "rock_deep",
+          "rgba": "#3A4347FF",
+          "pixel_count": 28
+        },
+        {
+          "role": "rock_shadow",
+          "rgba": "#596268FF",
+          "pixel_count": 5
+        },
+        {
+          "role": "rock_base",
+          "rgba": "#81898BFF",
+          "pixel_count": 17
+        },
+        {
+          "role": "rock_light",
+          "rgba": "#B4BCB8FF",
+          "pixel_count": 3
+        },
+        {
+          "role": "rock_highlight",
+          "rgba": "#E1E5DEFF",
+          "pixel_count": 6
+        },
+        {
+          "role": "base_shadow",
+          "rgba": "#1B282BFF",
+          "pixel_count": 10
+        },
+        {
+          "role": "bearing_brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 2
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "assets/jidaiui/textures/item/gofu.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 291,
+      "sha256": "5B027FF64E237F5C48CF9A53CC248507D076574A006908E55CE3EE3ECADB0C30",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 131
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 62
+        },
+        {
+          "rgba": "#3C3025FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#514235FF",
+          "pixel_count": 8
+        },
+        {
+          "rgba": "#5B4632FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#69452FFF",
+          "pixel_count": 4
+        },
+        {
+          "rgba": "#806548FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#8B7250FF",
+          "pixel_count": 34
+        },
+        {
+          "rgba": "#BDA77AFF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#D7C69AFF",
+          "pixel_count": 6
+        }
+      ],
+      "resource_location": "jidaiui:textures/item/gofu.png",
+      "era": "鉄器",
+      "name": "古びた護符"
+    },
+    {
+      "file": "preview/gofu.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 584,
+      "sha256": "4EE1E321498ADD2144520B380C4F4EAC701EB8949C66DB8BB7656C8B81D78205",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 8384
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3968
+        },
+        {
+          "rgba": "#3C3025FF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#514235FF",
+          "pixel_count": 512
+        },
+        {
+          "rgba": "#5B4632FF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#69452FFF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#806548FF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#8B7250FF",
+          "pixel_count": 2176
+        },
+        {
+          "rgba": "#BDA77AFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#D7C69AFF",
+          "pixel_count": 384
+        }
+      ],
+      "source_file": "assets/jidaiui/textures/item/gofu.png",
+      "scale": 8,
+      "sampling": "nearest"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/seihai.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 257,
+      "sha256": "299D153C8DA6041E31A11333341AAB6AFDB0197573546A12CDAA00C81AEB1CE3",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 157
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 51
+        },
+        {
+          "rgba": "#24545EFF",
+          "pixel_count": 1
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 1
+        },
+        {
+          "rgba": "#5E3E1FFF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#8A5E27FF",
+          "pixel_count": 9
+        },
+        {
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 1
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 17
+        },
+        {
+          "rgba": "#E1B95FFF",
+          "pixel_count": 6
+        },
+        {
+          "rgba": "#FFE29AFF",
+          "pixel_count": 8
+        }
+      ],
+      "resource_location": "jidaiui:textures/item/seihai.png",
+      "era": "中世",
+      "name": "聖杯の欠片"
+    },
+    {
+      "file": "preview/seihai.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 506,
+      "sha256": "0EE81B6F45C49174F4998A19168D1FD0DC5A511930C8047EA2720F657DA88AEC",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 10048
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3264
+        },
+        {
+          "rgba": "#24545EFF",
+          "pixel_count": 64
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 64
+        },
+        {
+          "rgba": "#5E3E1FFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#8A5E27FF",
+          "pixel_count": 576
+        },
+        {
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 64
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 1088
+        },
+        {
+          "rgba": "#E1B95FFF",
+          "pixel_count": 384
+        },
+        {
+          "rgba": "#FFE29AFF",
+          "pixel_count": 512
+        }
+      ],
+      "source_file": "assets/jidaiui/textures/item/seihai.png",
+      "scale": 8,
+      "sampling": "nearest"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/kaizu.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 309,
+      "sha256": "89A6DD998E55173E759C9C5D7C0B7D3B2A328B41DA60CDD442E8542C8B5F48D2",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 100
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 52
+        },
+        {
+          "rgba": "#17313AFF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#6C583BFF",
+          "pixel_count": 10
+        },
+        {
+          "rgba": "#9A7D50FF",
+          "pixel_count": 12
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 4
+        },
+        {
+          "rgba": "#C9AE76FF",
+          "pixel_count": 52
+        },
+        {
+          "rgba": "#E5D09CFF",
+          "pixel_count": 13
+        },
+        {
+          "rgba": "#F5E8C8FF",
+          "pixel_count": 6
+        }
+      ],
+      "resource_location": "jidaiui:textures/item/kaizu.png",
+      "era": "中世",
+      "name": "羊皮紙の海図"
+    },
+    {
+      "file": "preview/kaizu.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 613,
+      "sha256": "77B80B6FBAFB6FBC5D1131F882C4F1735878EC2BB88197EB2409D41C134208EA",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 6400
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3328
+        },
+        {
+          "rgba": "#17313AFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#6C583BFF",
+          "pixel_count": 640
+        },
+        {
+          "rgba": "#9A7D50FF",
+          "pixel_count": 768
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#C9AE76FF",
+          "pixel_count": 3328
+        },
+        {
+          "rgba": "#E5D09CFF",
+          "pixel_count": 832
+        },
+        {
+          "rgba": "#F5E8C8FF",
+          "pixel_count": 384
+        }
+      ],
+      "source_file": "assets/jidaiui/textures/item/kaizu.png",
+      "scale": 8,
+      "sampling": "nearest"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/haguruma.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 320,
+      "sha256": "AED3B765EF7B0CCEA8E9E6918876FDA8B6850E01A96ABE37A0B9138CD9F8F4B9",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 102
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 72
+        },
+        {
+          "rgba": "#242527FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#3E3527FF",
+          "pixel_count": 11
+        },
+        {
+          "rgba": "#5D482CFF",
+          "pixel_count": 25
+        },
+        {
+          "rgba": "#824B32FF",
+          "pixel_count": 3
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 15
+        },
+        {
+          "rgba": "#D8AD63FF",
+          "pixel_count": 9
+        },
+        {
+          "rgba": "#F1D48BFF",
+          "pixel_count": 17
+        }
+      ],
+      "resource_location": "jidaiui:textures/item/haguruma.png",
+      "era": "近代",
+      "name": "蒸気機関の歯車"
+    },
+    {
+      "file": "preview/haguruma.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 626,
+      "sha256": "FB1DCADBD653DB78D5B2106F2DC3F74A686F2CCC7E9069305BA9556931070F6F",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 6528
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 4608
+        },
+        {
+          "rgba": "#242527FF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#3E3527FF",
+          "pixel_count": 704
+        },
+        {
+          "rgba": "#5D482CFF",
+          "pixel_count": 1600
+        },
+        {
+          "rgba": "#824B32FF",
+          "pixel_count": 192
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 960
+        },
+        {
+          "rgba": "#D8AD63FF",
+          "pixel_count": 576
+        },
+        {
+          "rgba": "#F1D48BFF",
+          "pixel_count": 1088
+        }
+      ],
+      "source_file": "assets/jidaiui/textures/item/haguruma.png",
+      "scale": 8,
+      "sampling": "nearest"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/tsukinoishi.png",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 324,
+      "sha256": "7B55D0129827FD9799A89C950148598E4C1FA0094B47435F7144DDA181A84C9F",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 88
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 52
+        },
+        {
+          "rgba": "#1B282BFF",
+          "pixel_count": 10
+        },
+        {
+          "rgba": "#203A40FF",
+          "pixel_count": 1
+        },
+        {
+          "rgba": "#24545EFF",
+          "pixel_count": 13
+        },
+        {
+          "rgba": "#3A4347FF",
+          "pixel_count": 28
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 24
+        },
+        {
+          "rgba": "#596268FF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#81898BFF",
+          "pixel_count": 17
+        },
+        {
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 7
+        },
+        {
+          "rgba": "#B4BCB8FF",
+          "pixel_count": 3
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#E1E5DEFF",
+          "pixel_count": 6
+        }
+      ],
+      "resource_location": "jidaiui:textures/item/tsukinoishi.png",
+      "era": "現代",
+      "name": "月の石"
+    },
+    {
+      "file": "preview/tsukinoishi.png",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 624,
+      "sha256": "4AA96D68B719E0A2B1AF72265361415E2197E4B51518970CCC9D014EB48D4C89",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 5632
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3328
+        },
+        {
+          "rgba": "#1B282BFF",
+          "pixel_count": 640
+        },
+        {
+          "rgba": "#203A40FF",
+          "pixel_count": 64
+        },
+        {
+          "rgba": "#24545EFF",
+          "pixel_count": 832
+        },
+        {
+          "rgba": "#3A4347FF",
+          "pixel_count": 1792
+        },
+        {
+          "rgba": "#4FA1B2FF",
+          "pixel_count": 1536
+        },
+        {
+          "rgba": "#596268FF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#81898BFF",
+          "pixel_count": 1088
+        },
+        {
+          "rgba": "#A5D6D8FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#B4BCB8FF",
+          "pixel_count": 192
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 128
+        },
+        {
+          "rgba": "#E1E5DEFF",
+          "pixel_count": 384
+        }
+      ],
+      "source_file": "assets/jidaiui/textures/item/tsukinoishi.png",
+      "scale": 8,
+      "sampling": "nearest"
+    }
+  ],
+  "qa": {
+    "status": "passed",
+    "checks": [
+      "no font import, raster text call, random drawing, blur or image-generation input",
+      "gofu.png: 16x16 RGBA drawn at native resolution",
+      "gofu.png: transparent background with alpha exactly 0/255",
+      "gofu.png: 10 RGBA colors including transparent (<=32)",
+      "gofu.png: common #102329 boundary verified on 56 pixels",
+      "gofu.png: single connected silhouette with transparent canvas margin",
+      "gofu.png: highlight centroid is left and above shadow centroid",
+      "preview/gofu.png: exact nearest-neighbor 8x copy",
+      "seihai.png: 16x16 RGBA drawn at native resolution",
+      "seihai.png: transparent background with alpha exactly 0/255",
+      "seihai.png: 10 RGBA colors including transparent (<=32)",
+      "seihai.png: common #102329 boundary verified on 44 pixels",
+      "seihai.png: single connected silhouette with transparent canvas margin",
+      "seihai.png: highlight centroid is left and above shadow centroid",
+      "preview/seihai.png: exact nearest-neighbor 8x copy",
+      "kaizu.png: 16x16 RGBA drawn at native resolution",
+      "kaizu.png: transparent background with alpha exactly 0/255",
+      "kaizu.png: 10 RGBA colors including transparent (<=32)",
+      "kaizu.png: common #102329 boundary verified on 52 pixels",
+      "kaizu.png: single connected silhouette with transparent canvas margin",
+      "kaizu.png: highlight centroid is left and above shadow centroid",
+      "preview/kaizu.png: exact nearest-neighbor 8x copy",
+      "haguruma.png: 16x16 RGBA drawn at native resolution",
+      "haguruma.png: transparent background with alpha exactly 0/255",
+      "haguruma.png: 9 RGBA colors including transparent (<=32)",
+      "haguruma.png: common #102329 boundary verified on 72 pixels",
+      "haguruma.png: single connected silhouette with transparent canvas margin",
+      "haguruma.png: highlight centroid is left and above shadow centroid",
+      "preview/haguruma.png: exact nearest-neighbor 8x copy",
+      "tsukinoishi.png: 16x16 RGBA drawn at native resolution",
+      "tsukinoishi.png: transparent background with alpha exactly 0/255",
+      "tsukinoishi.png: 13 RGBA colors including transparent (<=32)",
+      "tsukinoishi.png: common #102329 boundary verified on 52 pixels",
+      "tsukinoishi.png: single connected silhouette with transparent canvas margin",
+      "tsukinoishi.png: highlight centroid is left and above shadow centroid",
+      "preview/tsukinoishi.png: exact nearest-neighbor 8x copy",
+      "all five production textures have different pixel arrays",
+      "all 10 saved PNGs re-open as RGBA with alpha exactly [0,255]",
+      "maximum production texture color count is 13 including transparency",
+      "manifest byte sizes, SHA-256, dimensions, RGBA colors and alpha values are measured from saved bytes"
+    ],
+    "registered_png_count": 10,
+    "item_texture_count": 5,
+    "preview_count": 5,
+    "maximum_item_rgba_color_count": 13,
+    "all_item_dimensions_16x16": true,
+    "all_previews_exact_nearest_8x": true,
+    "all_alpha_values_binary": true,
+    "all_item_color_counts_at_most_32": true,
+    "all_outer_boundaries_common_dark_outline": true,
+    "all_contains_baked_text_false": true
+  }
+}

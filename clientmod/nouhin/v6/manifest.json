@@ -1,0 +1,2818 @@
+{
+  "schema_version": 1,
+  "package": {
+    "name": "JidaiCraft Ibutsu v6 — 3 proposals each",
+    "namespace": "jidaiui",
+    "minecraft": "1.20.1",
+    "proposal_count": 3,
+    "canonical_item_count": 11,
+    "production_texture_count": 33,
+    "preview_count": 33,
+    "source_request_sha256": "D83F94F0C410ED52708C553037C0D6017AEA35B314B12135D260AF4B086B51EF"
+  },
+  "selection": {
+    "chosen": "A",
+    "note": "zip には proposal_a しか入っていなかった（manifest は A/B/C 33枚を申告）。A を正規の道筋に置き直した写し",
+    "original_manifest": "../v6_3proposals_manifest_original.json"
+  },
+  "provenance": {
+    "method": "deterministic native 64x64 integer-pixel primitives and hard binary masks",
+    "image_generation_model_used": false,
+    "source_image_included_or_traced": false,
+    "reference_use": "shape and construction observation from museum, archive, patent, manufacturer and official collection pages only",
+    "baked_text_used": false,
+    "anti_aliasing_used": false,
+    "blur_or_photographic_effects_used": false,
+    "randomness_used": false,
+    "light_direction": "top_left",
+    "common_outer_outline_rgba": "#102329FF",
+    "common_outer_outline_thickness_px": 2,
+    "common_inner_brass_rim_rgba": "#C4934BFF",
+    "common_inner_brass_rim_thickness_px": 2
+  },
+  "shared_palette": {
+    "transparent": "#00000000",
+    "outline": "#102329FF",
+    "brass_deep": "#6F4E28FF",
+    "brass_dark": "#9B6D32FF",
+    "brass": "#C4934BFF",
+    "brass_light": "#D6B06BFF",
+    "highlight": "#F5DE9BFF",
+    "iron_deep": "#303B3FFF",
+    "iron": "#586368FF",
+    "iron_light": "#7D8889FF",
+    "steel_light": "#A8B0ADFF",
+    "steel_bright": "#C9D0CCFF",
+    "leather_deep": "#4A2922FF",
+    "leather": "#784337FF",
+    "leather_light": "#A5684EFF",
+    "paper_deep": "#6E5A3DFF",
+    "paper_dark": "#A98D61FF",
+    "paper": "#D1B684FF",
+    "paper_light": "#E4CC9AFF",
+    "wood_deep": "#4B3325FF",
+    "wood": "#765039FF",
+    "wood_light": "#A47A50FF",
+    "white_deep": "#817C71FF",
+    "white": "#B9B09BFF",
+    "white_light": "#D8D0B8FF",
+    "red_deep": "#5B1F22FF",
+    "red": "#8E2D2DFF",
+    "red_light": "#B34A3DFF",
+    "enamel_blue": "#213A56FF",
+    "enamel_green": "#3C6A55FF",
+    "enamel_brown": "#7F3C32FF",
+    "jewel_blue": "#376B83FF",
+    "jewel_red": "#8F3A3FFF",
+    "hot_deep": "#721F18FF",
+    "hot": "#B83B24FF",
+    "hot_light": "#E86932FF",
+    "soot": "#0A1012FF",
+    "black": "#11171AFF",
+    "black_mid": "#222B2FFF",
+    "black_light": "#374247FF",
+    "glass_deep": "#426064FF",
+    "glass": "#789295FF",
+    "glass_light": "#AFC4BEFF",
+    "liquid_deep": "#667548FF",
+    "liquid": "#9DAE68FF",
+    "liquid_light": "#C5D58AFF",
+    "lens_deep": "#1F4A3AFF",
+    "lens": "#39725AFF",
+    "lens_light": "#66A277FF",
+    "screen": "#152B38FF",
+    "screen_light": "#244553FF",
+    "scuff": "#6A4B3DFF"
+  },
+  "items": [
+    {
+      "era": "鉄器",
+      "name": "ヒッタイトの戦車",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/sensha.png",
+      "resource_location_after_selection": "jidaiui:textures/item/sensha.png",
+      "preview": "preview/sensha.png",
+      "identity": "木・革・青銅",
+      "intent": "大車輪の側面図。革張りの車台、木の車輪と轅、青銅の轂を最短距離で読ませる。",
+      "highlight": "近側の青銅製轂の左上",
+      "single_wear_point": "革張り車台右下の一続きの擦れ",
+      "opaque_bbox": [
+        3,
+        3,
+        57,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        4,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 2134
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 880
+        },
+        {
+          "role": "leather_deep",
+          "rgba": "#4A2922FF",
+          "pixel_count": 2
+        },
+        {
+          "role": "wood_deep",
+          "rgba": "#4B3325FF",
+          "pixel_count": 11
+        },
+        {
+          "role": "wood",
+          "rgba": "#765039FF",
+          "pixel_count": 191
+        },
+        {
+          "role": "leather",
+          "rgba": "#784337FF",
+          "pixel_count": 111
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 5
+        },
+        {
+          "role": "wood_light",
+          "rgba": "#A47A50FF",
+          "pixel_count": 19
+        },
+        {
+          "role": "leather_light",
+          "rgba": "#A5684EFF",
+          "pixel_count": 94
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 626
+        },
+        {
+          "role": "paper_light",
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 22
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 1
+        }
+      ],
+      "references": [
+        "https://www.metmuseum.org/art/collection/search/324008",
+        "https://belleten.gov.tr/eng/abstarct/3592/eng"
+      ]
+    },
+    {
+      "era": "鉄器",
+      "name": "ロンバルディアの鉄王冠",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/oukan.png",
+      "resource_location_after_selection": "jidaiui:textures/item/oukan.png",
+      "preview": "preview/oukan.png",
+      "identity": "金・多色エナメル・暗い内輪",
+      "intent": "低い正面楕円。六枚の金板、宝石、エナメル、内輪を王冠らしい帯形へ整理する。",
+      "highlight": "左上の宝石",
+      "single_wear_point": "右前板の下縁に一続きの擦れ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1306
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 548
+        },
+        {
+          "role": "enamel_blue",
+          "rgba": "#213A56FF",
+          "pixel_count": 139
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 364
+        },
+        {
+          "role": "enamel_green",
+          "rgba": "#3C6A55FF",
+          "pixel_count": 67
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 15
+        },
+        {
+          "role": "enamel_brown",
+          "rgba": "#7F3C32FF",
+          "pixel_count": 175
+        },
+        {
+          "role": "jewel_red",
+          "rgba": "#8F3A3FFF",
+          "pixel_count": 39
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 637
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 548
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 181
+        },
+        {
+          "role": "white_light",
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 71
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://www.museoduomomonza.it/en/iron-crown/",
+        "https://www.museoduomomonza.it/en/iron-crown/the-iron-crown-as-a-work-of-art/"
+      ]
+    },
+    {
+      "era": "中世",
+      "name": "聖剣エクスカリバー",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/excalibur.png",
+      "resource_location_after_selection": "jidaiui:textures/item/excalibur.png",
+      "preview": "preview/excalibur.png",
+      "identity": "研磨鋼・濃紺革・青石",
+      "intent": "左下の柄から右上の切先へ伸びる定番構図。両刃、フラー、十字鍔、円盤柄頭を見せる。",
+      "highlight": "刃上部の左上側切刃",
+      "single_wear_point": "刃中腹右縁の一続きの刃こぼれ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 2554
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 99
+        },
+        {
+          "role": "jewel_blue",
+          "rgba": "#376B83FF",
+          "pixel_count": 66
+        },
+        {
+          "role": "leather_deep",
+          "rgba": "#4A2922FF",
+          "pixel_count": 73
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 193
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 131
+        },
+        {
+          "role": "leather_light",
+          "rgba": "#A5684EFF",
+          "pixel_count": 19
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 89
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 8
+        }
+      ],
+      "references": [
+        "https://www.britishmuseum.org/collection/object/H_ML-4035",
+        "https://www.metmuseum.org/art/collection/search/27458"
+      ]
+    },
+    {
+      "era": "中世",
+      "name": "テンプル騎士団の盾",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/tate.png",
+      "resource_location_after_selection": "jidaiui:textures/item/tate.png",
+      "preview": "preview/tate.png",
+      "identity": "白地・赤十字・木裏・鉄鋲",
+      "intent": "正面カイト盾。白地と赤十字を主面にし、右縁だけ木口を見せる。",
+      "highlight": "左上の鉄鋲",
+      "single_wear_point": "赤十字右腕外側の半月状へこみ一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1490
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "role": "red_deep",
+          "rgba": "#5B1F22FF",
+          "pixel_count": 34
+        },
+        {
+          "role": "wood",
+          "rgba": "#765039FF",
+          "pixel_count": 208
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 82
+        },
+        {
+          "role": "white_deep",
+          "rgba": "#817C71FF",
+          "pixel_count": 287
+        },
+        {
+          "role": "red",
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 551
+        },
+        {
+          "role": "white",
+          "rgba": "#B9B09BFF",
+          "pixel_count": 345
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "role": "white_light",
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 229
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://royalarmouries.org/objects-and-stories/stories/the-hundred-years-war-1337-1453",
+        "https://www.britishmuseum.org/collection/object/H_1831-1101-110"
+      ]
+    },
+    {
+      "era": "中世",
+      "name": "武器商人の手形",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/tegata.png",
+      "resource_location_after_selection": "jidaiui:textures/item/tegata.png",
+      "preview": "preview/tegata.png",
+      "identity": "羊皮紙・赤蝋・赤紐",
+      "intent": "折り証文の右下へ赤蝋封を付ける。読める文字は置かず、不揃いな短線だけを使う。",
+      "highlight": "蝋封の左上",
+      "single_wear_point": "右上角の折れ欠け一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1561
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 460
+        },
+        {
+          "role": "red_deep",
+          "rgba": "#5B1F22FF",
+          "pixel_count": 60
+        },
+        {
+          "role": "paper_deep",
+          "rgba": "#6E5A3DFF",
+          "pixel_count": 109
+        },
+        {
+          "role": "red",
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 188
+        },
+        {
+          "role": "paper_dark",
+          "rgba": "#A98D61FF",
+          "pixel_count": 555
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 428
+        },
+        {
+          "role": "paper",
+          "rgba": "#D1B684FF",
+          "pixel_count": 430
+        },
+        {
+          "role": "paper_light",
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 299
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://searcharchives.bl.uk/catalog/032-002142948",
+        "https://www.nationalarchives.gov.uk/visit/researching-here/handling-documents/handling-seals/"
+      ]
+    },
+    {
+      "era": "近代",
+      "name": "ベッセマー転炉",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/tenro.png",
+      "resource_location_after_selection": "jidaiui:textures/item/tenro.png",
+      "preview": "preview/tenro.png",
+      "identity": "黒鉄・リベット・赤熱口",
+      "intent": "右へ傾けた注湯姿勢。洋梨胴、斜めの開口、トラニオン、支持台を一体で見せる。",
+      "highlight": "赤熱口内の左上",
+      "single_wear_point": "口下面の煤三日月一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1152
+        },
+        {
+          "role": "soot",
+          "rgba": "#0A1012FF",
+          "pixel_count": 25
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 468
+        },
+        {
+          "role": "black",
+          "rgba": "#11171AFF",
+          "pixel_count": 723
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 321
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 249
+        },
+        {
+          "role": "hot_deep",
+          "rgba": "#721F18FF",
+          "pixel_count": 82
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 242
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 281
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 34
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 436
+        },
+        {
+          "role": "hot_light",
+          "rgba": "#E86932FF",
+          "pixel_count": 77
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://collection.sciencemuseumgroup.org.uk/objects/co19762/model-of-modern-bessemer-converter",
+        "https://www.chiba-muse.or.jp/SCIENCE/topics/page-1614921541499/",
+        "https://www.sheffieldmuseums.org.uk/whats-on/bessemer-converter/"
+      ]
+    },
+    {
+      "era": "近代",
+      "name": "ロスチャイルドの金庫",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/kinko.png",
+      "resource_location_after_selection": "jidaiui:textures/item/kinko.png",
+      "preview": "preview/kinko.png",
+      "identity": "黒鉄・真鍮ダイヤル・金線",
+      "intent": "実物寄せの正面3/4。金線の扉縁、真鍮ダイヤル、三叉ハンドルをまとめる。",
+      "highlight": "真鍮ダイヤルの左上",
+      "single_wear_point": "扉右下の斜め擦り傷一本",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        57
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        4
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1002
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 444
+        },
+        {
+          "role": "black",
+          "rgba": "#11171AFF",
+          "pixel_count": 273
+        },
+        {
+          "role": "black_mid",
+          "rgba": "#222B2FFF",
+          "pixel_count": 331
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 809
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 294
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 20
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 290
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 530
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 97
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://www.rothschildandco.com/siteassets/publications/rothschildandco/wealth_management/2017/randcowm---why-wealth-preservation.pdf",
+        "https://catalogue.etoncollege.com/object-fda-a-2007-2020",
+        "https://museum.lhc.gov.pk/node/49"
+      ]
+    },
+    {
+      "era": "近代",
+      "name": "死の商人の手引書",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/tebiki.png",
+      "resource_location_after_selection": "jidaiui:textures/item/tebiki.png",
+      "preview": "preview/tebiki.png",
+      "identity": "黒革・生成り小口・銃の金箔",
+      "intent": "閉じた縦手帳。黒革表紙へ長銃身の拳銃シルエットを金箔で置く。",
+      "highlight": "銃箔の左上",
+      "single_wear_point": "右下角の革擦れ一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1044
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "role": "black",
+          "rgba": "#11171AFF",
+          "pixel_count": 841
+        },
+        {
+          "role": "black_mid",
+          "rgba": "#222B2FFF",
+          "pixel_count": 119
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 397
+        },
+        {
+          "role": "leather_deep",
+          "rgba": "#4A2922FF",
+          "pixel_count": 385
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 27
+        },
+        {
+          "role": "leather_light",
+          "rgba": "#A5684EFF",
+          "pixel_count": 51
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 651
+        },
+        {
+          "role": "paper_light",
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 127
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://collection.sciencemuseumgroup.org.uk/objects/co179115/leather-bound-notebook",
+        "https://www.metmuseum.org/art/collection/search/24855"
+      ]
+    },
+    {
+      "era": "現代",
+      "name": "ペニシリン",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/penicillin.png",
+      "resource_location_after_selection": "jidaiui:textures/item/penicillin.png",
+      "preview": "preview/penicillin.png",
+      "identity": "ガラス・淡黄緑液・注射器",
+      "intent": "直立バイアルの背面を注射器が交差する、最も即読性の高い構図。",
+      "highlight": "バイアル左肩の反射",
+      "single_wear_point": "アルミ縁右下の擦れ一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1645
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 484
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 20
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 81
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 181
+        },
+        {
+          "role": "glass",
+          "rgba": "#789295FF",
+          "pixel_count": 385
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 159
+        },
+        {
+          "role": "liquid",
+          "rgba": "#9DAE68FF",
+          "pixel_count": 280
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 224
+        },
+        {
+          "role": "glass_light",
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 177
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 452
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 8
+        }
+      ],
+      "references": [
+        "https://www.si.edu/object/penicillin%3Anmah_1912343",
+        "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=969a421e-37d8-499e-9e89-67e210bd5d9d"
+      ]
+    },
+    {
+      "era": "現代",
+      "name": "暗視ゴーグル",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/goggle.png",
+      "resource_location_after_selection": "jidaiui:textures/item/goggle.png",
+      "preview": "preview/goggle.png",
+      "identity": "黒筐体・彩度を抑えた緑レンズ",
+      "intent": "二眼正面。レンズを上下にずらし、後方アーチと右上バックルを付ける。",
+      "highlight": "左レンズだけの反射一点",
+      "single_wear_point": "右筒の擦れ一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1184
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 520
+        },
+        {
+          "role": "black",
+          "rgba": "#11171AFF",
+          "pixel_count": 158
+        },
+        {
+          "role": "lens_deep",
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 308
+        },
+        {
+          "role": "black_mid",
+          "rgba": "#222B2FFF",
+          "pixel_count": 682
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 269
+        },
+        {
+          "role": "lens",
+          "rgba": "#39725AFF",
+          "pixel_count": 323
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 16
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 110
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 520
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "references": [
+        "https://www.l3harris.com/all-capabilities/binocular-night-vision-device-bnvd-1531",
+        "https://www.l3harris.com/sites/default/files/2025-01/l3harris-binocular-night-vision-device-bnvd-1531-ps-cs-ivs.pdf"
+      ]
+    },
+    {
+      "era": "現代",
+      "name": "スマートフォン",
+      "proposal": "A",
+      "file": "assets/jidaiui/textures/item/sumaho.png",
+      "resource_location_after_selection": "jidaiui:textures/item/sumaho.png",
+      "preview": "preview/sumaho.png",
+      "identity": "黒い端末・消灯した濃紺画面",
+      "intent": "斜め正面。消灯画面と薄い縁だけで汎用スマートフォンとして描く。",
+      "highlight": "左上縁の反射",
+      "single_wear_point": "右下角の擦れ一つ",
+      "opaque_bbox": [
+        3,
+        3,
+        58,
+        58
+      ],
+      "transparent_margins_left_top_right_bottom": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 1907
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "role": "screen",
+          "rgba": "#152B38FF",
+          "pixel_count": 319
+        },
+        {
+          "role": "screen_light",
+          "rgba": "#244553FF",
+          "pixel_count": 863
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 85
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 20
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 38
+        }
+      ],
+      "references": [
+        "https://developer.apple.com/download/files/accessories/dimensional-drawings/iphone-16-pro-max.pdf",
+        "https://support.apple.com/en-us/121029"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "assets/jidaiui/textures/item/sensha.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 947,
+      "sha256": "B878305926498B0216B7AAD0C2364E3C4EE75F7ADB10D21E1A37BE0CFEDC7B17",
+      "rgba_color_count": 12,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 2134
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 880
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 2
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 11
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 191
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 111
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 19
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 94
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 626
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 22
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 1
+        }
+      ],
+      "era": "鉄器",
+      "name": "ヒッタイトの戦車",
+      "resource_location_after_selection": "jidaiui:textures/item/sensha.png"
+    },
+    {
+      "file": "preview/sensha.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1669,
+      "sha256": "EEA373BE00224D023268B3B9D3750F4DAF29D822D9258DE27EF7E36670235DB0",
+      "rgba_color_count": 12,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 34144
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 14080
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 32
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 176
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 3056
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 1776
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 80
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 304
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 1504
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 10016
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 352
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 16
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/sensha.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "鉄器",
+      "name": "ヒッタイトの戦車"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/oukan.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 961,
+      "sha256": "9964C9DB123514091F0E2DF6B7CFE49AAC75F5202951010280CACD2BCBAF03BF",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1306
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 548
+        },
+        {
+          "rgba": "#213A56FF",
+          "pixel_count": 139
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 364
+        },
+        {
+          "rgba": "#3C6A55FF",
+          "pixel_count": 67
+        },
+        {
+          "rgba": "#6F4E28FF",
+          "pixel_count": 15
+        },
+        {
+          "rgba": "#7F3C32FF",
+          "pixel_count": 175
+        },
+        {
+          "rgba": "#8F3A3FFF",
+          "pixel_count": 39
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 637
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 548
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 181
+        },
+        {
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 71
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "鉄器",
+      "name": "ロンバルディアの鉄王冠",
+      "resource_location_after_selection": "jidaiui:textures/item/oukan.png"
+    },
+    {
+      "file": "preview/oukan.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1723,
+      "sha256": "E5E9DDEA198EFB1530A512693F5B44A09A6CCB1B94263E7634BE1CCE4E8F67F0",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 20896
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 8768
+        },
+        {
+          "rgba": "#213A56FF",
+          "pixel_count": 2224
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 5824
+        },
+        {
+          "rgba": "#3C6A55FF",
+          "pixel_count": 1072
+        },
+        {
+          "rgba": "#6F4E28FF",
+          "pixel_count": 240
+        },
+        {
+          "rgba": "#7F3C32FF",
+          "pixel_count": 2800
+        },
+        {
+          "rgba": "#8F3A3FFF",
+          "pixel_count": 624
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 10192
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 8768
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 2896
+        },
+        {
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 1136
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/oukan.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "鉄器",
+      "name": "ロンバルディアの鉄王冠"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/excalibur.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 991,
+      "sha256": "6E32C71B7B265394E25248D4F377896EF2CDCD199B323EAA98FF844BE2B96F12",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 2554
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 99
+        },
+        {
+          "rgba": "#376B83FF",
+          "pixel_count": 66
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 73
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 193
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 131
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 19
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 89
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 8
+        }
+      ],
+      "era": "中世",
+      "name": "聖剣エクスカリバー",
+      "resource_location_after_selection": "jidaiui:textures/item/excalibur.png"
+    },
+    {
+      "file": "preview/excalibur.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1756,
+      "sha256": "34DC01F83E2B6F57D182FABC5F866541C79B3857641FD2BABEA9B874A6C9C260",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 40864
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7168
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 1584
+        },
+        {
+          "rgba": "#376B83FF",
+          "pixel_count": 1056
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 1168
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 3088
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 2096
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 304
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 1424
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 6656
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 128
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/excalibur.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "中世",
+      "name": "聖剣エクスカリバー"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/tate.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 954,
+      "sha256": "56FD349587E8BCFDEFC06EBC878188D4E1F98B4D9371EB337DEC63AA0DA8A98E",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1490
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#5B1F22FF",
+          "pixel_count": 34
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 208
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 82
+        },
+        {
+          "rgba": "#817C71FF",
+          "pixel_count": 287
+        },
+        {
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 551
+        },
+        {
+          "rgba": "#B9B09BFF",
+          "pixel_count": 345
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 229
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "中世",
+      "name": "テンプル騎士団の盾",
+      "resource_location_after_selection": "jidaiui:textures/item/tate.png"
+    },
+    {
+      "file": "preview/tate.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1644,
+      "sha256": "120845320B44C378A03193846C61D6B8BA974E1AB946CAC7F51113FDDD0D6D1F",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 23840
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7168
+        },
+        {
+          "rgba": "#5B1F22FF",
+          "pixel_count": 544
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 3328
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 1312
+        },
+        {
+          "rgba": "#817C71FF",
+          "pixel_count": 4592
+        },
+        {
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 8816
+        },
+        {
+          "rgba": "#B9B09BFF",
+          "pixel_count": 5520
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 6656
+        },
+        {
+          "rgba": "#D8D0B8FF",
+          "pixel_count": 3664
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/tate.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "中世",
+      "name": "テンプル騎士団の盾"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/tegata.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 899,
+      "sha256": "24E0A5D119C677D14E2FE10648996E469DEEFB017F06C2CA96AC11AE1FBC710E",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1561
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 460
+        },
+        {
+          "rgba": "#5B1F22FF",
+          "pixel_count": 60
+        },
+        {
+          "rgba": "#6E5A3DFF",
+          "pixel_count": 109
+        },
+        {
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 188
+        },
+        {
+          "rgba": "#A98D61FF",
+          "pixel_count": 555
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 428
+        },
+        {
+          "rgba": "#D1B684FF",
+          "pixel_count": 430
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 299
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "中世",
+      "name": "武器商人の手形",
+      "resource_location_after_selection": "jidaiui:textures/item/tegata.png"
+    },
+    {
+      "file": "preview/tegata.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1606,
+      "sha256": "60BDFECC54705A64FEF3A875B605045CCCBB7771831910EC5528332E460125AE",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 24976
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7360
+        },
+        {
+          "rgba": "#5B1F22FF",
+          "pixel_count": 960
+        },
+        {
+          "rgba": "#6E5A3DFF",
+          "pixel_count": 1744
+        },
+        {
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 3008
+        },
+        {
+          "rgba": "#A98D61FF",
+          "pixel_count": 8880
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 6848
+        },
+        {
+          "rgba": "#D1B684FF",
+          "pixel_count": 6880
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 4784
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/tegata.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "中世",
+      "name": "武器商人の手形"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/tenro.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 1040,
+      "sha256": "A1405E0B55CEDC0FBFA8DD4812CAEAA0CCA27CEBA8744824FFD49546F14CDDE7",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1152
+        },
+        {
+          "rgba": "#0A1012FF",
+          "pixel_count": 25
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 468
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 723
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 321
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 249
+        },
+        {
+          "rgba": "#721F18FF",
+          "pixel_count": 82
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 242
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 281
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 34
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 436
+        },
+        {
+          "rgba": "#E86932FF",
+          "pixel_count": 77
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "近代",
+      "name": "ベッセマー転炉",
+      "resource_location_after_selection": "jidaiui:textures/item/tenro.png"
+    },
+    {
+      "file": "preview/tenro.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1829,
+      "sha256": "9700517CAE892D66FAEB9FFFFBBC39B45FE5BA983A7B01805BFC0241D1F9DB6C",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 18432
+        },
+        {
+          "rgba": "#0A1012FF",
+          "pixel_count": 400
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7488
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 11568
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 5136
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 3984
+        },
+        {
+          "rgba": "#721F18FF",
+          "pixel_count": 1312
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 3872
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 4496
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 544
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 6976
+        },
+        {
+          "rgba": "#E86932FF",
+          "pixel_count": 1232
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/tenro.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "近代",
+      "name": "ベッセマー転炉"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/kinko.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 851,
+      "sha256": "AE7E776BAD7C67FC5FCFFBB203DF913971A3A4A43EC206140198A0E469CC6AC1",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1002
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 444
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 273
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 331
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 809
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 294
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 20
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 290
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 530
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 97
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "近代",
+      "name": "ロスチャイルドの金庫",
+      "resource_location_after_selection": "jidaiui:textures/item/kinko.png"
+    },
+    {
+      "file": "preview/kinko.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1549,
+      "sha256": "D690F346E9E9E165529B6A194AA10D722D64D34BD5FC1EB6A28D23EAFC5FEF96",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 16032
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7104
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 4368
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 5296
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 12944
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 4704
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 4640
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 8480
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 1552
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/kinko.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "近代",
+      "name": "ロスチャイルドの金庫"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/tebiki.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 676,
+      "sha256": "50F511F88AE1CD7059509E5AB62FEDAE531C4569E50E810A69130C890EE67490",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1044
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 841
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 119
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 397
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 385
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 27
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 51
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 651
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 127
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "近代",
+      "name": "死の商人の手引書",
+      "resource_location_after_selection": "jidaiui:textures/item/tebiki.png"
+    },
+    {
+      "file": "preview/tebiki.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1316,
+      "sha256": "7562A4BB5FF1577B3025C513C5D2DABE039AA87F123476028D2C726FF7550EDD",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 16704
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7168
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 13456
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 1904
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 6352
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 6160
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 432
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 816
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 10416
+        },
+        {
+          "rgba": "#E4CC9AFF",
+          "pixel_count": 2032
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/tebiki.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "近代",
+      "name": "死の商人の手引書"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/penicillin.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 742,
+      "sha256": "FE47F39A273DABA2387CCD9F2817ACDC0CEF0CCC8BA7242141B981386EC207F7",
+      "rgba_color_count": 12,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1645
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 484
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 20
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 81
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 181
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 385
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 159
+        },
+        {
+          "rgba": "#9DAE68FF",
+          "pixel_count": 280
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 224
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 177
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 452
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 8
+        }
+      ],
+      "era": "現代",
+      "name": "ペニシリン",
+      "resource_location_after_selection": "jidaiui:textures/item/penicillin.png"
+    },
+    {
+      "file": "preview/penicillin.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1392,
+      "sha256": "8411A0F3A15556C76B79EDA97DE210F184E4B22C660EA7E0C5D77F64D27C2CAE",
+      "rgba_color_count": 12,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 26320
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7744
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 1296
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 2896
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 6160
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 2544
+        },
+        {
+          "rgba": "#9DAE68FF",
+          "pixel_count": 4480
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 3584
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 2832
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 7232
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 128
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/penicillin.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "現代",
+      "name": "ペニシリン"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/goggle.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 939,
+      "sha256": "0378A22479343474CA087083222845A223135863D30C8E04CA8316D3DD66877D",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1184
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 520
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 158
+        },
+        {
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 308
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 682
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 269
+        },
+        {
+          "rgba": "#39725AFF",
+          "pixel_count": 323
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 16
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 110
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 520
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 6
+        }
+      ],
+      "era": "現代",
+      "name": "暗視ゴーグル",
+      "resource_location_after_selection": "jidaiui:textures/item/goggle.png"
+    },
+    {
+      "file": "preview/goggle.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1670,
+      "sha256": "B3FA3B680430C06ECAE4E47C0ED638711EE0A00FBA2DB4DBFAEB4DCC59C16F15",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 18944
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 8320
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 2528
+        },
+        {
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 4928
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 10912
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 4304
+        },
+        {
+          "rgba": "#39725AFF",
+          "pixel_count": 5168
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 1760
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 8320
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/goggle.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "現代",
+      "name": "暗視ゴーグル"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/sumaho.png",
+      "dimensions": [
+        64,
+        64
+      ],
+      "byte_size": 854,
+      "sha256": "9A92E470AC1D6D6BDF0E725A41E40046C750FE5C353524432B06733E830B5231",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "item_texture",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 1907
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#152B38FF",
+          "pixel_count": 319
+        },
+        {
+          "rgba": "#244553FF",
+          "pixel_count": 863
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 85
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 20
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 416
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 38
+        }
+      ],
+      "era": "現代",
+      "name": "スマートフォン",
+      "resource_location_after_selection": "jidaiui:textures/item/sumaho.png"
+    },
+    {
+      "file": "preview/sumaho.png",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1465,
+      "sha256": "F4ADABD2B77E604BD00EE8A2109BB960E7BB2D82B8C0487391E054537C7C788F",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "category": "preview",
+      "proposal": "A",
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 30512
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 7168
+        },
+        {
+          "rgba": "#152B38FF",
+          "pixel_count": 5104
+        },
+        {
+          "rgba": "#244553FF",
+          "pixel_count": 13808
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 1360
+        },
+        {
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 6656
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 608
+        }
+      ],
+      "source_file": "proposal_a/assets/jidaiui/textures/item/sumaho.png",
+      "scale": 4,
+      "sampling": "nearest",
+      "era": "現代",
+      "name": "スマートフォン"
+    }
+  ],
+  "qa": {
+    "status": "passed",
+    "checks": [
+      "generator has no font call, readable raster text, random drawing, blur, antialiasing sampler or image-generation input",
+      "all production art is built from deterministic integer primitives on a 64x64 hard mask",
+      "proposal_a/sensha.png: 64x64 RGBA; transparent margins [3, 3, 4, 3] and opaque bbox [3, 3, 57, 58]",
+      "proposal_a/sensha.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_a/sensha.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/sensha.png: no common dark outline color inside material core",
+      "proposal_a/sensha.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/sensha.png: not left/right symmetric (2302 mirror-different pixels)",
+      "preview/proposal_a/sensha.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/oukan.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/oukan.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_a/oukan.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/oukan.png: no common dark outline color inside material core",
+      "proposal_a/oukan.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/oukan.png: not left/right symmetric (736 mirror-different pixels)",
+      "preview/proposal_a/oukan.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/excalibur.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/excalibur.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_a/excalibur.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/excalibur.png: no common dark outline color inside material core",
+      "proposal_a/excalibur.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/excalibur.png: not left/right symmetric (2384 mirror-different pixels)",
+      "preview/proposal_a/excalibur.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/tate.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/tate.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_a/tate.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/tate.png: no common dark outline color inside material core",
+      "proposal_a/tate.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/tate.png: not left/right symmetric (1380 mirror-different pixels)",
+      "preview/proposal_a/tate.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/tegata.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/tegata.png: alpha [0,255], transparent RGB zero, 10 RGBA colors (<=64)",
+      "proposal_a/tegata.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/tegata.png: no common dark outline color inside material core",
+      "proposal_a/tegata.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/tegata.png: not left/right symmetric (2588 mirror-different pixels)",
+      "preview/proposal_a/tegata.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/tenro.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/tenro.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_a/tenro.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/tenro.png: no common dark outline color inside material core",
+      "proposal_a/tenro.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/tenro.png: not left/right symmetric (1650 mirror-different pixels)",
+      "preview/proposal_a/tenro.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/kinko.png: 64x64 RGBA; transparent margins [3, 3, 3, 4] and opaque bbox [3, 3, 58, 57]",
+      "proposal_a/kinko.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_a/kinko.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/kinko.png: no common dark outline color inside material core",
+      "proposal_a/kinko.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/kinko.png: not left/right symmetric (1878 mirror-different pixels)",
+      "preview/proposal_a/kinko.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/tebiki.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/tebiki.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_a/tebiki.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/tebiki.png: no common dark outline color inside material core",
+      "proposal_a/tebiki.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/tebiki.png: not left/right symmetric (2480 mirror-different pixels)",
+      "preview/proposal_a/tebiki.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/penicillin.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/penicillin.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_a/penicillin.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/penicillin.png: no common dark outline color inside material core",
+      "proposal_a/penicillin.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/penicillin.png: not left/right symmetric (3086 mirror-different pixels)",
+      "preview/proposal_a/penicillin.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/goggle.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/goggle.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_a/goggle.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/goggle.png: no common dark outline color inside material core",
+      "proposal_a/goggle.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/goggle.png: not left/right symmetric (2442 mirror-different pixels)",
+      "preview/proposal_a/goggle.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_a/sumaho.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_a/sumaho.png: alpha [0,255], transparent RGB zero, 8 RGBA colors (<=64)",
+      "proposal_a/sumaho.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_a/sumaho.png: no common dark outline color inside material core",
+      "proposal_a/sumaho.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_a/sumaho.png: not left/right symmetric (1806 mirror-different pixels)",
+      "preview/proposal_a/sumaho.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/sensha.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/sensha.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_b/sensha.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/sensha.png: no common dark outline color inside material core",
+      "proposal_b/sensha.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/sensha.png: not left/right symmetric (2200 mirror-different pixels)",
+      "preview/proposal_b/sensha.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/oukan.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/oukan.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_b/oukan.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/oukan.png: no common dark outline color inside material core",
+      "proposal_b/oukan.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/oukan.png: not left/right symmetric (1802 mirror-different pixels)",
+      "preview/proposal_b/oukan.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/excalibur.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/excalibur.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_b/excalibur.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/excalibur.png: no common dark outline color inside material core",
+      "proposal_b/excalibur.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/excalibur.png: not left/right symmetric (1652 mirror-different pixels)",
+      "preview/proposal_b/excalibur.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/tate.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/tate.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_b/tate.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/tate.png: no common dark outline color inside material core",
+      "proposal_b/tate.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/tate.png: not left/right symmetric (2152 mirror-different pixels)",
+      "preview/proposal_b/tate.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/tegata.png: 64x64 RGBA; transparent margins [3, 4, 3, 3] and opaque bbox [3, 4, 58, 57]",
+      "proposal_b/tegata.png: alpha [0,255], transparent RGB zero, 10 RGBA colors (<=64)",
+      "proposal_b/tegata.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/tegata.png: no common dark outline color inside material core",
+      "proposal_b/tegata.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/tegata.png: not left/right symmetric (2368 mirror-different pixels)",
+      "preview/proposal_b/tegata.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/tenro.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/tenro.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_b/tenro.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/tenro.png: no common dark outline color inside material core",
+      "proposal_b/tenro.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/tenro.png: not left/right symmetric (1786 mirror-different pixels)",
+      "preview/proposal_b/tenro.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/kinko.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/kinko.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_b/kinko.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/kinko.png: no common dark outline color inside material core",
+      "proposal_b/kinko.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/kinko.png: not left/right symmetric (2226 mirror-different pixels)",
+      "preview/proposal_b/kinko.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/tebiki.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/tebiki.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_b/tebiki.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/tebiki.png: no common dark outline color inside material core",
+      "proposal_b/tebiki.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/tebiki.png: not left/right symmetric (2238 mirror-different pixels)",
+      "preview/proposal_b/tebiki.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/penicillin.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/penicillin.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_b/penicillin.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/penicillin.png: no common dark outline color inside material core",
+      "proposal_b/penicillin.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/penicillin.png: not left/right symmetric (2732 mirror-different pixels)",
+      "preview/proposal_b/penicillin.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/goggle.png: 64x64 RGBA; transparent margins [3, 4, 3, 3] and opaque bbox [3, 4, 58, 57]",
+      "proposal_b/goggle.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_b/goggle.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/goggle.png: no common dark outline color inside material core",
+      "proposal_b/goggle.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/goggle.png: not left/right symmetric (2794 mirror-different pixels)",
+      "preview/proposal_b/goggle.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_b/sumaho.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_b/sumaho.png: alpha [0,255], transparent RGB zero, 8 RGBA colors (<=64)",
+      "proposal_b/sumaho.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_b/sumaho.png: no common dark outline color inside material core",
+      "proposal_b/sumaho.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_b/sumaho.png: not left/right symmetric (1460 mirror-different pixels)",
+      "preview/proposal_b/sumaho.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/sensha.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/sensha.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_c/sensha.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/sensha.png: no common dark outline color inside material core",
+      "proposal_c/sensha.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/sensha.png: not left/right symmetric (2192 mirror-different pixels)",
+      "preview/proposal_c/sensha.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/oukan.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/oukan.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_c/oukan.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/oukan.png: no common dark outline color inside material core",
+      "proposal_c/oukan.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/oukan.png: not left/right symmetric (720 mirror-different pixels)",
+      "preview/proposal_c/oukan.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/excalibur.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/excalibur.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_c/excalibur.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/excalibur.png: no common dark outline color inside material core",
+      "proposal_c/excalibur.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/excalibur.png: not left/right symmetric (2686 mirror-different pixels)",
+      "preview/proposal_c/excalibur.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/tate.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/tate.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_c/tate.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/tate.png: no common dark outline color inside material core",
+      "proposal_c/tate.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/tate.png: not left/right symmetric (2162 mirror-different pixels)",
+      "preview/proposal_c/tate.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/tegata.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/tegata.png: alpha [0,255], transparent RGB zero, 10 RGBA colors (<=64)",
+      "proposal_c/tegata.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/tegata.png: no common dark outline color inside material core",
+      "proposal_c/tegata.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/tegata.png: not left/right symmetric (2606 mirror-different pixels)",
+      "preview/proposal_c/tegata.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/tenro.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/tenro.png: alpha [0,255], transparent RGB zero, 13 RGBA colors (<=64)",
+      "proposal_c/tenro.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/tenro.png: no common dark outline color inside material core",
+      "proposal_c/tenro.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/tenro.png: not left/right symmetric (1264 mirror-different pixels)",
+      "preview/proposal_c/tenro.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/kinko.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/kinko.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_c/kinko.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/kinko.png: no common dark outline color inside material core",
+      "proposal_c/kinko.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/kinko.png: not left/right symmetric (1322 mirror-different pixels)",
+      "preview/proposal_c/kinko.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/tebiki.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/tebiki.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_c/tebiki.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/tebiki.png: no common dark outline color inside material core",
+      "proposal_c/tebiki.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/tebiki.png: not left/right symmetric (2580 mirror-different pixels)",
+      "preview/proposal_c/tebiki.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/penicillin.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/penicillin.png: alpha [0,255], transparent RGB zero, 12 RGBA colors (<=64)",
+      "proposal_c/penicillin.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/penicillin.png: no common dark outline color inside material core",
+      "proposal_c/penicillin.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/penicillin.png: not left/right symmetric (2842 mirror-different pixels)",
+      "preview/proposal_c/penicillin.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/goggle.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/goggle.png: alpha [0,255], transparent RGB zero, 11 RGBA colors (<=64)",
+      "proposal_c/goggle.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/goggle.png: no common dark outline color inside material core",
+      "proposal_c/goggle.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/goggle.png: not left/right symmetric (2656 mirror-different pixels)",
+      "preview/proposal_c/goggle.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "proposal_c/sumaho.png: 64x64 RGBA; transparent margins [3, 3, 3, 3] and opaque bbox [3, 3, 58, 58]",
+      "proposal_c/sumaho.png: alpha [0,255], transparent RGB zero, 8 RGBA colors (<=64)",
+      "proposal_c/sumaho.png: completed border peels to two #102329 layers then two #C4934B layers",
+      "proposal_c/sumaho.png: no common dark outline color inside material core",
+      "proposal_c/sumaho.png: one connected highlight cluster and one connected wear cluster",
+      "proposal_c/sumaho.png: not left/right symmetric (1904 mirror-different pixels)",
+      "preview/proposal_c/sumaho.png: preview is a byte-exact nearest-neighbour 4x expansion",
+      "all 33 production textures have unique pixel arrays",
+      "sensha.png: proposals A/B differ at 2333 pixels",
+      "sensha.png: proposals A/C differ at 1897 pixels",
+      "sensha.png: proposals B/C differ at 2266 pixels",
+      "oukan.png: proposals A/B differ at 1935 pixels",
+      "oukan.png: proposals A/C differ at 1496 pixels",
+      "oukan.png: proposals B/C differ at 1859 pixels",
+      "excalibur.png: proposals A/B differ at 2058 pixels",
+      "excalibur.png: proposals A/C differ at 1421 pixels",
+      "excalibur.png: proposals B/C differ at 2023 pixels",
+      "tate.png: proposals A/B differ at 1285 pixels",
+      "tate.png: proposals A/C differ at 1640 pixels",
+      "tate.png: proposals B/C differ at 1549 pixels",
+      "tegata.png: proposals A/B differ at 1711 pixels",
+      "tegata.png: proposals A/C differ at 1338 pixels",
+      "tegata.png: proposals B/C differ at 2076 pixels",
+      "tenro.png: proposals A/B differ at 1642 pixels",
+      "tenro.png: proposals A/C differ at 1037 pixels",
+      "tenro.png: proposals B/C differ at 1423 pixels",
+      "kinko.png: proposals A/B differ at 1853 pixels",
+      "kinko.png: proposals A/C differ at 1272 pixels",
+      "kinko.png: proposals B/C differ at 2010 pixels",
+      "tebiki.png: proposals A/B differ at 2142 pixels",
+      "tebiki.png: proposals A/C differ at 1178 pixels",
+      "tebiki.png: proposals B/C differ at 1908 pixels",
+      "penicillin.png: proposals A/B differ at 2758 pixels",
+      "penicillin.png: proposals A/C differ at 2647 pixels",
+      "penicillin.png: proposals B/C differ at 2638 pixels",
+      "goggle.png: proposals A/B differ at 1800 pixels",
+      "goggle.png: proposals A/C differ at 1976 pixels",
+      "goggle.png: proposals B/C differ at 1509 pixels",
+      "sumaho.png: proposals A/B differ at 1766 pixels",
+      "sumaho.png: proposals A/C differ at 1942 pixels",
+      "sumaho.png: proposals B/C differ at 1496 pixels",
+      "all 66 saved PNGs reopen as single-frame PNG with binary alpha and transparent RGB zero",
+      "maximum production RGBA color count is 13 including transparency",
+      "all manifest dimensions, byte sizes, SHA-256 hashes, RGBA counts and alpha values are measured from saved PNG bytes"
+    ],
+    "registered_png_count": 66,
+    "production_texture_count": 33,
+    "preview_count": 33,
+    "maximum_production_rgba_color_count": 13,
+    "all_production_dimensions_64x64": true,
+    "all_preview_dimensions_256x256": true,
+    "all_alpha_values_binary": true,
+    "all_production_color_counts_at_most_64": true,
+    "all_previews_exact_nearest_4x": true,
+    "all_bbox_margins_between_2_and_4px": true,
+    "all_double_outline_layers_verified_from_completed_pixels": true,
+    "all_highlights_single_connected_cluster": true,
+    "all_wear_marks_single_connected_cluster": true,
+    "all_images_asymmetric": true,
+    "all_contains_baked_text_false": true
+  }
+}

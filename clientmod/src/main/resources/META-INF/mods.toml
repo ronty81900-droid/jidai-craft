@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "All rights reserved"
+
+[[mods]]
+modId = "jidaiui"
+version = "0.1.0"
+displayName = "時代クラフト UI（試作）"
+description = '''
+時代クラフトの買い物画面をクライアント側で描くための MOD。
+いまは試作で、J キーを押すと表示の確認用の画面が出るだけ。
+'''
+
+[[dependencies.jidaiui]]
+    modId = "forge"
+    mandatory = true
+    versionRange = "[47,)"
+    ordering = "NONE"
+    side = "CLIENT"
+
+[[dependencies.jidaiui]]
+    modId = "minecraft"
+    mandatory = true
+    versionRange = "[1.20.1,1.20.2)"
+    ordering = "NONE"
+    side = "CLIENT"

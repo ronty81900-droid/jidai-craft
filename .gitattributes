@@ -1,0 +1,19 @@
+# ワールドは中身が読めない形式。git に「文字」として扱わせない。
+# これを書かないと、改行を勝手に置き換えてワールドが壊れることがある。
+*.mca binary
+*.dat binary
+*.dat_old binary
+*.nbt binary
+*.jar binary
+*.png binary
+*.zip binary
+
+# 説明書と元は、どの OS でも同じ改行にそろえる
+*.md text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.json text eol=lf
+*.mcfunction text eol=lf
+*.yml text eol=lf
+*.toml text eol=lf
+*.properties text eol=lf
