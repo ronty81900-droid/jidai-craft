@@ -2994,19 +2994,6 @@
             60,
             94,
             52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            66,
-            16,
-            16
           ]
         },
         {
@@ -3017,19 +3004,6 @@
             60,
             94,
             52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            66,
-            16,
-            16
           ]
         },
         {
@@ -3040,19 +3014,6 @@
             60,
             94,
             52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            66,
-            16,
-            16
           ]
         },
         {
@@ -3063,19 +3024,6 @@
             114,
             94,
             52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            120,
-            16,
-            16
           ]
         },
         {
@@ -3086,111 +3034,6 @@
             114,
             94,
             52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            120,
-            16,
-            16
-          ]
-        },
-        {
-          "id": "item_6",
-          "asset": "assets/jidaiui/textures/gui/card_compact_normal.png",
-          "rect": [
-            210,
-            114,
-            94,
-            52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            120,
-            16,
-            16
-          ]
-        },
-        {
-          "id": "item_7",
-          "asset": "assets/jidaiui/textures/gui/card_compact_normal.png",
-          "rect": [
-            16,
-            168,
-            94,
-            52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            174,
-            16,
-            16
-          ]
-        },
-        {
-          "id": "item_8",
-          "asset": "assets/jidaiui/textures/gui/card_compact_normal.png",
-          "rect": [
-            113,
-            168,
-            94,
-            52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            174,
-            16,
-            16
-          ]
-        },
-        {
-          "id": "item_9",
-          "asset": "assets/jidaiui/textures/gui/card_compact_normal.png",
-          "rect": [
-            210,
-            168,
-            94,
-            52
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            174,
-            16,
-            16
           ]
         }
       ],
@@ -3211,6 +3054,23 @@
           "align": "left",
           "dynamic": false,
           "notes": ""
+        },
+        {
+          "id": "wallet_faction",
+          "content": "勢力 {value}",
+          "rect": [
+            192,
+            17,
+            108,
+            10
+          ],
+          "font_px": 8,
+          "line_height_px": 10,
+          "max_lines": 1,
+          "color": "#4FA1B2",
+          "align": "right",
+          "dynamic": true,
+          "notes": "{value} は実行時の所持金。固定ラベルは表記どおり。"
         },
         {
           "id": "tab_1_label",
@@ -3247,25 +3107,8 @@
           "notes": ""
         },
         {
-          "id": "wallet_faction",
-          "content": "勢力 {value}",
-          "rect": [
-            192,
-            17,
-            108,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#4FA1B2",
-          "align": "right",
-          "dynamic": true,
-          "notes": "{value} は実行時の所持金。固定ラベルは表記どおり。"
-        },
-        {
           "id": "item_1_name",
-          "content": "コルト M1851 リボルバー",
+          "content": "拳銃",
           "rect": [
             43,
             64,
@@ -3295,7 +3138,7 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_1_unlock",
@@ -3316,7 +3159,7 @@
         },
         {
           "id": "item_2_name",
-          "content": "コルト M1873 リボルバー",
+          "content": "小銃",
           "rect": [
             140,
             64,
@@ -3333,7 +3176,7 @@
         },
         {
           "id": "item_2_price",
-          "content": "勢力1,000円",
+          "content": "勢力3,000円",
           "rect": [
             140,
             87,
@@ -3346,7 +3189,7 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_2_unlock",
@@ -3367,7 +3210,7 @@
         },
         {
           "id": "item_3_name",
-          "content": "SKS 半自動小銃",
+          "content": "連射銃",
           "rect": [
             237,
             64,
@@ -3384,7 +3227,7 @@
         },
         {
           "id": "item_3_price",
-          "content": "勢力3,000円",
+          "content": "勢力5,000円",
           "rect": [
             237,
             87,
@@ -3397,7 +3240,7 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_3_unlock",
@@ -3418,7 +3261,7 @@
         },
         {
           "id": "item_4_name",
-          "content": "M1 ガーランド",
+          "content": "自動小銃",
           "rect": [
             43,
             118,
@@ -3435,7 +3278,7 @@
         },
         {
           "id": "item_4_price",
-          "content": "勢力5,000円",
+          "content": "勢力8,000円",
           "rect": [
             43,
             141,
@@ -3448,11 +3291,11 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_4_unlock",
-          "content": "近代",
+          "content": "現代",
           "rect": [
             21,
             143,
@@ -3469,7 +3312,7 @@
         },
         {
           "id": "item_5_name",
-          "content": "マドセン軽機関銃",
+          "content": "狙撃銃",
           "rect": [
             140,
             118,
@@ -3486,7 +3329,7 @@
         },
         {
           "id": "item_5_price",
-          "content": "勢力7,000円",
+          "content": "勢力12,000円",
           "rect": [
             140,
             141,
@@ -3499,218 +3342,14 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_5_unlock",
-          "content": "近代",
+          "content": "現代",
           "rect": [
             118,
             143,
-            18,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_6_name",
-          "content": "グロック 17",
-          "rect": [
-            237,
-            118,
-            62,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_6_price",
-          "content": "勢力1,200円",
-          "rect": [
-            237,
-            141,
-            62,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_6_unlock",
-          "content": "現代",
-          "rect": [
-            215,
-            143,
-            18,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_7_name",
-          "content": "UZI",
-          "rect": [
-            43,
-            172,
-            62,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_7_price",
-          "content": "勢力4,000円",
-          "rect": [
-            43,
-            195,
-            62,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_7_unlock",
-          "content": "現代",
-          "rect": [
-            21,
-            197,
-            18,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_8_name",
-          "content": "M4A1 カービン",
-          "rect": [
-            140,
-            172,
-            62,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_8_price",
-          "content": "勢力8,000円",
-          "rect": [
-            140,
-            195,
-            62,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_8_unlock",
-          "content": "現代",
-          "rect": [
-            118,
-            197,
-            18,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_9_name",
-          "content": "M107 対物狙撃銃",
-          "rect": [
-            237,
-            172,
-            62,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_9_price",
-          "content": "勢力12,000円",
-          "rect": [
-            237,
-            195,
-            62,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_9_unlock",
-          "content": "現代",
-          "rect": [
-            215,
-            197,
             18,
             10
           ],
@@ -3746,12 +3385,12 @@
             16,
             16
           ],
-          "name": "コルト M1851 リボルバー",
+          "name": "拳銃",
           "price": "800",
           "wallet": "勢力",
           "display_price": "勢力800円",
           "unlock": "中世",
-          "tooltip": "弾: 小口径 / 装弾数 6",
+          "tooltip": "ナガン M1895 / 装弾数 7",
           "pressed_content_offset": [
             1,
             1
@@ -3779,12 +3418,12 @@
             16,
             16
           ],
-          "name": "コルト M1873 リボルバー",
-          "price": "1,000",
+          "name": "小銃",
+          "price": "3,000",
           "wallet": "勢力",
-          "display_price": "勢力1,000円",
+          "display_price": "勢力3,000円",
           "unlock": "近代",
-          "tooltip": "弾: 中口径 / 装弾数 6",
+          "tooltip": "SKS / 装弾数 10",
           "pressed_content_offset": [
             1,
             1
@@ -3812,12 +3451,12 @@
             16,
             16
           ],
-          "name": "SKS 半自動小銃",
-          "price": "3,000",
+          "name": "連射銃",
+          "price": "5,000",
           "wallet": "勢力",
-          "display_price": "勢力3,000円",
+          "display_price": "勢力5,000円",
           "unlock": "近代",
-          "tooltip": "弾: 中口径 / 装弾数 10",
+          "tooltip": "MP18 / 装弾数 32",
           "pressed_content_offset": [
             1,
             1
@@ -3845,12 +3484,12 @@
             16,
             16
           ],
-          "name": "M1 ガーランド",
-          "price": "5,000",
+          "name": "自動小銃",
+          "price": "8,000",
           "wallet": "勢力",
-          "display_price": "勢力5,000円",
-          "unlock": "近代",
-          "tooltip": "弾: 大口径 / 装弾数 8",
+          "display_price": "勢力8,000円",
+          "unlock": "現代",
+          "tooltip": "M4A1 / 装弾数 30",
           "pressed_content_offset": [
             1,
             1
@@ -3878,144 +3517,12 @@
             16,
             16
           ],
-          "name": "マドセン軽機関銃",
-          "price": "7,000",
-          "wallet": "勢力",
-          "display_price": "勢力7,000円",
-          "unlock": "近代",
-          "tooltip": "弾: 大口径 / 装弾数 30",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_6",
-          "rect": [
-            210,
-            114,
-            94,
-            52
-          ],
-          "family": "compact",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            120,
-            16,
-            16
-          ],
-          "name": "グロック 17",
-          "price": "1,200",
-          "wallet": "勢力",
-          "display_price": "勢力1,200円",
-          "unlock": "現代",
-          "tooltip": "弾: 9mm / 装弾数 17",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_7",
-          "rect": [
-            16,
-            168,
-            94,
-            52
-          ],
-          "family": "compact",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            174,
-            16,
-            16
-          ],
-          "name": "UZI",
-          "price": "4,000",
-          "wallet": "勢力",
-          "display_price": "勢力4,000円",
-          "unlock": "現代",
-          "tooltip": "弾: 9mm / 装弾数 20",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_8",
-          "rect": [
-            113,
-            168,
-            94,
-            52
-          ],
-          "family": "compact",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            174,
-            16,
-            16
-          ],
-          "name": "M4A1 カービン",
-          "price": "8,000",
-          "wallet": "勢力",
-          "display_price": "勢力8,000円",
-          "unlock": "現代",
-          "tooltip": "弾: 5.56mm / 装弾数 30",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_9",
-          "rect": [
-            210,
-            168,
-            94,
-            52
-          ],
-          "family": "compact",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_compact_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_compact_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_compact_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_compact_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_compact_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            174,
-            16,
-            16
-          ],
-          "name": "M107 対物狙撃銃",
+          "name": "狙撃銃",
           "price": "12,000",
           "wallet": "勢力",
           "display_price": "勢力12,000円",
           "unlock": "現代",
-          "tooltip": "弾: 50BMG / 装弾数 10",
+          "tooltip": "AWP / 装弾数 5",
           "pressed_content_offset": [
             1,
             1
@@ -4078,134 +3585,6 @@
             60,
             94,
             76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            71,
-            32,
-            32
-          ]
-        },
-        {
-          "id": "item_2",
-          "asset": "assets/jidaiui/textures/gui/card_tall_normal.png",
-          "rect": [
-            113,
-            60,
-            94,
-            76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            71,
-            32,
-            32
-          ]
-        },
-        {
-          "id": "item_3",
-          "asset": "assets/jidaiui/textures/gui/card_tall_normal.png",
-          "rect": [
-            210,
-            60,
-            94,
-            76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            71,
-            32,
-            32
-          ]
-        },
-        {
-          "id": "item_4",
-          "asset": "assets/jidaiui/textures/gui/card_tall_normal.png",
-          "rect": [
-            16,
-            142,
-            94,
-            76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            153,
-            32,
-            32
-          ]
-        },
-        {
-          "id": "item_5",
-          "asset": "assets/jidaiui/textures/gui/card_tall_normal.png",
-          "rect": [
-            113,
-            142,
-            94,
-            76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            153,
-            32,
-            32
-          ]
-        },
-        {
-          "id": "item_6",
-          "asset": "assets/jidaiui/textures/gui/card_tall_normal.png",
-          "rect": [
-            210,
-            142,
-            94,
-            76
-          ],
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            153,
-            32,
-            32
           ]
         }
       ],
@@ -4226,6 +3605,23 @@
           "align": "left",
           "dynamic": false,
           "notes": ""
+        },
+        {
+          "id": "wallet_personal",
+          "content": "個人 {value}",
+          "rect": [
+            192,
+            17,
+            108,
+            10
+          ],
+          "font_px": 8,
+          "line_height_px": 10,
+          "max_lines": 1,
+          "color": "#4FA1B2",
+          "align": "right",
+          "dynamic": true,
+          "notes": "{value} は実行時の所持金。固定ラベルは表記どおり。"
         },
         {
           "id": "tab_1_label",
@@ -4262,25 +3658,8 @@
           "notes": ""
         },
         {
-          "id": "wallet_personal",
-          "content": "個人 {value}",
-          "rect": [
-            192,
-            17,
-            108,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#4FA1B2",
-          "align": "right",
-          "dynamic": true,
-          "notes": "{value} は実行時の所持金。固定ラベルは表記どおり。"
-        },
-        {
           "id": "item_1_name",
-          "content": "小口径弾 30発",
+          "content": "弾 30発",
           "rect": [
             59,
             67,
@@ -4297,7 +3676,7 @@
         },
         {
           "id": "item_1_price",
-          "content": "個人15円",
+          "content": "個人20円",
           "rect": [
             59,
             91,
@@ -4310,7 +3689,7 @@
           "color": "#C4934B",
           "align": "left",
           "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
+          "notes": ""
         },
         {
           "id": "item_1_unlock",
@@ -4318,261 +3697,6 @@
           "rect": [
             59,
             107,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_2_name",
-          "content": "中口径弾 30発",
-          "rect": [
-            156,
-            67,
-            46,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_2_price",
-          "content": "個人20円",
-          "rect": [
-            156,
-            91,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_2_unlock",
-          "content": "近代",
-          "rect": [
-            156,
-            107,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_3_name",
-          "content": "大口径弾 30発",
-          "rect": [
-            253,
-            67,
-            46,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_3_price",
-          "content": "個人30円",
-          "rect": [
-            253,
-            91,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_3_unlock",
-          "content": "近代",
-          "rect": [
-            253,
-            107,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_4_name",
-          "content": "9mm弾 30発",
-          "rect": [
-            59,
-            149,
-            46,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_4_price",
-          "content": "個人25円",
-          "rect": [
-            59,
-            173,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_4_unlock",
-          "content": "現代",
-          "rect": [
-            59,
-            189,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_5_name",
-          "content": "5.56mm弾 30発",
-          "rect": [
-            156,
-            149,
-            46,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_5_price",
-          "content": "個人40円",
-          "rect": [
-            156,
-            173,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_5_unlock",
-          "content": "現代",
-          "rect": [
-            156,
-            189,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#AEB8AE",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_6_name",
-          "content": "50BMG弾 10発",
-          "rect": [
-            253,
-            149,
-            46,
-            20
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 2,
-          "color": "#F5E8C8",
-          "align": "left",
-          "dynamic": false,
-          "notes": ""
-        },
-        {
-          "id": "item_6_price",
-          "content": "個人60円",
-          "rect": [
-            253,
-            173,
-            46,
-            10
-          ],
-          "font_px": 8,
-          "line_height_px": 10,
-          "max_lines": 1,
-          "color": "#C4934B",
-          "align": "left",
-          "dynamic": false,
-          "notes": "insufficient時のみ色を#C15A49へ変更。"
-        },
-        {
-          "id": "item_6_unlock",
-          "content": "現代",
-          "rect": [
-            253,
-            189,
             46,
             10
           ],
@@ -4608,177 +3732,12 @@
             32,
             32
           ],
-          "name": "小口径弾 30発",
-          "price": "15",
-          "wallet": "個人",
-          "display_price": "個人15円",
-          "unlock": "中世",
-          "tooltip": "コルト M1851 用",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_2",
-          "rect": [
-            113,
-            60,
-            94,
-            76
-          ],
-          "family": "tall",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            71,
-            32,
-            32
-          ],
-          "name": "中口径弾 30発",
+          "name": "弾 30発",
           "price": "20",
           "wallet": "個人",
           "display_price": "個人20円",
-          "unlock": "近代",
-          "tooltip": "コルト M1873 / SKS 用",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_3",
-          "rect": [
-            210,
-            60,
-            94,
-            76
-          ],
-          "family": "tall",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            71,
-            32,
-            32
-          ],
-          "name": "大口径弾 30発",
-          "price": "30",
-          "wallet": "個人",
-          "display_price": "個人30円",
-          "unlock": "近代",
-          "tooltip": "M1 ガーランド / マドセン 用",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_4",
-          "rect": [
-            16,
-            142,
-            94,
-            76
-          ],
-          "family": "tall",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            22,
-            153,
-            32,
-            32
-          ],
-          "name": "9mm弾 30発",
-          "price": "25",
-          "wallet": "個人",
-          "display_price": "個人25円",
-          "unlock": "現代",
-          "tooltip": "グロック 17 / UZI 用",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_5",
-          "rect": [
-            113,
-            142,
-            94,
-            76
-          ],
-          "family": "tall",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            119,
-            153,
-            32,
-            32
-          ],
-          "name": "5.56mm弾 30発",
-          "price": "40",
-          "wallet": "個人",
-          "display_price": "個人40円",
-          "unlock": "現代",
-          "tooltip": "M4A1 用",
-          "pressed_content_offset": [
-            1,
-            1
-          ]
-        },
-        {
-          "id": "item_6",
-          "rect": [
-            210,
-            142,
-            94,
-            76
-          ],
-          "family": "tall",
-          "state_assets": {
-            "normal": "assets/jidaiui/textures/gui/card_tall_normal.png",
-            "hover": "assets/jidaiui/textures/gui/card_tall_hover.png",
-            "pressed": "assets/jidaiui/textures/gui/card_tall_pressed.png",
-            "locked": "assets/jidaiui/textures/gui/card_tall_locked.png",
-            "insufficient": "assets/jidaiui/textures/gui/card_tall_insufficient.png"
-          },
-          "game_icon_rect": [
-            216,
-            153,
-            32,
-            32
-          ],
-          "name": "50BMG弾 10発",
-          "price": "60",
-          "wallet": "個人",
-          "display_price": "個人60円",
-          "unlock": "現代",
-          "tooltip": "M107 用",
+          "unlock": "中世",
+          "tooltip": "どの銃にも使えます",
           "pressed_content_offset": [
             1,
             1
@@ -9221,6 +8180,16 @@
           "reason": "文字はPNGへ焼かず実行時描画"
         },
         {
+          "label": "runtime_text:wallet_personal",
+          "rect": [
+            192,
+            17,
+            108,
+            10
+          ],
+          "reason": "文字はPNGへ焼かず実行時描画"
+        },
+        {
           "label": "runtime_text:tab_1_label",
           "rect": [
             26,
@@ -9236,16 +8205,6 @@
             90,
             42,
             50,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:wallet_personal",
-          "rect": [
-            192,
-            17,
-            108,
             10
           ],
           "reason": "文字はPNGへ焼かず実行時描画"
@@ -9279,220 +8238,10 @@
             10
           ],
           "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_2_name",
-          "rect": [
-            156,
-            67,
-            46,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_2_price",
-          "rect": [
-            156,
-            91,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_2_unlock",
-          "rect": [
-            156,
-            107,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_3_name",
-          "rect": [
-            253,
-            67,
-            46,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_3_price",
-          "rect": [
-            253,
-            91,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_3_unlock",
-          "rect": [
-            253,
-            107,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_4_name",
-          "rect": [
-            59,
-            149,
-            46,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_4_price",
-          "rect": [
-            59,
-            173,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_4_unlock",
-          "rect": [
-            59,
-            189,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_5_name",
-          "rect": [
-            156,
-            149,
-            46,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_5_price",
-          "rect": [
-            156,
-            173,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_5_unlock",
-          "rect": [
-            156,
-            189,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_name",
-          "rect": [
-            253,
-            149,
-            46,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_price",
-          "rect": [
-            253,
-            173,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_unlock",
-          "rect": [
-            253,
-            189,
-            46,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "game_icon:item_1",
-          "rect": [
-            22,
-            71,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_2",
-          "rect": [
-            119,
-            71,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_3",
-          "rect": [
-            216,
-            71,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_4",
-          "rect": [
-            22,
-            153,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_5",
-          "rect": [
-            119,
-            153,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_6",
-          "rect": [
-            216,
-            153,
-            32,
-            32
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
         }
       ],
-      "byte_size": 2149,
-      "sha256": "3D4A25684B75739FEE2A5FC7D6C7C81D84D2AC75AA833A0BF8C86ABE04FA8A88",
+      "byte_size": 2185,
+      "sha256": "8C98A14FB2EAA43628DABB0CFB3EF51C19809691FC06D5531FB387A708B3FD36",
       "rgba_color_count": 9,
       "alpha_values": [
         255
@@ -9522,6 +8271,16 @@
           "reason": "文字はPNGへ焼かず実行時描画"
         },
         {
+          "label": "runtime_text:wallet_faction",
+          "rect": [
+            192,
+            17,
+            108,
+            10
+          ],
+          "reason": "文字はPNGへ焼かず実行時描画"
+        },
+        {
           "label": "runtime_text:tab_1_label",
           "rect": [
             26,
@@ -9537,16 +8296,6 @@
             90,
             42,
             50,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:wallet_faction",
-          "rect": [
-            192,
-            17,
-            108,
             10
           ],
           "reason": "文字はPNGへ焼かず実行時描画"
@@ -9700,220 +8449,10 @@
             10
           ],
           "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_name",
-          "rect": [
-            237,
-            118,
-            62,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_price",
-          "rect": [
-            237,
-            141,
-            62,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_6_unlock",
-          "rect": [
-            215,
-            143,
-            18,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_7_name",
-          "rect": [
-            43,
-            172,
-            62,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_7_price",
-          "rect": [
-            43,
-            195,
-            62,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_7_unlock",
-          "rect": [
-            21,
-            197,
-            18,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_8_name",
-          "rect": [
-            140,
-            172,
-            62,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_8_price",
-          "rect": [
-            140,
-            195,
-            62,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_8_unlock",
-          "rect": [
-            118,
-            197,
-            18,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_9_name",
-          "rect": [
-            237,
-            172,
-            62,
-            20
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_9_price",
-          "rect": [
-            237,
-            195,
-            62,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "runtime_text:item_9_unlock",
-          "rect": [
-            215,
-            197,
-            18,
-            10
-          ],
-          "reason": "文字はPNGへ焼かず実行時描画"
-        },
-        {
-          "label": "game_icon:item_1",
-          "rect": [
-            22,
-            66,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_2",
-          "rect": [
-            119,
-            66,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_3",
-          "rect": [
-            216,
-            66,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_4",
-          "rect": [
-            22,
-            120,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_5",
-          "rect": [
-            119,
-            120,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_6",
-          "rect": [
-            216,
-            120,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_7",
-          "rect": [
-            22,
-            174,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_8",
-          "rect": [
-            119,
-            174,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
-        },
-        {
-          "label": "game_icon:item_9",
-          "rect": [
-            216,
-            174,
-            16,
-            16
-          ],
-          "reason": "ゲームまたはMODが実行時描画"
         }
       ],
-      "byte_size": 2298,
-      "sha256": "092CEBD0D26C266C30F8B043EBD46E345CF44F8148D75E17718420D141274A3C",
+      "byte_size": 2402,
+      "sha256": "9705B94EA2FC3B7352F6C1374CB788ABE540FB61C5A97250785E38FED549A758",
       "rgba_color_count": 9,
       "alpha_values": [
         255

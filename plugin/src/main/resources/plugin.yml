@@ -13,7 +13,7 @@
 name: JidaiCraft
 
 # 版。build.gradle の version と揃える (数字を変える時は両方直す)。
-version: 0.55.0
+version: 0.56.0
 
 # 本体クラスの「フルネーム」。
 #   src/main/java/jidai/JidaiCraft.java  →  jidai.JidaiCraft

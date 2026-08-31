@@ -21,7 +21,12 @@ import zipfile
 from pathlib import Path
 
 NE = Path(__file__).resolve().parent.parent
-MOD = NE / "jikki_mod"
+# 見に行くサーバーは引数で選べる（組み立てた配布物も試せる）
+MOD = Path(sys.argv[1]) if len(sys.argv) > 1 else NE / "jikki_mod"
+
+# 品揃えの数。ここを直さないと、うっかり消した1丁に気づけない。
+JUU_KAZU = 5
+TAMA_KAZU = 1
 SHOP = NE / "plugin" / "src" / "main" / "java" / "jidai" / "Shop.java"
 
 pass_ = 0
@@ -103,8 +108,10 @@ def main():
     kaku_juu = juki_juu
     kaku_tama = juki_tama
 
-    check("銃器専門店に銃が 9 丁書いてある", len(juki_juu) == 9, juki_juu)
-    check("銃器専門店に弾が 6 種書いてある", len(juki_tama) == 6, juki_tama)
+    check("銃器専門店に銃が %d 丁書いてある" % JUU_KAZU,
+          len(juki_juu) == JUU_KAZU, juki_juu)
+    check("銃器専門店に弾が %d 種書いてある" % TAMA_KAZU,
+          len(juki_tama) == TAMA_KAZU, juki_tama)
 
     # --- 1丁ずつ、実物に在るかを見る -------------------------------
     for g in kaku_juu:
@@ -122,22 +129,39 @@ def main():
     # ★ 実物の _data ファイルから「この銃はどの弾を使うか」を読む。
     #   Shop.java のコメントを読むのではない。実装が正しいかを実物で見る。
     iru = {}
-    for z in (jar, pack):
+
+    def hiroi(mei, moji):
+        if mei not in kaku_juu:
+            return
+        a = re.search(r'"ammo"\s*:\s*"([^"]+)"', moji)
+        if a:
+            iru[mei] = a.group(1)
+
+    # ★★ 現代銃(tacz:)は【展開されたフォルダ】から読む ★★
+    #   サーバーが実際に読むのは tacz/tacz_default_gun/ で、
+    #   jar の中身はそこへ書き出す元にすぎない。
+    #   tools/jyu_chousei.py が直すのもフォルダの方なので、
+    #   jar を見ている限り【直したことに気づけない】(2026-08-30 に踏んだ)。
+    kitei = MOD / "tacz" / "tacz_default_gun"
+    yonda_kitei = kitei.is_dir()
+    if yonda_kitei:
+        for p in kitei.rglob("*_data.json"):
+            bu = p.as_posix().split('/')
+            if len(bu) >= 5 and bu[-2] == 'guns' and bu[-3] == 'data':
+                hiroi(bu[-4] + ':' + p.name[:-len('_data.json')], 
+                      p.read_text(encoding='utf-8'))
+    check("現代銃は展開された tacz_default_gun/ から読んだ", yonda_kitei,
+          "無いので jar から読む。実機と違う値を見ている恐れがある")
+
+    for z in ([pack] if yonda_kitei else [jar, pack]):
         with zipfile.ZipFile(z) as zz:
             for n in zz.namelist():
                 m = re.search(r"(?:^|/)data/([^/]+)/data/guns/([^/]+)\.json$", n)
-                if not m:
-                    continue
-                ns, mei = m.groups()
-                mei = ns + ":" + mei.replace("_data", "")
-                if mei not in kaku_juu:
-                    continue
-                s = zz.read(n).decode("utf-8")
-                a = re.search(r'"ammo"\s*:\s*"([^"]+)"', s)
-                if a:
-                    iru[mei] = a.group(1)
+                if m:
+                    hiroi(m.group(1) + ":" + m.group(2).replace("_data", ""),
+                          zz.read(n).decode("utf-8"))
 
-    check("売っている9丁すべての「使う弾」を実物から読めた",
+    check("売っている %d 丁すべての「使う弾」を実物から読めた" % JUU_KAZU,
           len(iru) == len(kaku_juu), "読めたのは %d 丁: %s" % (len(iru), sorted(iru)))
     tarinai = sorted(v for v in iru.values() if v not in kaku_tama)
     check("★★売っている銃が使う弾は、すべて販売所にある",

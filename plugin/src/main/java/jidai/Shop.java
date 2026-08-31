@@ -6,7 +6,7 @@
 //
 //   ★★ 店は2軒ある ★★
 //     販売所      … 生活・ピッケル・防具       (IPPAN / 36枠)
-//     銃器専門店  … 銃9丁と弾6種              (JUKIHIN / 18枠)
+//     銃器専門店  … 銃5丁と弾1種              (JUKIHIN / 18枠)
 //   どちらもエメラルドブロック。見分けているのは【登録された座標】で、
 //   ブロックの種類ではない。Basho.MISE / Basho.JUKI が対応する。
 //
@@ -162,54 +162,40 @@ public final class Shop implements InventoryHolder {
      *   tests/buki_kakunin.py が起動前に実物の jar と突き合わせている。
      */
     private static final Shohin[] JUKIHIN = {
-            // ===== 1段目 (0〜8) 銃9丁。左から時代順 =====
+            // ===== 銃5丁。左から時代順(＝強い順) =====
             //
-            // ★★ 値段と時代はご指示どおり ★★
-            //   勢力の貯金は時代進行に 5,000 → 15,000 → 50,000 要る。
-            //   銃はそこから出すので、800〜12,000 は「勢力の投資」の桁。
-            new Shohin(9, Material.CROSSBOW, 1, "コルト M1851 リボルバー", 800,   true, 2, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"hamster:coltm1851\"}", "弾: 小口径 / 装弾数 6", 1),
-            new Shohin(10, Material.CROSSBOW, 1, "コルト M1873 リボルバー", 1000,  true, 3, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"hamster:colt1873\"}", "弾: 中口径 / 装弾数 6", 1),
-            new Shohin(11, Material.BOW,      1, "SKS 半自動小銃",          3000,  true, 3, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"hamster:sks\"}", "弾: 中口径 / 装弾数 10", 1),
-            new Shohin(12, Material.BOW,      1, "M1 ガーランド",           5000,  true, 3, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"hamster:m1garand\"}", "弾: 大口径 / 装弾数 8", 1),
-            new Shohin(13, Material.TRIDENT,  1, "マドセン軽機関銃",        7000,  true, 3, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"hamster:madsen\"}", "弾: 大口径 / 装弾数 30", 1),
-            new Shohin(14, Material.CROSSBOW, 1, "グロック 17",             1200,  true, 4, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"tacz:glock_17\"}", "弾: 9mm / 装弾数 17", 1),
-            // ★ UZI は 2026-08-20 に個人の金 → 勢力の金へ変更。
-            //   個人の金はガチャ1回5〜50 の桁で、4,000 は到達し得ないため。
-            new Shohin(15, Material.TRIDENT,  1, "UZI",                     4000,  true, 4, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"tacz:uzi\"}", "弾: 9mm / 装弾数 20", 1),
-            new Shohin(16, Material.BOW,      1, "M4A1 カービン",           8000,  true, 4, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"tacz:m4a1\"}", "弾: 5.56mm / 装弾数 30", 1),
-            new Shohin(17, Material.SPYGLASS, 1, "M107 対物狙撃銃",         12000, true, 4, Enshutsu.KOUNYU,
-                    "tacz:modern_kinetic_gun{GunId:\"tacz:m107\"}", "弾: 50BMG / 装弾数 10", 1),
+            // ★★ 2026-08-30: 9丁6種 → 5丁1種に整理 ★★
+            //   消したかったのは2つ。
+            //     ・実銃の名前だけでは「どれが強いか」が分からない
+            //     ・銃と弾の組み合わせを覚えないと撃てない
+            //   呼び名を役割にして、実銃名は説明の行へ回した。
+            //   弾は1種類だけにしたので、組み合わせを間違えようがない。
+            //
+            // ★ 並びは【毎秒の威力】を実物のパックから測って決めた。
+            //   18 → 45 → 60 → 79 → 108 と必ず上がる。
+            //   M107(毎秒367)と散弾銃(1発で10粒・毎秒1750)は桁が違うので外した。
+            //
+            // ★ 威力そのものは tools/jyu_chousei.py が銃パック側で1割 下げている。
+            //   ここに書く数字は【値段】であって威力ではない。
+            new Shohin(9,  Material.CROSSBOW, 1, "拳銃",       800,   true, 2, Enshutsu.KOUNYU,
+                    "tacz:modern_kinetic_gun{GunId:\"hamster:nagantm1895\"}", "ナガン M1895 / 装弾数 7", 1),
+            new Shohin(10, Material.BOW,      1, "小銃",       3000,  true, 3, Enshutsu.KOUNYU,
+                    "tacz:modern_kinetic_gun{GunId:\"hamster:sks\"}", "SKS / 装弾数 10", 1),
+            new Shohin(11, Material.TRIDENT,  1, "連射銃",     5000,  true, 3, Enshutsu.KOUNYU,
+                    "tacz:modern_kinetic_gun{GunId:\"hamster:mp18\"}", "MP18 / 装弾数 32", 1),
+            new Shohin(12, Material.TRIDENT,  1, "自動小銃",   8000,  true, 4, Enshutsu.KOUNYU,
+                    "tacz:modern_kinetic_gun{GunId:\"tacz:m4a1\"}", "M4A1 / 装弾数 30", 1),
+            new Shohin(13, Material.SPYGLASS, 1, "狙撃銃",     12000, true, 4, Enshutsu.KOUNYU,
+                    "tacz:modern_kinetic_gun{GunId:\"tacz:ai_awp\"}", "AWP / 装弾数 5", 1),
 
-            // ===== 3段目 (18〜23) 弾6種 =====
-            //   ★ 2段目(9〜17)・4段目(27〜35) は
-            //     名前と価格を描くための帯。商品は置かない。
-            //
-            // ★★ 弾の値段は【提案】 ★★
-            //   考え方: 弾は【個人の金】で買う消耗品にした。理由は3つ。
+            // ===== 弾1種 =====
+            //   ★ 弾は【個人の金】で買う消耗品。理由は3つ(2026-08-20 から変えていない)。
             //     1. 勢力の貯金は時代進行に要る。弾で削ると企画が止まる
             //     2. 個人の金の使い道がパンと石炭とピッケルしか無い
             //     3. リーダーが弾を握ると、撃てる人を選べてしまう
-            //   ★ 変えるならこの6行だけ。財布を勢力にするなら false → true。
-            new Shohin(9, Material.ARROW, 30, "小口径弾 30発", 15, false, 2, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"hamster:compact_ammo\"}", "コルト M1851 用", 2),
-            new Shohin(10, Material.ARROW, 30, "中口径弾 30発", 20, false, 3, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"hamster:medium_ammo\"}", "コルト M1873 / SKS 用", 2),
-            new Shohin(11, Material.ARROW, 30, "大口径弾 30発", 30, false, 3, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"hamster:long_ammo\"}", "M1 ガーランド / マドセン 用", 2),
-            new Shohin(12, Material.ARROW, 30, "9mm弾 30発",    25, false, 4, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"tacz:9mm\"}", "グロック 17 / UZI 用", 2),
-            new Shohin(13, Material.ARROW, 30, "5.56mm弾 30発", 40, false, 4, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"tacz:556x45\"}", "M4A1 用", 2),
-            new Shohin(14, Material.ARROW, 10, "50BMG弾 10発",  60, false, 4, Enshutsu.KOUNYU,
-                    "tacz:ammo{AmmoId:\"tacz:50bmg\"}", "M107 用", 2),
+            //   ★ 財布を勢力にするなら false → true。
+            new Shohin(9, Material.ARROW, 30, "弾 30発", 20, false, 2, Enshutsu.KOUNYU,
+                    "tacz:ammo{AmmoId:\"tacz:556x45\"}", "どの銃にも使えます", 2),
     };
 
     /**

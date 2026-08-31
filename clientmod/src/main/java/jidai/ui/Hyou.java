@@ -5,7 +5,7 @@ package jidai.ui;
  *
  * ★★ このファイルは手で直さない ★★
  *   `ui/manifest.json` から `python tools/hyou_tsukuru.py` で作り直す。
- *   文字は 176 件あり、1件ずつ座標・大きさ・色・揃えを持つ。
+ *   文字は 149 件あり、1件ずつ座標・大きさ・色・揃えを持つ。
  *   手で写すと必ずどこかで1桁間違えるが、コンパイルは通ってしまうので、
  *   実機で開くまで気付けない。だから正本を manifest.json ひとつにしている。
  *
@@ -64,7 +64,7 @@ public final class Hyou {
         }
     }
 
-    /** 全部の文字。176 件。 */
+    /** 全部の文字。149 件。 */
     public static final Moji[] ZENBU = {
         // ---- shop_life ----
         new Moji("shop_life", "title", "販売所", 20, 14, 90, 18, 16, 1, 0xF5E8C8, 'L', false),
@@ -149,60 +149,33 @@ public final class Hyou {
 
         // ---- gunshop_guns ----
         new Moji("gunshop_guns", "title", "銃器専門店", 20, 16, 132, 14, 12, 1, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "wallet_faction", "勢力 {value}", 192, 17, 108, 10, 8, 1, 0x4FA1B2, 'R', true),
         new Moji("gunshop_guns", "tab_1_label", "銃", 26, 42, 50, 10, 8, 1, 0xF5E8C8, 'C', false),
         new Moji("gunshop_guns", "tab_2_label", "弾", 90, 42, 50, 10, 8, 1, 0xAEB8AE, 'C', false),
-        new Moji("gunshop_guns", "wallet_faction", "勢力 {value}", 192, 17, 108, 10, 8, 1, 0x4FA1B2, 'R', true),
-        new Moji("gunshop_guns", "item_1_name", "コルト M1851 リボルバー", 43, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "item_1_name", "拳銃", 43, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
         new Moji("gunshop_guns", "item_1_price", "勢力800円", 43, 87, 62, 10, 8, 1, 0xC4934B, 'L', false),
         new Moji("gunshop_guns", "item_1_unlock", "中世", 21, 89, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_2_name", "コルト M1873 リボルバー", 140, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_2_price", "勢力1,000円", 140, 87, 62, 10, 8, 1, 0xC4934B, 'L', false),
+        new Moji("gunshop_guns", "item_2_name", "小銃", 140, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "item_2_price", "勢力3,000円", 140, 87, 62, 10, 8, 1, 0xC4934B, 'L', false),
         new Moji("gunshop_guns", "item_2_unlock", "近代", 118, 89, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_3_name", "SKS 半自動小銃", 237, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_3_price", "勢力3,000円", 237, 87, 62, 10, 8, 1, 0xC4934B, 'L', false),
+        new Moji("gunshop_guns", "item_3_name", "連射銃", 237, 64, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "item_3_price", "勢力5,000円", 237, 87, 62, 10, 8, 1, 0xC4934B, 'L', false),
         new Moji("gunshop_guns", "item_3_unlock", "近代", 215, 89, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_4_name", "M1 ガーランド", 43, 118, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_4_price", "勢力5,000円", 43, 141, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_4_unlock", "近代", 21, 143, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_5_name", "マドセン軽機関銃", 140, 118, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_5_price", "勢力7,000円", 140, 141, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_5_unlock", "近代", 118, 143, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_6_name", "グロック 17", 237, 118, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_6_price", "勢力1,200円", 237, 141, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_6_unlock", "現代", 215, 143, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_7_name", "UZI", 43, 172, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_7_price", "勢力4,000円", 43, 195, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_7_unlock", "現代", 21, 197, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_8_name", "M4A1 カービン", 140, 172, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_8_price", "勢力8,000円", 140, 195, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_8_unlock", "現代", 118, 197, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_guns", "item_9_name", "M107 対物狙撃銃", 237, 172, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_guns", "item_9_price", "勢力12,000円", 237, 195, 62, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_guns", "item_9_unlock", "現代", 215, 197, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
+        new Moji("gunshop_guns", "item_4_name", "自動小銃", 43, 118, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "item_4_price", "勢力8,000円", 43, 141, 62, 10, 8, 1, 0xC4934B, 'L', false),
+        new Moji("gunshop_guns", "item_4_unlock", "現代", 21, 143, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
+        new Moji("gunshop_guns", "item_5_name", "狙撃銃", 140, 118, 62, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_guns", "item_5_price", "勢力12,000円", 140, 141, 62, 10, 8, 1, 0xC4934B, 'L', false),
+        new Moji("gunshop_guns", "item_5_unlock", "現代", 118, 143, 18, 10, 8, 1, 0xAEB8AE, 'L', false),
 
         // ---- gunshop_ammo ----
         new Moji("gunshop_ammo", "title", "銃器専門店", 20, 16, 132, 14, 12, 1, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_ammo", "wallet_personal", "個人 {value}", 192, 17, 108, 10, 8, 1, 0x4FA1B2, 'R', true),
         new Moji("gunshop_ammo", "tab_1_label", "銃", 26, 42, 50, 10, 8, 1, 0xAEB8AE, 'C', false),
         new Moji("gunshop_ammo", "tab_2_label", "弾", 90, 42, 50, 10, 8, 1, 0xF5E8C8, 'C', false),
-        new Moji("gunshop_ammo", "wallet_personal", "個人 {value}", 192, 17, 108, 10, 8, 1, 0x4FA1B2, 'R', true),
-        new Moji("gunshop_ammo", "item_1_name", "小口径弾 30発", 59, 67, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_1_price", "個人15円", 59, 91, 46, 10, 8, 1, 0xC4934B, 'L', false),
+        new Moji("gunshop_ammo", "item_1_name", "弾 30発", 59, 67, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
+        new Moji("gunshop_ammo", "item_1_price", "個人20円", 59, 91, 46, 10, 8, 1, 0xC4934B, 'L', false),
         new Moji("gunshop_ammo", "item_1_unlock", "中世", 59, 107, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_ammo", "item_2_name", "中口径弾 30発", 156, 67, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_2_price", "個人20円", 156, 91, 46, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_ammo", "item_2_unlock", "近代", 156, 107, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_ammo", "item_3_name", "大口径弾 30発", 253, 67, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_3_price", "個人30円", 253, 91, 46, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_ammo", "item_3_unlock", "近代", 253, 107, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_ammo", "item_4_name", "9mm弾 30発", 59, 149, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_4_price", "個人25円", 59, 173, 46, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_ammo", "item_4_unlock", "現代", 59, 189, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_ammo", "item_5_name", "5.56mm弾 30発", 156, 149, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_5_price", "個人40円", 156, 173, 46, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_ammo", "item_5_unlock", "現代", 156, 189, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
-        new Moji("gunshop_ammo", "item_6_name", "50BMG弾 10発", 253, 149, 46, 20, 8, 2, 0xF5E8C8, 'L', false),
-        new Moji("gunshop_ammo", "item_6_price", "個人60円", 253, 173, 46, 10, 8, 1, 0xC4934B, 'L', false),
-        new Moji("gunshop_ammo", "item_6_unlock", "現代", 253, 189, 46, 10, 8, 1, 0xAEB8AE, 'L', false),
 
         // ---- gacha ----
         new Moji("gacha", "title", "ガチャ", 20, 14, 90, 18, 16, 1, 0xF5E8C8, 'L', false),
@@ -395,7 +368,7 @@ public final class Hyou {
         }
     }
 
-    /** 全部のカード。53 件。 */
+    /** 全部のカード。44 件。 */
     public static final Kado[] KADO = {
         // ---- shop_life ----
         new Kado("shop_life", "item_1", 16, 60, 69, 52, "textures/gui/card_micro_hover.png", "textures/gui/card_micro_pressed.png", "textures/gui/card_micro_locked.png", "textures/gui/card_micro_insufficient.png", 21, 66, 16, 16, "minecraft:bread", 3, 9, null),
@@ -424,23 +397,14 @@ public final class Hyou {
         new Kado("shop_armor", "item_12", 235, 168, 69, 52, "textures/gui/card_micro_hover.png", "textures/gui/card_micro_pressed.png", "textures/gui/card_micro_locked.png", "textures/gui/card_micro_insufficient.png", 240, 174, 16, 16, "minecraft:diamond_boots", 1, 30, null),
 
         // ---- gunshop_guns ----
-        new Kado("gunshop_guns", "item_1", 16, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 22, 66, 16, 16, "minecraft:crossbow", 1, 9, "tacz:modern_kinetic_gun{GunId:\"hamster:coltm1851\"}"),
-        new Kado("gunshop_guns", "item_2", 113, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 119, 66, 16, 16, "minecraft:crossbow", 1, 10, "tacz:modern_kinetic_gun{GunId:\"hamster:colt1873\"}"),
-        new Kado("gunshop_guns", "item_3", 210, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 216, 66, 16, 16, "minecraft:bow", 1, 11, "tacz:modern_kinetic_gun{GunId:\"hamster:sks\"}"),
-        new Kado("gunshop_guns", "item_4", 16, 114, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 22, 120, 16, 16, "minecraft:bow", 1, 12, "tacz:modern_kinetic_gun{GunId:\"hamster:m1garand\"}"),
-        new Kado("gunshop_guns", "item_5", 113, 114, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 119, 120, 16, 16, "minecraft:trident", 1, 13, "tacz:modern_kinetic_gun{GunId:\"hamster:madsen\"}"),
-        new Kado("gunshop_guns", "item_6", 210, 114, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 216, 120, 16, 16, "minecraft:crossbow", 1, 14, "tacz:modern_kinetic_gun{GunId:\"tacz:glock_17\"}"),
-        new Kado("gunshop_guns", "item_7", 16, 168, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 22, 174, 16, 16, "minecraft:trident", 1, 15, "tacz:modern_kinetic_gun{GunId:\"tacz:uzi\"}"),
-        new Kado("gunshop_guns", "item_8", 113, 168, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 119, 174, 16, 16, "minecraft:bow", 1, 16, "tacz:modern_kinetic_gun{GunId:\"tacz:m4a1\"}"),
-        new Kado("gunshop_guns", "item_9", 210, 168, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 216, 174, 16, 16, "minecraft:spyglass", 1, 17, "tacz:modern_kinetic_gun{GunId:\"tacz:m107\"}"),
+        new Kado("gunshop_guns", "item_1", 16, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 22, 66, 16, 16, "minecraft:crossbow", 1, 9, "tacz:modern_kinetic_gun{GunId:\"hamster:nagantm1895\"}"),
+        new Kado("gunshop_guns", "item_2", 113, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 119, 66, 16, 16, "minecraft:bow", 1, 10, "tacz:modern_kinetic_gun{GunId:\"hamster:sks\"}"),
+        new Kado("gunshop_guns", "item_3", 210, 60, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 216, 66, 16, 16, "minecraft:trident", 1, 11, "tacz:modern_kinetic_gun{GunId:\"hamster:mp18\"}"),
+        new Kado("gunshop_guns", "item_4", 16, 114, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 22, 120, 16, 16, "minecraft:trident", 1, 12, "tacz:modern_kinetic_gun{GunId:\"tacz:m4a1\"}"),
+        new Kado("gunshop_guns", "item_5", 113, 114, 94, 52, "textures/gui/card_compact_hover.png", "textures/gui/card_compact_pressed.png", "textures/gui/card_compact_locked.png", "textures/gui/card_compact_insufficient.png", 119, 120, 16, 16, "minecraft:spyglass", 1, 13, "tacz:modern_kinetic_gun{GunId:\"tacz:ai_awp\"}"),
 
         // ---- gunshop_ammo ----
-        new Kado("gunshop_ammo", "item_1", 16, 60, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 22, 71, 32, 32, "minecraft:arrow", 30, 9, "tacz:ammo{AmmoId:\"hamster:compact_ammo\"}"),
-        new Kado("gunshop_ammo", "item_2", 113, 60, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 119, 71, 32, 32, "minecraft:arrow", 30, 10, "tacz:ammo{AmmoId:\"hamster:medium_ammo\"}"),
-        new Kado("gunshop_ammo", "item_3", 210, 60, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 216, 71, 32, 32, "minecraft:arrow", 30, 11, "tacz:ammo{AmmoId:\"hamster:long_ammo\"}"),
-        new Kado("gunshop_ammo", "item_4", 16, 142, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 22, 153, 32, 32, "minecraft:arrow", 30, 12, "tacz:ammo{AmmoId:\"tacz:9mm\"}"),
-        new Kado("gunshop_ammo", "item_5", 113, 142, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 119, 153, 32, 32, "minecraft:arrow", 30, 13, "tacz:ammo{AmmoId:\"tacz:556x45\"}"),
-        new Kado("gunshop_ammo", "item_6", 210, 142, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 216, 153, 32, 32, "minecraft:arrow", 10, 14, "tacz:ammo{AmmoId:\"tacz:50bmg\"}"),
+        new Kado("gunshop_ammo", "item_1", 16, 60, 94, 76, "textures/gui/card_tall_hover.png", "textures/gui/card_tall_pressed.png", "textures/gui/card_tall_locked.png", "textures/gui/card_tall_insufficient.png", 22, 71, 32, 32, "minecraft:arrow", 30, 9, "tacz:ammo{AmmoId:\"tacz:556x45\"}"),
 
         // ---- gacha ----
 
