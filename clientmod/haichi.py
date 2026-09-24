@@ -29,7 +29,13 @@ JAR = os.path.join(KOKO, 'JidaiUI-0.1.0.jar')
 #   こうすると、もらった人のパソコンでもそのまま動く。
 IE = os.path.expanduser('~')
 SAKI = [
+    # ★★ 置き場は動く。TaCZ の有無で見分けるので、候補を並べておけばよい ★★
+    #   2026-09-18: ユーザーが 'Desktop/実機演習 1.20.1/mods' へ戻した（TaCZ あり）。
+    #   同じ日の少し前は 'Desktop/KUN 実機確認用modフォルダ/時代クラフト'
+    #   （★ そちらは【フォルダ自体が mods】で 'mods' を足さない）。
+    #   その前は phobia 用に入れ替わっていて、TaCZ が無いため弾かれていた。
     os.path.join(IE, 'Desktop', '実機演習 1.20.1', 'mods'),
+    os.path.join(IE, 'Desktop', 'KUN 実機確認用modフォルダ', '時代クラフト'),
     os.path.join(IE, 'AppData', 'Roaming', '.minecraft', 'mods'),
 ]
 

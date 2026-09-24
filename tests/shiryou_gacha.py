@@ -78,8 +78,13 @@ def kubun(na, kane, tou, atsumeru, ibutsu):
     return 'ふつう'
 
 
-def setsu(jidai):
-    """1つの時代ぶんの節を組み立てる。"""
+def kazoeru(jidai):
+    """1つの時代ぶんの数え上げ。
+
+    ★★ 数える所はここ1か所だけにする ★★
+      景品表と合計表が別々に数えていると、片方だけ直した時に
+      **同じ資料の中で答えが食い違う**（監査 #08 がまさにそれ）。
+    """
     nedan, hyou = keihin()
     atsumeru, ibutsu = tokushu_mei()
     gyou = [r for r in hyou if r[4] == jidai]
@@ -93,6 +98,50 @@ def setsu(jidai):
                if r[5] != 'HAZURE' and r[2] == 0 and (r[0] in atsumeru or r[0] in ibutsu))
     futsu = zen - hazu - kane_om - toku
     kitai = sum(r[2] * r[3] for r in gyou) / float(zen)
+    return dict(gyou=gyou, ne=ne, zen=zen, hazu=hazu, kane_om=kane_om,
+                dai_om=dai_om, toku=toku, futsu=futsu, kitai=kitai,
+                atsumeru=atsumeru, ibutsu=ibutsu)
+
+
+def gokei_setsu():
+    """いちばん上の「時代ごとの合計」の表。
+
+    ★ 2026-09-20 に新設。ここだけ作り直していなかったので、
+      案C の後も近代が「23件 / 特殊 4.00%」のまま残り、説明書に刷られた。
+    """
+    de = []
+    de.append('### 時代ごとの合計（機械計算）')
+    de.append('')
+    de.append('| 時代 | 値段 | 件数 | はずれ% | ふつう% | お金% | （うち特賞%） '
+              '| 特殊% | お金の期待値 | 値段に対する% |')
+    de.append('|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
+    for jidai in (1, 2, 3, 4):
+        a = kazoeru(jidai)
+        de.append('| %s(%d) | %d | %d | %.2f | %.2f | %.2f | %.2f | %.2f | %.2f | **%.2f%%** |'
+                  % (JIDAI_MEI[jidai], jidai, a['ne'], len(a['gyou']),
+                     a['hazu'] / 100.0, a['futsu'] / 100.0, a['kane_om'] / 100.0,
+                     a['dai_om'] / 100.0, a['toku'] / 100.0,
+                     a['kitai'], a['kitai'] / a['ne'] * 100))
+    de.append('')
+    de.append('区分の定義: **はずれ**＝等級 HAZURE / **お金**＝`kane > 0`'
+              '（特賞＝等級 DAI もここに含む） / **特殊**＝集める5種＋遺物 / '
+              '**ふつう**＝残り。')
+    de.append('')
+    t = kazoeru(1)
+    de.append('> ソースのコメントは実際の配列と食い違っていることがある。'
+              '**上表は配列の実値から計算した数字**'
+              '（鉄器の実測は はずれ%d / ふつう%d / 金%d / 特殊%d / 特賞%d）。'
+              % (t['hazu'], t['futsu'], t['kane_om'], t['toku'], t['dai_om']))
+    return '\n'.join(de)
+
+
+def setsu(jidai):
+    """1つの時代ぶんの節を組み立てる。"""
+    a = kazoeru(jidai)
+    gyou, ne, zen = a['gyou'], a['ne'], a['zen']
+    hazu, kane_om, dai_om = a['hazu'], a['kane_om'], a['dai_om']
+    toku, futsu, kitai = a['toku'], a['futsu'], a['kitai']
+    atsumeru, ibutsu = a['atsumeru'], a['ibutsu']
 
     de = []
     de.append('### 景品表 ── %s（%d 件 / 値段 %d）' % (JIDAI_MEI[jidai], len(gyou), ne))
@@ -151,6 +200,24 @@ def main():
     miru = '--miru' in sys.argv
     s = yomu(SHIRYOU)
     kazu = 0
+
+    # ★ いちばん上の「時代ごとの合計」。2026-09-20 に足した。
+    #   ここを作り直していなかったせいで、案C の後も古い数字が残り、
+    #   説明書（詳細版 10ページ）に「近代 23件 / 特殊 4.00%」と刷られた。
+    _ga = '### 時代ごとの合計（機械計算）'
+    _gi = s.index(_ga)
+    _gj = s.index('### 景品表 ── ', _gi)
+    _gatarashii = gokei_setsu() + '\n\n'
+    if s[_gi:_gj] != _gatarashii:
+        kazu += 1
+        print('--- 時代ごとの合計: 書き換える')
+        if miru:
+            for a, b in zip(s[_gi:_gj].split('\n'), _gatarashii.split('\n')):
+                if a != b:
+                    deru('    旧 ' + a)
+                    deru('    新 ' + b)
+    s = s[:_gi] + _gatarashii + s[_gj:]
+
     for jidai in (1, 2, 3, 4):
         atama = '### 景品表 ── %s（' % JIDAI_MEI[jidai]
         i = s.find(atama)

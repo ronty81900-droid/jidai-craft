@@ -155,6 +155,23 @@ public final class Mc {
         g.m_280411_(basho(moto), x, y, w, h, 0.0F, 0.0F, texW, texH, texW, texH);
     }
 
+    /**
+     * 絵の【一部】を切り出して貼る。u,v から uW×vH ぶんを、x,y に w×h で置く。
+     *
+     * ★ haruOokisa は絵の全体しか貼れない。ボスバーの中身は
+     *   「左端から 進み具合ぶんだけ」切るので、u/v を渡せる口が要る。
+     * GuiGraphics#blit(ResourceLocation, x, y, w, h, u, v, uW, vH, texW, texH)
+     */
+    public static void haruKiri(GuiGraphics g, String moto, int x, int y, int w, int h,
+                                float u, float v, int uW, int vH, int texW, int texH) {
+        g.m_280411_(basho(moto), x, y, w, h, u, v, uW, vH, texW, texH);
+    }
+
+    /** Font.lineHeight ── 1行の高さ（ふつう 9px）。バニラはボスバーの名前を バーの上 この分だけ上に置く */
+    public static int gyouTakasa() {
+        return shotai().f_92710_;
+    }
+
     /** 作ったアイテム。毎フレーム作り直さないよう覚えておく。 */
     private static final Map<String, ItemStack> MONO = new HashMap<>();
 

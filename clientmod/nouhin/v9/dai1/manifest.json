@@ -1,0 +1,2173 @@
+{
+  "schema_version": 2,
+  "package": {
+    "name": "JidaiCraft v9 dai1",
+    "batch": 1,
+    "namespace": "jidaiui",
+    "minecraft": "1.20.1",
+    "texture_size": 256,
+    "proposal_count": 3,
+    "item_count": 3,
+    "production_texture_count": 9,
+    "preview_count": 27,
+    "source_request_sha256": "6EE996CF00BF9E83593C53C628A6EE754851C75F9DA3241FB7E68CBA714CFB95",
+    "comparison_count": 4
+  },
+  "shared_palette": {
+    "transparent": "#00000000",
+    "outline": "#102329FF",
+    "brass_deep": "#6F4E28FF",
+    "brass_dark": "#9B6D32FF",
+    "brass": "#C4934BFF",
+    "brass_light": "#D6B06BFF",
+    "highlight": "#F5DE9BFF",
+    "iron_deep": "#303B3FFF",
+    "iron": "#586368FF",
+    "iron_light": "#7D8889FF",
+    "steel_light": "#A8B0ADFF",
+    "steel_bright": "#C9D0CCFF",
+    "leather_deep": "#4A2922FF",
+    "leather": "#784337FF",
+    "leather_light": "#A5684EFF",
+    "paper_deep": "#6E5A3DFF",
+    "paper_dark": "#A98D61FF",
+    "paper": "#D1B684FF",
+    "paper_light": "#E4CC9AFF",
+    "wood_deep": "#4B3325FF",
+    "wood": "#765039FF",
+    "wood_light": "#A47A50FF",
+    "white_deep": "#817C71FF",
+    "white": "#B9B09BFF",
+    "white_light": "#D8D0B8FF",
+    "red_deep": "#5B1F22FF",
+    "red": "#8E2D2DFF",
+    "red_light": "#B34A3DFF",
+    "enamel_blue": "#213A56FF",
+    "enamel_green": "#3C6A55FF",
+    "enamel_brown": "#7F3C32FF",
+    "jewel_blue": "#376B83FF",
+    "jewel_red": "#8F3A3FFF",
+    "hot_deep": "#721F18FF",
+    "hot": "#B83B24FF",
+    "hot_light": "#E86932FF",
+    "soot": "#0A1012FF",
+    "black": "#11171AFF",
+    "black_mid": "#222B2FFF",
+    "black_light": "#374247FF",
+    "glass_deep": "#426064FF",
+    "glass": "#789295FF",
+    "glass_light": "#AFC4BEFF",
+    "liquid_deep": "#667548FF",
+    "liquid": "#9DAE68FF",
+    "liquid_light": "#C5D58AFF",
+    "lens_deep": "#1F4A3AFF",
+    "lens": "#39725AFF",
+    "lens_light": "#66A277FF",
+    "screen": "#152B38FF",
+    "screen_light": "#244553FF",
+    "scuff": "#6A4B3DFF",
+    "hada_light": "#F2DCBAFF",
+    "hada": "#E4C39AFF",
+    "hada_dark": "#C69E70FF"
+  },
+  "added_colors": [],
+  "items": [
+    {
+      "name": "羊皮紙の海図",
+      "file": "kaizu.png",
+      "number": 8203,
+      "era": "中世",
+      "proposal": "A",
+      "path": "proposal_a/assets/jidaiui/textures/item/kaizu.png",
+      "intent": "下描きを継承した正面の巻物。左上の階段状海岸、右下の8方位羅針図、左寄りの赤い航路。地図の面を整理し、針先と線を4px以上にした。",
+      "highlight": "左巻きの上寄りにある一続きの反射",
+      "single_wear_point": "紙の左下の輪染み1つ",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 22432
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 8064
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 960
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 224
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 7360
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 928
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 144
+        },
+        {
+          "role": "paper_dark",
+          "rgba": "#A98D61FF",
+          "pixel_count": 384
+        },
+        {
+          "role": "red",
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 288
+        },
+        {
+          "role": "enamel_green",
+          "rgba": "#3C6A55FF",
+          "pixel_count": 1088
+        },
+        {
+          "role": "jewel_blue",
+          "rgba": "#376B83FF",
+          "pixel_count": 1376
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 832
+        },
+        {
+          "role": "lens_deep",
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 2720
+        },
+        {
+          "role": "lens",
+          "rgba": "#39725AFF",
+          "pixel_count": 3632
+        },
+        {
+          "role": "lens_light",
+          "rgba": "#66A277FF",
+          "pixel_count": 3584
+        },
+        {
+          "role": "hada_light",
+          "rgba": "#F2DCBAFF",
+          "pixel_count": 1552
+        },
+        {
+          "role": "hada",
+          "rgba": "#E4C39AFF",
+          "pixel_count": 8000
+        },
+        {
+          "role": "hada_dark",
+          "rgba": "#C69E70FF",
+          "pixel_count": 1968
+        }
+      ]
+    },
+    {
+      "name": "羊皮紙の海図",
+      "file": "kaizu.png",
+      "number": 8203,
+      "era": "中世",
+      "proposal": "B",
+      "path": "proposal_b/assets/jidaiui/textures/item/kaizu.png",
+      "intent": "左上から右下へ開く斜めの巻物。左上に羅針図、下半分に大きな湾と島。航路を海の帯に沿わせる。",
+      "highlight": "左巻きの上寄りにある一続きの反射",
+      "single_wear_point": "紙の右上の染み1つ",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 28192
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 7744
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 864
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 192
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 7008
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 800
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 144
+        },
+        {
+          "role": "paper_dark",
+          "rgba": "#A98D61FF",
+          "pixel_count": 256
+        },
+        {
+          "role": "red",
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 288
+        },
+        {
+          "role": "enamel_green",
+          "rgba": "#3C6A55FF",
+          "pixel_count": 928
+        },
+        {
+          "role": "jewel_blue",
+          "rgba": "#376B83FF",
+          "pixel_count": 2752
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 1984
+        },
+        {
+          "role": "lens_deep",
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 2304
+        },
+        {
+          "role": "lens",
+          "rgba": "#39725AFF",
+          "pixel_count": 1904
+        },
+        {
+          "role": "lens_light",
+          "rgba": "#66A277FF",
+          "pixel_count": 2944
+        },
+        {
+          "role": "hada_light",
+          "rgba": "#F2DCBAFF",
+          "pixel_count": 1952
+        },
+        {
+          "role": "hada",
+          "rgba": "#E4C39AFF",
+          "pixel_count": 4368
+        },
+        {
+          "role": "hada_dark",
+          "rgba": "#C69E70FF",
+          "pixel_count": 912
+        }
+      ]
+    },
+    {
+      "name": "羊皮紙の海図",
+      "file": "kaizu.png",
+      "number": 8203,
+      "era": "中世",
+      "proposal": "C",
+      "path": "proposal_c/assets/jidaiui/textures/item/kaizu.png",
+      "intent": "左の巻きを太く残した半開きの巻物。中央に最大の羅針図、上下に分かれる海岸、右端を回る航路。",
+      "highlight": "太い左巻きの上寄りにある一続きの反射",
+      "single_wear_point": "紙の左下の染み1つ",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 19968
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 8192
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 1216
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 320
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 7424
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 1152
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 144
+        },
+        {
+          "role": "paper_dark",
+          "rgba": "#A98D61FF",
+          "pixel_count": 896
+        },
+        {
+          "role": "red",
+          "rgba": "#8E2D2DFF",
+          "pixel_count": 272
+        },
+        {
+          "role": "enamel_green",
+          "rgba": "#3C6A55FF",
+          "pixel_count": 1120
+        },
+        {
+          "role": "jewel_blue",
+          "rgba": "#376B83FF",
+          "pixel_count": 1888
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 1600
+        },
+        {
+          "role": "lens_deep",
+          "rgba": "#1F4A3AFF",
+          "pixel_count": 2800
+        },
+        {
+          "role": "lens",
+          "rgba": "#39725AFF",
+          "pixel_count": 8160
+        },
+        {
+          "role": "lens_light",
+          "rgba": "#66A277FF",
+          "pixel_count": 3680
+        },
+        {
+          "role": "hada_light",
+          "rgba": "#F2DCBAFF",
+          "pixel_count": 2208
+        },
+        {
+          "role": "hada",
+          "rgba": "#E4C39AFF",
+          "pixel_count": 4240
+        },
+        {
+          "role": "hada_dark",
+          "rgba": "#C69E70FF",
+          "pixel_count": 256
+        }
+      ]
+    },
+    {
+      "name": "蒸気機関の歯車",
+      "file": "haguruma.png",
+      "number": 8204,
+      "era": "近代",
+      "proposal": "A",
+      "path": "proposal_a/assets/jidaiui/textures/item/haguruma.png",
+      "intent": "v5の正面の真鍮歯車と中心穴を継承。10歯のうち右下1歯を欠き、四角い軸穴と4つの肉抜き凹面を大きく描く。",
+      "highlight": "左上の歯の根元の1面",
+      "single_wear_point": "右下の欠け歯と同じ箇所に錆",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 31232
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 10784
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 3792
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 4464
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 12624
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 2416
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 128
+        }
+      ]
+    },
+    {
+      "name": "蒸気機関の歯車",
+      "file": "haguruma.png",
+      "number": 8204,
+      "era": "近代",
+      "proposal": "B",
+      "path": "proposal_b/assets/jidaiui/textures/item/haguruma.png",
+      "intent": "8歯の鉄歯車。幅広い5本の輻と深い肉抜き面、真鍮の軸受、鍵溝付きの中心穴。左下1歯だけ欠ける。",
+      "highlight": "左上の外輪の1面",
+      "single_wear_point": "左下の欠け歯と同じ箇所に錆",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 31456
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 8896
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 2240
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 8192
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 416
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 5792
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 2528
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 2592
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 3056
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 272
+        }
+      ]
+    },
+    {
+      "name": "蒸気機関の歯車",
+      "file": "haguruma.png",
+      "number": 8204,
+      "era": "近代",
+      "proposal": "C",
+      "path": "proposal_c/assets/jidaiui/textures/item/haguruma.png",
+      "intent": "厚みを見せる斜めの12歯真鍮歯車。3つの大きな腎臓形の肉抜き、四角い斜めの軸穴。右上1歯だけ欠ける。",
+      "highlight": "前面の左上の1面",
+      "single_wear_point": "右上の欠け歯と同じ箇所に錆",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 30752
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 10144
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 832
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 6976
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 11856
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 864
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 96
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 3824
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 192
+        }
+      ]
+    },
+    {
+      "name": "月の石",
+      "file": "tsukinoishi.png",
+      "number": 8205,
+      "era": "現代",
+      "proposal": "A",
+      "path": "proposal_a/assets/jidaiui/textures/item/tsukinoishi.png",
+      "intent": "v5の面取りしたガラスケースと幅広台座を継承。岩の灰色の色面と窪みを大きく整理。ガラスは左上から左側へ続く1本の縁で示す。",
+      "highlight": "ガラスの左上縁の1か所",
+      "single_wear_point": "台座右前角の擦れ1つ",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 23536
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 6912
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 288
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 6304
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 48
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 4544
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 1504
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 3168
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 2752
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 912
+        },
+        {
+          "role": "glass",
+          "rgba": "#789295FF",
+          "pixel_count": 2464
+        },
+        {
+          "role": "glass_light",
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 608
+        },
+        {
+          "role": "screen_light",
+          "rgba": "#244553FF",
+          "pixel_count": 12432
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 64
+        }
+      ]
+    },
+    {
+      "name": "月の石",
+      "file": "tsukinoishi.png",
+      "number": 8205,
+      "era": "現代",
+      "proposal": "B",
+      "path": "proposal_b/assets/jidaiui/textures/item/tsukinoishi.png",
+      "intent": "ケースを外し、背の高い角張った標本を低い台座へ直接置く。中央の大きな窪みと右下の小さな窪み。",
+      "highlight": "岩の左上の小さな1面",
+      "single_wear_point": "台座右前角の擦れ1つ",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 30800
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 7536
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 6912
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 32
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 4320
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 3312
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 5744
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 2336
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 3120
+        },
+        {
+          "role": "glass",
+          "rgba": "#789295FF",
+          "pixel_count": 1296
+        },
+        {
+          "role": "scuff",
+          "rgba": "#6A4B3DFF",
+          "pixel_count": 128
+        }
+      ]
+    },
+    {
+      "name": "月の石",
+      "file": "tsukinoishi.png",
+      "number": 8205,
+      "era": "現代",
+      "proposal": "C",
+      "path": "proposal_c/assets/jidaiui/textures/item/tsukinoishi.png",
+      "intent": "台座のない一塊の月岩。左上の大きな窪みと右下の小さな窪み、右側の暗い破断面で立体を見せる。",
+      "highlight": "岩の左上の小さな1面",
+      "single_wear_point": "右肩に1つの欠け面",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 29024
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 6928
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 6272
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 32
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 6656
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 6576
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 6064
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 3456
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 528
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "proposal_a/assets/jidaiui/textures/item/kaizu.png",
+      "category": "item_texture",
+      "proposal": "A",
+      "item": "kaizu",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1907,
+      "sha256": "0C2EEDE82F63C863564DD4E9C9A73041007F004440DA0EE5F1192F41F1004465",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_a/kaizu_48.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "kaizu",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 884,
+      "sha256": "3FB10708143BE652A30C6011BD4CD7CBE726297C29ACFAEFDAC5110379DF146D",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_a/kaizu_32.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "kaizu",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 702,
+      "sha256": "390A44196A03B8BF33FC89AC05CC7898FD119CA6121CA59C4CC55B422FA2DD9A",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_a/kaizu_16.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "kaizu",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 303,
+      "sha256": "473374B24E1380A614F54CEFADD0F07334664E7B3967AF5686BB6ADFCD3C4B6F",
+      "rgba_color_count": 15,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_b/assets/jidaiui/textures/item/kaizu.png",
+      "category": "item_texture",
+      "proposal": "B",
+      "item": "kaizu",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 2028,
+      "sha256": "D87357890F41DC24A83EBFEF35977321C44DEE03DAB27457C46C25C99FA49BC8",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_b/kaizu_48.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "kaizu",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 1012,
+      "sha256": "E6F2809759F5B0E58084F582A2CD5F093CB929A09735D601A133058A301338AC",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_b/kaizu_32.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "kaizu",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 719,
+      "sha256": "93FBC82D28923B12519AE0AAE26A0A69E3EF5CD5BAD631F23DCBBC03DF165019",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_b/kaizu_16.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "kaizu",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 404,
+      "sha256": "3F2B7005BB839747F959187FF931551CA878097481C6E2EF8074492AAE596B3C",
+      "rgba_color_count": 15,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_c/assets/jidaiui/textures/item/kaizu.png",
+      "category": "item_texture",
+      "proposal": "C",
+      "item": "kaizu",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1986,
+      "sha256": "201ED84424D68AD4C3189E1152BC2F6B0EE196BB21926C7681547A814E7ECB5D",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_c/kaizu_48.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "kaizu",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 920,
+      "sha256": "919C4A95279E1F445A1036581108C75B38CE589A738190F403F1E1B20775C87A",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_c/kaizu_32.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "kaizu",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 689,
+      "sha256": "BF7DA9365C4B6C54196DF4AC23B9FD29424DE00E75F5192A5941BF983B5D3B93",
+      "rgba_color_count": 18,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_c/kaizu_16.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "kaizu",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 329,
+      "sha256": "97B747AB1DE7E352D13EC9ED06FF021B4FCF640EF23D14CB8B06661A71558D79",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_a/assets/jidaiui/textures/item/haguruma.png",
+      "category": "item_texture",
+      "proposal": "A",
+      "item": "haguruma",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1896,
+      "sha256": "BC2259CB7528397E833560CD36C56738056665C8B4791FFF3AB14F0A123C18B6",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_a/haguruma_48.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "haguruma",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 816,
+      "sha256": "C9A119E5C1FCA74F6AA599155992E3AAD13CAD8A413B7D110B4F7C5731654498",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_a/haguruma_32.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "haguruma",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 591,
+      "sha256": "043A19F7FF27B3FFD5BF0DD44BA96465DF84AF8B2714F65AB92603A065B457A5",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_a/haguruma_16.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "haguruma",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 331,
+      "sha256": "EEA94A8A6BEBAFF9C628583CC49EA7CFBEECE146A4F27DB78D0C12E4BBA953C8",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_b/assets/jidaiui/textures/item/haguruma.png",
+      "category": "item_texture",
+      "proposal": "B",
+      "item": "haguruma",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 2069,
+      "sha256": "512FC73EC9B162564C17853D60674B43D7C12FCCD7E7AF2D1A6AC56BE22D6D2B",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_b/haguruma_48.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "haguruma",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 942,
+      "sha256": "5886DFB22B7CE580AE826B711D7EFE8E1CC5AAA33D19822851E40AA0CF03ACAF",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_b/haguruma_32.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "haguruma",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 726,
+      "sha256": "59564E9BF5CDD9A78D7537DE628CBD8ACF25A7CD8CD40EAE1D2C9782461C61C0",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_b/haguruma_16.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "haguruma",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 413,
+      "sha256": "937FE0CE6E6AFD1DFBCDA762D0253B2D4BB9D72D38296179DF206F7585730014",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_c/assets/jidaiui/textures/item/haguruma.png",
+      "category": "item_texture",
+      "proposal": "C",
+      "item": "haguruma",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1912,
+      "sha256": "9274AACA97477FF2DC8A04ECAAFD06F3081709D3BA845E8A33B0152D909B31D7",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_c/haguruma_48.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "haguruma",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 853,
+      "sha256": "325F5E52EC29458548E5ADAE8AC040CC0165057C5FBABB9E2E94243A037CEFE1",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_c/haguruma_32.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "haguruma",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 642,
+      "sha256": "DB53B8FC5066D7D3341F8EF90C548DF3491B22B5325DFF51ADE0C8B2DE26354F",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_c/haguruma_16.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "haguruma",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 381,
+      "sha256": "C81C56F22E94535826819B8E60F348FD7B50233B3E47FB374E3218A0B8B21D2A",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_a/assets/jidaiui/textures/item/tsukinoishi.png",
+      "category": "item_texture",
+      "proposal": "A",
+      "item": "tsukinoishi",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1412,
+      "sha256": "B468B8B7849D611BFCB5EA1B2C5EA7569ED0F0066A24AB0D37B909E45C97FD3E",
+      "rgba_color_count": 14,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_a/tsukinoishi_48.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "tsukinoishi",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 623,
+      "sha256": "2CD90EB50EE7DEFA92C8458E7FCF71912EE6AEECA504DA20EBE6431A9180CCC5",
+      "rgba_color_count": 14,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_a/tsukinoishi_32.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "tsukinoishi",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 486,
+      "sha256": "C30FC5EF60E408A6726A1DA6E0A37F4828F7A75DCF335891867D2D1041B10961",
+      "rgba_color_count": 13,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_a/tsukinoishi_16.png",
+      "category": "preview",
+      "proposal": "A",
+      "item": "tsukinoishi",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 321,
+      "sha256": "4D2E8383DA7B705CAB24E0F447FDF1D15FF46475FE2EDF6D3ABE230EA3483E49",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_b/assets/jidaiui/textures/item/tsukinoishi.png",
+      "category": "item_texture",
+      "proposal": "B",
+      "item": "tsukinoishi",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1621,
+      "sha256": "7A29D452DF835863B82B1A7EE7AE66B12EE8DC08A4D21BE186BAE603D6E0370D",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_b/tsukinoishi_48.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "tsukinoishi",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 728,
+      "sha256": "B77F5CF05253C1FFB3A267E050A888CF349523ECA5B85BC64A325EC5E03779C2",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_b/tsukinoishi_32.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "tsukinoishi",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 549,
+      "sha256": "95BAD31375A8C950A27A6E6BD4F8A8927539E283AD5EAEA7315D5A69F343ACCC",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_b/tsukinoishi_16.png",
+      "category": "preview",
+      "proposal": "B",
+      "item": "tsukinoishi",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 329,
+      "sha256": "71D91A2F845BA342128535A881A99FA42BD7790D2556CF5BCB0B1B11546D996A",
+      "rgba_color_count": 10,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "proposal_c/assets/jidaiui/textures/item/tsukinoishi.png",
+      "category": "item_texture",
+      "proposal": "C",
+      "item": "tsukinoishi",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 1696,
+      "sha256": "5B3E9EA4D79D399F0A4F26F251C0E570BADE374DF62EED14BF4F3245F7099BF5",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false
+    },
+    {
+      "file": "preview/proposal_c/tsukinoishi_48.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "tsukinoishi",
+      "dimensions": [
+        48,
+        48
+      ],
+      "byte_size": 745,
+      "sha256": "EF731395D51D16FA89BBDAE1B08E0E4F50FC4407E2055E3A49BADB22BB4F1AF5",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 48
+    },
+    {
+      "file": "preview/proposal_c/tsukinoishi_32.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "tsukinoishi",
+      "dimensions": [
+        32,
+        32
+      ],
+      "byte_size": 579,
+      "sha256": "F9ECADFE38952ADCFF7825DF483A13379BB003E79839F4C5F9D8ADED71D1D013",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 32
+    },
+    {
+      "file": "preview/proposal_c/tsukinoishi_16.png",
+      "category": "preview",
+      "proposal": "C",
+      "item": "tsukinoishi",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 371,
+      "sha256": "0497B549E64BA68F75C9817D73029DA51F59908898299E0660797AC366FA107C",
+      "rgba_color_count": 8,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "contains_baked_text": false,
+      "preview_size": 16
+    },
+    {
+      "file": "hikaku/overview.png",
+      "category": "comparison",
+      "dimensions": [
+        1032,
+        1510
+      ],
+      "byte_size": 97450,
+      "sha256": "AF1E9B6406D912FA0A29DF73AA75984603D62642CB3F2AA9973DB63BA2531868",
+      "rgba_color_count": 1000,
+      "alpha_values": [
+        255
+      ],
+      "contains_baked_text": true
+    },
+    {
+      "file": "hikaku/compare_kaizu.png",
+      "category": "comparison",
+      "dimensions": [
+        856,
+        460
+      ],
+      "byte_size": 38200,
+      "sha256": "A2762512A4D79322C447E288243DD90CC1D9600E2D7E35C5C4A31A0082F4F8F2",
+      "rgba_color_count": 733,
+      "alpha_values": [
+        191,
+        194,
+        196,
+        207,
+        208,
+        214,
+        221,
+        232,
+        245,
+        255
+      ],
+      "contains_baked_text": true
+    },
+    {
+      "file": "hikaku/compare_haguruma.png",
+      "category": "comparison",
+      "dimensions": [
+        856,
+        460
+      ],
+      "byte_size": 44297,
+      "sha256": "46AC4829292E19A50770C36DB7367B38EDE5E7C37FC3FB1237F00423F0F9DC3E",
+      "rgba_color_count": 596,
+      "alpha_values": [
+        191,
+        194,
+        196,
+        199,
+        207,
+        208,
+        214,
+        221,
+        232,
+        245,
+        255
+      ],
+      "contains_baked_text": true
+    },
+    {
+      "file": "hikaku/compare_tsukinoishi.png",
+      "category": "comparison",
+      "dimensions": [
+        856,
+        460
+      ],
+      "byte_size": 32950,
+      "sha256": "FEFDF5E7C722B5C630B3A7A5A0BE5DA012224E7FA83D06F3FA25452FCFC05C85",
+      "rgba_color_count": 571,
+      "alpha_values": [
+        191,
+        194,
+        196,
+        207,
+        208,
+        214,
+        221,
+        232,
+        245,
+        255
+      ],
+      "contains_baked_text": true
+    }
+  ],
+  "qa": {
+    "status": "passed",
+    "checks": [
+      "本番9枚とnearestプレビュー27枚の実在を数え上げ",
+      "保存byteから寸法・RGBA色数・alpha・容量・SHA-256・pixel数を計測",
+      "dotto.tenkenの全項目と細い要素10%以下を検査",
+      "作画関数を2回実行し、本番9枚すべて保存PNG byte一致",
+      "64格子の各画素を4px角で直接配置。乱数・画像生成・AAなし",
+      "manifest全PNGエントリのsha256・byte数・寸法・色数・alphaを実ファイルと再照合",
+      "items全9件の色ごとのpixel数を実ファイルと照合、各合計65,536",
+      "48/32/16pxの表示を暗色と羊皮紙色の両背景で目視確認",
+      "16pxを整数倍拡大して各案の題材・構図差を再確認",
+      "参照専用の護符・聖杯・旧版・依頼文・正本コードのSHA-256が不変"
+    ],
+    "production_count_actual": 9,
+    "preview_count_actual": 27,
+    "deterministic_png_bytes": true,
+    "per_image": [
+      {
+        "proposal": "A",
+        "item": "kaizu",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          12,
+          16,
+          12,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "A/kaizu: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 色数 18 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: 透明余白 (12, 16, 12, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "A/kaizu: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "B",
+        "item": "kaizu",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "B/kaizu: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 色数 18 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: 透明余白 (12, 12, 12, 12)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "B/kaizu: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "C",
+        "item": "kaizu",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "C/kaizu: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 色数 18 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: 透明余白 (12, 12, 12, 12)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "C/kaizu: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "A",
+        "item": "haguruma",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "A/haguruma: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 色数 8 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: 透明余白 (12, 12, 12, 12)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "A/haguruma: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "B",
+        "item": "haguruma",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "B/haguruma: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 色数 11 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: 透明余白 (16, 16, 16, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "B/haguruma: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "C",
+        "item": "haguruma",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          8,
+          24,
+          8,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "C/haguruma: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 色数 9 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: 透明余白 (8, 24, 8, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "C/haguruma: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "A",
+        "item": "tsukinoishi",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 色数 14 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: 透明余白 (16, 16, 16, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "A/tsukinoishi: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "B",
+        "item": "tsukinoishi",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          20,
+          12,
+          20,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 色数 11 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: 透明余白 (20, 12, 20, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "B/tsukinoishi: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      },
+      {
+        "proposal": "C",
+        "item": "tsukinoishi",
+        "passed": true,
+        "thin_ratio": 0.0,
+        "margins_ltrb": [
+          12,
+          16,
+          16,
+          16
+        ],
+        "checks": [
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 256×256（64 か 256）"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 不透明度が 0/255 だけ"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 透明画素の RGB が 0"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 色数 9 (64以下)"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 全色が v6 パレット＋追加色 "
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 外周 8px が outline"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 続く 8px が brass"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 内部に outline 色が無い"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: 透明余白 (12, 16, 16, 16)（8〜32）"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: highlight のまとまりが 1（1）"
+          },
+          {
+            "passed": true,
+            "detail": "C/tsukinoishi: シルエットが 1 つ（1）"
+          },
+          {
+            "passed": true,
+            "detail": "3px未満の細い要素 0.0000%"
+          }
+        ]
+      }
+    ],
+    "acceptance_test": {
+      "tool": "clientmod/tests/dai7_kakunin.py",
+      "passed": 246,
+      "failed": 0,
+      "exit_code": 0,
+      "args": [
+        "nouhin/v9/dai1",
+        "--hikaku-nashi"
+      ],
+      "log": "acceptance_check.txt"
+    }
+  },
+  "reference_files": [
+    {
+      "file": "clientmod/Codex依頼文_第7回.md",
+      "sha256": "6EE996CF00BF9E83593C53C628A6EE754851C75F9DA3241FB7E68CBA714CFB95"
+    },
+    {
+      "file": "plugin/src/main/java/jidai/Shouri.java",
+      "sha256": "D9A1FC2550DF4CF044C9385AD2605AF9171FB1DC4A6786B7F94BB6A9A1784BE1"
+    },
+    {
+      "file": "clientmod/tools/dotto.py",
+      "sha256": "4ED6355CE8390208AA1FAFBE295B7686B8A949DC98988E55ACF6E944F28F2753"
+    },
+    {
+      "file": "clientmod/tests/dai7_kakunin.py",
+      "sha256": "D2FFE2BCAFFE6C5E7BC742242A70508D54BEBAC167558A6B42F98561FC9A6AC0"
+    },
+    {
+      "file": "clientmod/nouhin/v6/DESIGN_SPEC.md",
+      "sha256": "6AA352FBE02077AC1C1D92F1B2E1EDDC47AC8781AA6A1571E81F1ACBFAF36AFC"
+    },
+    {
+      "file": "clientmod/nouhin/v8_an/kaizu/makimono_256.png",
+      "sha256": "8787B368E1CBF365B6262291D8BA365B967B51124ECE688FDC0D66D6C65028D4"
+    },
+    {
+      "file": "clientmod/nouhin/v8/assets/jidaiui/textures/item/gofu.png",
+      "sha256": "AEBD697D61A2F0B421F59E8FC61B3CA142EC104B2D568C137D2423B67C9DC73F"
+    },
+    {
+      "file": "clientmod/nouhin/v8/assets/jidaiui/textures/item/seihai.png",
+      "sha256": "A5965F305A368E764C1A153B1B2586C5BBF7C4847EC5FAA8875D5D05C44C7525"
+    },
+    {
+      "file": "clientmod/nouhin/v5/assets/jidaiui/textures/item/kaizu.png",
+      "sha256": "89A6DD998E55173E759C9C5D7C0B7D3B2A328B41DA60CDD442E8542C8B5F48D2"
+    },
+    {
+      "file": "clientmod/nouhin/v5/assets/jidaiui/textures/item/haguruma.png",
+      "sha256": "AED3B765EF7B0CCEA8E9E6918876FDA8B6850E01A96ABE37A0B9138CD9F8F4B9"
+    },
+    {
+      "file": "clientmod/nouhin/v5/assets/jidaiui/textures/item/tsukinoishi.png",
+      "sha256": "7B55D0129827FD9799A89C950148598E4C1FA0094B47435F7144DDA181A84C9F"
+    }
+  ]
+}

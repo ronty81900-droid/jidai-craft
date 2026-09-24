@@ -19,3 +19,6 @@ execute if score #junban sagyou matches 2 run function jidai:shinko/hantei_shinr
 execute if score #junban sagyou matches 3 run function jidai:shinko/hantei_kawa
 execute if score #junban sagyou matches 4 run function jidai:shinko/hantei_naikai
 execute if score #junban sagyou matches 5 run function jidai:shinko/hantei_iwaba
+
+# ★ 判定の直後にボスバーを書き直す。jouken_a/b/c が最新になっているのはここだけ。
+function jidai:shinko/bar

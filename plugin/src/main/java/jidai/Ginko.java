@@ -176,30 +176,16 @@ public final class Ginko implements InventoryHolder {
         //     0 なし / 3 再戦禁止 … 宣戦していない → 断る
         //     1 準備             … 宣戦済み。交戦が始まるまで待つ
         //     2 交戦             … データパックの略奪へ
+        // ★★ 2026-09-09: 略奪の入口は【壊す】に変わった（ご指示）★★
+        //   押しても奪えない。ここでは「壊せば奪える」ことだけ伝える。
+        //   実際に奪うのは kowasareta（JidaiCraft.onBlockBreak から呼ばれる）。
         if (nushi != null && !nushi.equals(jibun)) {
-            if (jibun == null || !Seiryoku.seiryokuKa(jibun)) {
-                player.sendMessage(Enshutsu.kazaru(Enshutsu.KOUNYU,
-                        "勢力に入っていないので、他の勢力の銀行には手を出せません"));
-                Enshutsu.oto(player, Enshutsu.OTO_DAME);
-                return;
-            }
-            String jibunMei = Seiryoku.mei(jibun);
-            String nushiMei = Seiryoku.mei(nushi);
-            int jotai = kane.sensou(jibunMei, nushiMei);
-            if (jotai == 1) {
+            if (ryakudatsuJotai(player, jibun, nushi, kane) == 2) {
                 player.sendMessage(Enshutsu.kazaru(Enshutsu.SENSO,
-                        nushiMei + " には宣戦済み。交戦が始まるまで略奪できない (あと "
-                                + kane.sensouByou(jibunMei, nushiMei) + " 秒)"));
+                        Seiryoku.mei(nushi) + " と交戦中。この金ブロックを【壊す】と、"
+                                + "相手の貯金と石油を 1% ずつ奪える"));
                 Enshutsu.oto(player, Enshutsu.OTO_DAME);
-                return;
             }
-            if (jotai != 2) {
-                player.sendMessage(Enshutsu.kazaru(Enshutsu.SENSO,
-                        nushiMei + " とは戦争していない。略奪するには、まず販売所の「戦争宣誓」で宣戦すること"));
-                Enshutsu.oto(player, Enshutsu.OTO_DAME);
-                return;
-            }
-            ryakudatsuHe(player, nushi, kane, seiryoku);
             return;
         }
 
@@ -232,6 +218,69 @@ public final class Ginko implements InventoryHolder {
             }
         }
         return null;
+    }
+
+    /**
+     * 他の勢力の銀行に手を出せる状態かを見て、駄目なら理由を本人へ返す。
+     * 戻り値は戦争の状態（2＝交戦中＝手を出せる）。それ以外は 0 を返す。
+     *
+     * ★★ なぜプラグイン側でも戦争の状態を見るか（2026-08-22 のご指示）★★
+     *   「戦争中以外では銀行から略奪できない。宣戦布告をしてから、
+     *    ようやく敵の銀行から取れる」
+     *   データパックも同じ判定を持っているが、そちらは断る理由が1行 出るだけで、
+     *   何をすれば取れるのかが伝わらなかった。ここで先に見て、次の手を返す。
+     *
+     * ★ 押した時（osareta）と壊した時（kowasareta）の両方から呼ぶ。
+     *   同じ判定を2か所に書くと、片方だけ直した時に黙って食い違う。
+     */
+    private int ryakudatsuJotai(Player player, String jibun, String nushi, Kane kane) {
+        if (jibun == null || !Seiryoku.seiryokuKa(jibun)) {
+            player.sendMessage(Enshutsu.kazaru(Enshutsu.KOUNYU,
+                    "勢力に入っていないので、他の勢力の銀行には手を出せません"));
+            Enshutsu.oto(player, Enshutsu.OTO_DAME);
+            return 0;
+        }
+        String jibunMei = Seiryoku.mei(jibun);
+        String nushiMei = Seiryoku.mei(nushi);
+        int jotai = kane.sensou(jibunMei, nushiMei);
+        if (jotai == 1) {
+            player.sendMessage(Enshutsu.kazaru(Enshutsu.SENSO,
+                    nushiMei + " には宣戦済み。交戦が始まるまで略奪できない (あと "
+                            + kane.sensouByou(jibunMei, nushiMei) + " 秒)"));
+            Enshutsu.oto(player, Enshutsu.OTO_DAME);
+            return 0;
+        }
+        if (jotai != 2) {
+            player.sendMessage(Enshutsu.kazaru(Enshutsu.SENSO,
+                    nushiMei + " とは戦争していない。略奪するには、まず販売所の「戦争宣誓」で宣戦すること"));
+            Enshutsu.oto(player, Enshutsu.OTO_DAME);
+            return 0;
+        }
+        return 2;
+    }
+
+    /**
+     * 他の勢力の銀行の金ブロックが【壊された】。奪えたら true。
+     *
+     * ★★ 2026-09-09 のご指示: 略奪の入口はここ1本 ★★
+     *   1回 壊すごとに、相手の貯金と石油の 1% を奪う（量はデータパックが決める）。
+     *   攻める側が 占領_必要回数(100) 回 壊すと、相手のビーコンが壊せるようになる。
+     *
+     * ★ ブロックは壊させない（呼び出し元がイベントを止める）。
+     *   金ブロックが本当に消えると、その拠点は二度と略奪できなくなる。
+     *   壊す動作そのものを1回と数え、演出だけ「壊れた」ように見せる。
+     */
+    public boolean kowasareta(Player player, Block block, Kane kane, Seiryoku seiryoku) {
+        String jibun = kane.teamMei(player);
+        String nushi = kyotenNoNushi(block);
+        if (nushi == null || nushi.equals(jibun)) {
+            return false;      // 自分の銀行・持ち主不明。呼び出し元がふつうに守る
+        }
+        if (ryakudatsuJotai(player, jibun, nushi, kane) != 2) {
+            return false;
+        }
+        ryakudatsuHe(player, nushi, kane, seiryoku);
+        return true;
     }
 
     /**
@@ -339,6 +388,13 @@ public final class Ginko implements InventoryHolder {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(moji(namae));
         meta.setLore(shita);
+        // ★★ 石油のボタンは、石油そのものと同じ絵にする（2026-09-20）★★
+        //   石油のアイテムは黒い染料＋番号 8301 で樽の絵になる。
+        //   ボタンだけ素の黒い染料のままだと、並べた時に食い違って見える。
+        //   ★ MOD を入れていない人には、今までどおり黒い染料に見えるだけ。
+        if (material == Material.BLACK_DYE) {
+            meta.setCustomModelData(SEKIYU_MITAME);
+        }
         item.setItemMeta(meta);
         return item;
     }
@@ -442,6 +498,16 @@ public final class Ginko implements InventoryHolder {
                         + " になった (個人の金 " + mae + " → " + (mae + gaku) + ")"));
         Enshutsu.oto(player, Enshutsu.OTO_CHU);
     }
+
+    /**
+     * 石油の見た目の番号（CustomModelData）。
+     *
+     * ★★ 正本はデータパック ★★
+     *   `jidai:sekiyu/waku` と `jidai:sekiyu/dashi_give` が石油に付ける番号。
+     *   ここは写しなので、`clientmod/tests/mod_kakunin.py` が
+     *   **データパック・プラグイン・MOD の3つで同じか**を見張っている。
+     */
+    static final int SEKIYU_MITAME = 8301;
 
     /** 中央プラントが出した石油のアイテムか。 */
     static boolean sekiyuNoAitem(ItemStack item) {

@@ -1,0 +1,589 @@
+{
+  "status": "passed",
+  "checks": [
+    "本番9枚とnearestプレビュー27枚の実在を数え上げ",
+    "保存byteから寸法・RGBA色数・alpha・容量・SHA-256・pixel数を計測",
+    "dotto.tenkenの全項目と細い要素10%以下を検査",
+    "作画関数を2回実行し、本番9枚すべて保存PNG byte一致",
+    "64格子の各画素を4px角で直接配置。乱数・画像生成・AAなし",
+    "manifest全PNGエントリのsha256・byte数・寸法・色数・alphaを実ファイルと再照合",
+    "items全9件の色ごとのpixel数を実ファイルと照合、各合計65,536",
+    "48/32/16pxの表示を暗色と羊皮紙色の両背景で目視確認",
+    "16pxを整数倍拡大して各案の題材・構図差を再確認",
+    "参照専用の護符・聖杯・旧版・依頼文・正本コードのSHA-256が不変"
+  ],
+  "production_count_actual": 9,
+  "preview_count_actual": 27,
+  "deterministic_png_bytes": true,
+  "per_image": [
+    {
+      "proposal": "A",
+      "item": "kaizu",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        12,
+        16,
+        12,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "A/kaizu: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 色数 18 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: 透明余白 (12, 16, 12, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "A/kaizu: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "B",
+      "item": "kaizu",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "B/kaizu: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 色数 18 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: 透明余白 (12, 12, 12, 12)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "B/kaizu: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "C",
+      "item": "kaizu",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "C/kaizu: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 色数 18 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: 透明余白 (12, 12, 12, 12)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "C/kaizu: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "A",
+      "item": "haguruma",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        12,
+        12,
+        12,
+        12
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "A/haguruma: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 色数 8 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: 透明余白 (12, 12, 12, 12)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "A/haguruma: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "B",
+      "item": "haguruma",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "B/haguruma: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 色数 11 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: 透明余白 (16, 16, 16, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "B/haguruma: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "C",
+      "item": "haguruma",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        8,
+        24,
+        8,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "C/haguruma: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 色数 9 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: 透明余白 (8, 24, 8, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "C/haguruma: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "A",
+      "item": "tsukinoishi",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        16,
+        16,
+        16,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 色数 14 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: 透明余白 (16, 16, 16, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "A/tsukinoishi: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "B",
+      "item": "tsukinoishi",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        20,
+        12,
+        20,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 色数 11 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: 透明余白 (20, 12, 20, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "B/tsukinoishi: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    },
+    {
+      "proposal": "C",
+      "item": "tsukinoishi",
+      "passed": true,
+      "thin_ratio": 0.0,
+      "margins_ltrb": [
+        12,
+        16,
+        16,
+        16
+      ],
+      "checks": [
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 256×256（64 か 256）"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 不透明度が 0/255 だけ"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 透明画素の RGB が 0"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 色数 9 (64以下)"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 全色が v6 パレット＋追加色 "
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 外周 8px が outline"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 続く 8px が brass"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 内部に outline 色が無い"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: 透明余白 (12, 16, 16, 16)（8〜32）"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: highlight のまとまりが 1（1）"
+        },
+        {
+          "passed": true,
+          "detail": "C/tsukinoishi: シルエットが 1 つ（1）"
+        },
+        {
+          "passed": true,
+          "detail": "3px未満の細い要素 0.0000%"
+        }
+      ]
+    }
+  ],
+  "acceptance_test": {
+    "tool": "clientmod/tests/dai7_kakunin.py",
+    "passed": 246,
+    "failed": 0,
+    "exit_code": 0,
+    "args": [
+      "nouhin/v9/dai1",
+      "--hikaku-nashi"
+    ],
+    "log": "acceptance_check.txt"
+  }
+}

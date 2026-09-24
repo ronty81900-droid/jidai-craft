@@ -9,7 +9,7 @@ Minecraft Java版 1.20.1 の大型企画です。5つの勢力が鉄器時代か
 | 場所 | 中身 | 置き先 |
 |---|---|---|
 | `world/` | 遊ぶ舞台。1500×1500、5勢力の拠点つき | サーバーの `world/` |
-| `plugin/JidaiCraft-0.56.0.jar` | プラグイン。金・店・ガチャ・戦争 | `plugins/` |
+| `plugin/JidaiCraft-0.59.0.jar` | プラグイン。金・店・ガチャ・戦争 | `plugins/` |
 | `datapacks/jidai_craft/` | データパック。時代進行・勝利判定・スコア | `world/datapacks/`（すでに `world/` の中に入れた状態で配っています） |
 | `clientmod/JidaiUI-0.1.0.jar` | 参加者が入れるクライアント MOD。画面を見やすくします | 各自の `mods/` |
 | `server/` | サーバー設定のひな型 | サーバーの直下 |
@@ -32,7 +32,7 @@ Minecraft Java版 1.20.1 の大型企画です。5つの勢力が鉄器時代か
 ├── arclight-forge-1.20.1-1.0.6.jar   ← 自分で落とす
 ├── mods/                              ← 自分で落とす（TaCZ / Voice Chat）
 ├── tacz/                              ← 自分で落とす（銃パック・6丁 消した物）
-├── plugins/JidaiCraft-0.56.0.jar      ← ここから
+├── plugins/JidaiCraft-0.59.0.jar      ← ここから
 ├── world/                             ← ここから（datapack 入り）
 └── （server/ の中身を全部ここへ）      ← ここから
 ```
@@ -53,17 +53,17 @@ start.bat
 
 ## 説明書の PDF 2冊は別に配ります
 
-合計 72MB あるので、ここには入れていません。運営から参加者へ直接 渡してください。
+PDF（2冊で 13.5MB）はここには入れていません。運営から参加者へ直接 渡してください。
 
 | | ページ | 誰に |
 |---|---:|---|
 | 遊び方 | 12 | 参加者 全員。開始10分前に読めば遊べます |
 | 詳細版 | 13 | 勢力のリーダー。数字がすべて載っています |
 
-中身が実装と食い違っていないかは、機械で確かめられます。
+中身が実装と食い違っていないかは、機械で確かめられます。数字は毎回 実装から読み直すので、実装を変えたあとに走らせれば、刷り直しが要るかどうか分かります。
 
 ```bash
-python tests/nouhin_kakunin.py <PDFを展開したフォルダ>
+python tests/pdf_kakunin.py <PDFの入ったフォルダ>
 ```
 
 作り直したくなったときのために、仕様書は `docs/Codex依頼文_説明書A_遊び方.md` と `docs/Codex依頼文_説明書B_詳細版.md` に残してあります。`docs/資料_商品一覧.md` と合わせて外注に渡せば、同じ物が作れます。
@@ -110,7 +110,7 @@ python clientmod/build.py
 python plugin/tests/run_harness.py
 ```
 
-検査はサーバーを立てずに 1,032件 走ります。`sun.misc.Unsafe` と `Proxy` で Bukkit を偽装しているからです。実際にサーバーを立てて通す検査は `tests/verify_jidai.py` で、こちらは 404件 です。
+検査はサーバーを立てずに 1,048件 走ります。`sun.misc.Unsafe` と `Proxy` で Bukkit を偽装しているからです。実際にサーバーを立てて通す検査は `tests/verify_jidai.py` で、こちらは 410件 です。
 
 作業の作法とこれまでの経緯は、`docs/開発の引き継ぎ書.md` に全部書いてあります。
 

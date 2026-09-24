@@ -156,7 +156,7 @@ def main():
               + " 相手=" + str(score("森林", "sensou_aite")))
 
         sensen_okuru(1)
-        check("★★#w_soku 1 で【交戦(2)】から始まり、上限が2倍になる",
+        check("★★#w_soku 1 で【交戦(2)】から始まり、略奪の割合が2倍になる",
               war(1, 2, "sensou") == 2 and war(1, 2, "sensou_bai") == 2,
               "状態=" + str(war(1, 2, "sensou"))
               + " 倍率=" + str(war(1, 2, "sensou_bai")))
@@ -194,8 +194,16 @@ def main():
         naka = [x for x in ryaku if x.endswith("sensou/ryakudatsu")][0]
         c("execute as @e[tag=t_p] at @e[tag=t_p] run "
           + naka.split(" run ", 1)[1])
-        check("★★略奪が効く（森林 500→470 / 丘陵 0→30）",
-              score("森林", "chokin") == 470 and score("丘陵", "chokin") == 30,
+        # ★★ 2026-09-09: 1回で相手の総量の 1% ★★
+        #   ★ 期待値を直書きしない。この戦争は #w_soku 1（下剋上の形）で始めたので
+        #     倍率が2＝2% になっている。**実際の倍率から出す**
+        #     （直書きすると「実装は正しいのに検査だけ落ちる」ことになる。実際に一度そうなった）。
+        bai = war(1, 2, "sensou_bai") or 1
+        ugoku = 500 * bai // 100
+        check("★★略奪が効く（森林 500→%d / 丘陵 0→%d ・倍率%d）"
+              % (500 - ugoku, ugoku, bai),
+              score("森林", "chokin") == 500 - ugoku
+              and score("丘陵", "chokin") == ugoku,
               "森林=" + str(score("森林", "chokin"))
               + " 丘陵=" + str(score("丘陵", "chokin")))
         c(f"execute as {SEN} run kill @s")
@@ -270,7 +278,10 @@ def main():
         # ★ Java のソース上では \" と書かれている。そこまで含めて拾う。
         #   単純に .*? にすると \" の手前で切れ、途中までしか取れない。
         katachi = re.findall(r'(tacz:[a-z_]+\{[A-Za-z]+Id:\\"[a-z_0-9:]+\\"\})', shop)
-        check("販売所に give 用の文字列が 15 個ある", len(katachi) == 15, str(len(katachi)))
+        # ★ 銃を 5丁1種 に整理した時（v0.56.0）から 15 → 6 になっていた。
+        #   この検査だけ 15 のまま取り残されていた（2026-09-09 に気付いた）。
+        check("販売所に give 用の文字列が 6 個ある（銃5丁＋弾1種）",
+              len(katachi) == 6, str(len(katachi)))
 
         # 書式だけを見る。中カッコの NBT が 1.20.1 で受理されるか。
         res = c('give @p minecraft:stone{jidai_kakunin:"ok"} 1')

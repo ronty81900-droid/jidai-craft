@@ -59,16 +59,43 @@ def chigau():
     return de
 
 
+def yobun():
+    """配り先にあって、元にはもう無いファイルを (相対パス, 配り先) で並べる。
+
+    ★★ 2026-09-10 に足した ★★
+      差し替えだけだと、【消した関数が実機に残り続ける】。
+      呼ばれないので黙っているが、次に開いた人は「まだこの決まりがある」と読む。
+      実際に senryou_hantei.mcfunction で起きた。
+    """
+    de = []
+    for s in SAKI:
+        if not os.path.isdir(s):
+            continue
+        for ne, _dirs, files in os.walk(s):
+            for f in files:
+                q = os.path.join(ne, f)
+                sou = os.path.relpath(q, s)
+                if not os.path.exists(os.path.join(MOTO, sou)):
+                    de.append((sou, s))
+    return de
+
+
 def main():
     miru = '--miru' in sys.argv
     kumi = chigau()
-    if not kumi:
+    keru = yobun()
+    if not kumi and not keru:
         print('OK: 実機2台とも元と同じ。配るものは無い')
         return 0
 
-    print('差のあるファイル %d 件:' % len(kumi))
-    for sou, s in kumi:
-        print('  %-52s → %s' % (sou, os.path.relpath(s, NE).split(os.sep)[0]))
+    if kumi:
+        print('差のあるファイル %d 件:' % len(kumi))
+        for sou, s in kumi:
+            print('  %-52s → %s' % (sou, os.path.relpath(s, NE).split(os.sep)[0]))
+    if keru:
+        print('元から消えたので、実機からも消すファイル %d 件:' % len(keru))
+        for sou, s in keru:
+            print('  %-52s ← %s' % (sou, os.path.relpath(s, NE).split(os.sep)[0]))
     if miru:
         print('（--miru なので配っていない）')
         return 0
@@ -84,17 +111,22 @@ def main():
         saki = os.path.join(s, sou)
         os.makedirs(os.path.dirname(saki), exist_ok=True)
         shutil.copyfile(moto, saki)
+    for sou, s in keru:
+        os.remove(os.path.join(s, sou))
 
     # --- 配ったあと照合する（「入れたつもり」を残さない）---------
     nokori = chigau()
-    if nokori:
+    nokori2 = yobun()
+    if nokori or nokori2:
         print('')
-        print('★ 配ったのに違うファイルが %d 件 残っている:' % len(nokori))
-        for sou, s in nokori:
+        print('★ 配ったのに違うファイルが %d 件 / 消し残りが %d 件 ある:'
+              % (len(nokori), len(nokori2)))
+        for sou, _s in nokori + nokori2:
             print('  ' + sou)
         return 1
     print('')
-    print('OK: %d 件 配って、実機2台とも元と1バイトも違わないことを照合した' % len(kumi))
+    print('OK: %d 件 配り、%d 件 消して、実機2台とも元と1バイトも違わないことを照合した'
+          % (len(kumi), len(keru)))
     return 0
 
 

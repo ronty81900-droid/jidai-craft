@@ -138,7 +138,7 @@ function jidai:shinko/shounin_kyuryo
 | 金ブロック | 銀行（金を預ける／貴金属を売る／**石油を預ける**）。**他勢力の拠点なら戦争中に略奪** |
 | ビーコン | 拠点の目印。**交戦中に相手の貯金を 100 以下にすると壊せる**（壊すと植民地化＝制圧。花火5発＋「終戦」、その戦争は再戦禁止へ）。`jidai game beacon` が各拠点の後方に置く |
 | エメラルドブロック（中心から x+4） | **販売所**。タブ3枚 ── **生活**（パン・石炭・原木・石レンガ・松明・焼肉・ガラス・戦争宣誓・金リンゴ・下剋上 の10品）/ **防具** / **武器**（剣2本・弓・矢・クロスボウ） |
-| エメラルドブロック（中心から x+10） | **銃器専門店**。**銃9丁**と**弾6種**だけ |
+| エメラルドブロック（中心から x+10） | **銃器専門店**。**銃5丁**と**弾1種**だけ |
 | ダイヤブロック | ガチャ |
 | エメラルドブロック（中心から x+10） | **銃器専門店**。★ **勢力の貯金が一度でも 10,000 を超えるまで開きません** |
 | 鉄ブロック | 時代を進める申請（**リーダー専用**） |
@@ -551,28 +551,39 @@ jidai tsuruhashi <名前>
 
 ## 何をどこまで確かめてあるか
 
-**合計 2,616項目を機械で自動確認しています。**（2026-08-26・**v0.55.0** で測り直した数。サーバー不要の9種＝**2,114項目**は、この日に実際に走らせて数えた値）
+**合計 3,211項目を機械で自動確認しています。**（2026-09-20・**v0.59.0**。★ サーバーが要る5種は 2026-09-18 の値、それ以外は 2026-09-20 に走らせ直した値です）
+
+> **★ 参加者に配る説明書2冊は完成しました**（2026-09-20 r2・`pdf_kakunin` **50 / 0**）。
+> 置き場は `Documents/ChatGPT/New project/output/pdf/jidaicraft_20260920_r2/`。
 
 | 何を | 件数 | 走らせ方 |
 |---|---:|---|
-| **クライアントMOD** | **204** | `cd clientmod && python tests/mod_kakunin.py` |
+| **プラグイン本体（サーバー不要のハーネス）** | **1,048** | `python plugin/tests/run_harness.py` |
+| **データパック** | **410** | `python tests/verify_jidai.py`（**サーバーが要る**） |
+| **特殊アイテム16種の絵（v7・記録用。実機には出していない）** | 382 | `python tests/tokushu_e_kakunin.py clientmod/nouhin/v7` |
+| **クライアントMOD** | **221** | `cd clientmod && python tests/mod_kakunin.py` |
+| **説明書・資料・ルールブックの数字が実装と合っているか** | **185** | `python tests/bunsho_kakunin.py` |
+| **納品された説明書 PDF が実装と合っているか** | **50** | `python tests/pdf_kakunin.py` |
+| **画面の文字が枠に収まるか** | **149** | `cd clientmod && python tests/haba_kakunin.py` |
+| **外注への依頼文が実装と合っているか** | **169** | `python tests/iraibun_kakunin.py` |
 | UI素材 | 129 | `cd clientmod && python tests/sozai_kakunin.py` |
-| **遺物11種の絵** | **124** | `cd clientmod && python tests/ibutsu_kakunin.py` |
-| 特殊5種の絵 | 64 | `cd clientmod && python tests/tokushu_kakunin.py` |
-| **画面の文字が枠に収まるか** | **176** | `cd clientmod && python tests/haba_kakunin.py` |
+| **遺物11種の絵（v6・64×64。これが実機に出ている）** | 124 | `cd clientmod && python tests/ibutsu_kakunin.py` |
+| **世界の時代バー（ボスバーの絵と、描く側の契約）** | **89** | `python tests/bar_kakunin.py` |
+| **特殊5種の絵（v5・16×16。これが実機に出ている）** | 64 | `cd clientmod && python tests/tokushu_kakunin.py` |
+| **連携（プラグイン⇄データパック）** | **53** | `python tests/plugin_renkei.py`（サーバーが要る） |
 | 掘り（貴金属） | 34 | `python tests/horu_kakunin.py` |
 | UIの突き合わせ | 32 | `python tests/ui_kakunin.py` |
-| **説明書・資料・ルールブックの数字が実装と合っているか** | **253** | `python tests/bunsho_kakunin.py` |
-| 銃と弾 | 24 | `python tests/buki_kakunin.py` |
-| **プラグイン本体（サーバー不要のハーネス30本）** | **1,074** | `python plugin/tests/run_harness.py` |
-| データパック | 396 | `python tests/verify_jidai.py`（**サーバーが要る**） |
-| 連携 | 52 | `python tests/plugin_renkei.py`（同上） |
-| 通し稼働 | 29 | `python tests/toushi_5.py`（同上） |
+| **通し稼働（5勢力）** | **31** | `python tests/toushi_5.py`（サーバーが要る） |
 | 地図 | 18 | `python tests/map_kakunin.py`（同上） |
-| 設置 | 7 | `python tests/setup_kakunin.py`（同上） |
+| **銃と弾** | **16** | `python tests/buki_kakunin.py` |
+| 設置 | 7 | `python tests/setup_kakunin.py`（サーバーが要る） |
 
-> 上の10本（サーバー不要）は **2026-08-26 に実際に走らせて数えた**値です。
-> 下の5つ（サーバーが要る）は据え置きで、この日は測っていません。
+> ★ 前の表（2026-08-26・2,616項目）は**走らせずに据え置いた数字が混ざっていて**、
+> 実測と大きくずれていました（説明書 253→184 / 銃と弾 24→16 / 画面の文字 176→149）。
+> **数えた日を書かない数字は必ず古くなります。** この表は全部この日に走らせた値です。
+>
+> ★ 特殊アイテムの絵は **v5（16×16）と v6（64×64）が実機に出ている**版です。
+> v7（512/256）は自前で作った高解像度版ですが、採用していません（記録として残しています）。
 走らせ方は `plugin/tests/手順.md`。
 
 >

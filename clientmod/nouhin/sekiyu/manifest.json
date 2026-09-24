@@ -1,0 +1,14 @@
+{
+  "moto": "moto/sekiyu_moto.webp",
+  "files": [
+    {
+      "file": "assets/jidaiui/textures/item/sekiyu.png",
+      "category": "item_texture",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "EDDFF7EF9A2282BE1F333B883D2CA242B82D64693C1BDD4FC782BD556B146EF5"
+    }
+  ]
+}

@@ -22,6 +22,22 @@ execute if score #s_aite sagyou matches 3 run scoreboard players operation 川 s
 execute if score #s_aite sagyou matches 4 run scoreboard players operation 内海 shokuminchi = #s_kuni sagyou
 execute if score #s_aite sagyou matches 5 run scoreboard players operation 岩場 shokuminchi = #s_kuni sagyou
 
+# --- 占領の印も付ける -----------------------------------------
+# ★★ 2026-09-09: ここで senryou を付けるようになった ★★
+#   それまでは「交戦終了時に貯金0なら占領」（senryou_hantei）が書いていたが、
+#   その決まりは廃止した。占領の入口はビーコン1本だけになったので、
+#   ビーコンが壊れたこの場所で付ける。
+#
+#   ★ shokuminchi とは別物。
+#     shokuminchi … 企画の終わりまで戻らない（勝利条件が数える）
+#     senryou     … 下剋上で解ける（解けても植民地の印は残る）
+#   senryou を誰も書かないと、**下剋上が永久に使えなくなる**（実際に一度そうなった）。
+execute if score #s_aite sagyou matches 1 run scoreboard players operation 丘陵 senryou = #s_kuni sagyou
+execute if score #s_aite sagyou matches 2 run scoreboard players operation 森林 senryou = #s_kuni sagyou
+execute if score #s_aite sagyou matches 3 run scoreboard players operation 川 senryou = #s_kuni sagyou
+execute if score #s_aite sagyou matches 4 run scoreboard players operation 内海 senryou = #s_kuni sagyou
+execute if score #s_aite sagyou matches 5 run scoreboard players operation 岩場 senryou = #s_kuni sagyou
+
 # --- 全体へ知らせる -------------------------------------------
 # ★ 隠さない。誰が誰を落としたかは、全員が知るべき情報。
 scoreboard players operation #mei_no sagyou = #s_kuni sagyou

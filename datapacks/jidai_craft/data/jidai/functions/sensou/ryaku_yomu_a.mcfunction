@@ -12,3 +12,4 @@ scoreboard players operation #w_jotai sagyou = @s sensou
 scoreboard players operation #bai sagyou = @s sensou_bai
 scoreboard players operation #r_kane sagyou = @s ryakudatsu_kane_a
 scoreboard players operation #r_sekiyu sagyou = @s ryakudatsu_sekiyu_a
+scoreboard players operation #r_kai sagyou = @s ryakudatsu_kai_a

@@ -67,14 +67,15 @@ for mei, kitai in (('進行_石油_鉄器', 100), ('進行_石油_中世', 250),
                    ('石油_間隔_鉄器', 10), ('リセット_徴収率', 40), ('先行_ロス率', 50),
                    ('腐敗_猶予秒', 900), ('腐敗_減少率', 10),
                    ('戦争_準備秒', 300), ('戦争_交戦秒', 600), ('戦争_禁止秒', 1800),
-                   ('略奪_金', 30), ('略奪_石油', 2), ('略奪_上限金', 300), ('略奪_上限石油', 10),
+                   # ★ 2026-09-09: 1回いくらの固定額と上限は廃止。相手の総量の 1% を奪う
+                   ('略奪_割る数', 100), ('略奪_間隔秒', 10), ('占領_必要回数', 100),
                    ('下剋上_値段', 150), ('経済_勝利_貯金', 500000)):
     check('settei %s = %s' % (mei, kitai), settei(mei) == kitai, '実装=%s' % settei(mei))
 
 # ── 2) プラグインの定数 ──
 for src, mei, kitai, na in ((SHOP, 'JUKI_KAIHOU', 10000, '銃器専門店の解放'),
                             (IBUTSU, 'JUKI_SHIKII_TEGATA', 5500, '手形の閾値'),
-                            (JC, 'BEACON_KOWASERU', 100, 'ビーコンを壊せる貯金'),
+                            (JC, 'BEACON_KAISU_YOBI', 100, 'ビーコンを壊せる回数の予備'),
                             (JC, 'SEIATSU_HANABI', 5, '制圧の花火'),
                             (KANRI, 'BEACON_USHIRO', 16, 'ビーコンの後方')):
     m = re.search(r'%s\s*=\s*(\d+)' % mei, src)
@@ -100,6 +101,30 @@ check('景品表を読めた（4時代ぶん・%d 件）' % len(kei), _ji == {1,
       '実際=%d 件 / 時代=%s' % (len(kei), sorted(_ji)))
 tokushu_mei = set(re.findall(r'\{"([^"]+)",\s*"[^"]+",\s*"\d+"', SHOURI)) | \
               set(re.findall(r'\{"([^"]+)",\s*"[^"]+",\s*"\d+",\s*"\d"', SHOURI))
+# ══════════════════════════════════════════════════════════════
+#  ★★ 資料が「実装から作り直した状態」か（2026-09-20 に追加）★★
+#
+#  なぜ要るか: docs/資料_商品一覧.md は tests/shiryou_gacha.py が作る物だが、
+#  **走らせ忘れても誰も気づかなかった**。実際、案C（歯車と月の石を現代限定に）
+#  の後も「近代 23件 / 特殊 4.00%」が残り、**そのまま説明書に刷られた**
+#  （依頼文B が「§5 の表をそのまま」と指しているため）。
+#  ここで道具を空回しして、**書き換える所が1つも無い**ことを確かめる。
+# ══════════════════════════════════════════════════════════════
+def _shiryou_furui():
+    """shiryou_gacha.py --miru を回して、書き換える節の一覧を返す。"""
+    import subprocess as _sp
+    import sys as _sys
+    r = _sp.run([_sys.executable, os.path.join(NE, "tests", "shiryou_gacha.py"), "--miru"],
+                capture_output=True, text=True, encoding="utf-8",
+                env=dict(os.environ, PYTHONIOENCODING="utf-8"), cwd=NE)
+    return [ln.strip() for ln in r.stdout.splitlines() if ln.startswith("--- ")]
+
+
+_furui = _shiryou_furui()
+check("★資料_商品一覧.md が実装から作り直した状態（走らせ忘れが無い）",
+      not _furui,
+      "古い節: %s ／ `python tests/shiryou_gacha.py` を走らせる" % _furui)
+
 # ★ 割合の期待値はここに書かない（第3の正本になってしまう）。
 #   説明書の本文の表と実装を直に突き合わせる（下の「本文 vs 実装」）。
 for j in (1, 2, 3, 4):

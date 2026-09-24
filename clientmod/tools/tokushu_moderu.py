@@ -34,10 +34,35 @@ NE = os.path.dirname(KOKO)
 KIKAKU = os.path.dirname(NE)
 
 SHOURI = os.path.join(KIKAKU, 'plugin', 'src', 'main', 'java', 'jidai', 'Shouri.java')
+# ★★ 2026-09-09: Codex の絵に戻した ★★
+#   v7（自前生成の高解像度 512/256）は2度作り直したが、
+#   「粗い・古地図風のクオリティが出ていない」というご判断で採用しない。
+#   **実機に出すのは Codex 納品の v5（集める5種 16×16）と v6（遺物11種 64×64）**。
+#   v7 と v7_an は記録として残すが、ここからは見ない。
 NOUHIN = os.path.join(NE, 'nouhin', 'v5')
-# ★ 遺物（第6回）は別の納品。集める5種は v5、遺物11種は v6 から取る（2026-08-23）
 NOUHIN_IBUTSU = os.path.join(NE, 'nouhin', 'v6')
+
+# ★★ 2026-09-18: 確定した2枚だけ v8 から取る（ご指示）★★
+#   「アイテムは確定した二枚以外は以前のものを一旦使用します」。
+#   護符と聖杯は作り直しが決まっている（自前・64×64）。
+#   残り14枚は Codex 第7回がそろうまで v5/v6 のまま。
+NOUHIN_V8 = os.path.join(NE, 'nouhin', 'v8')
+KOBETSU = ('gofu', 'seihai')
 SAKI = os.path.join(NE, 'tokushu', 'assets')
+
+# ★★ 2026-09-20: 石油の絵（ユーザーからいただいたドット絵）★★
+#   石油は特殊アイテムではない（Shouri.java に無い）。
+#   正体は **黒い染料に名前と目印を付けた物**なので、
+#   紙ではなく **black_dye.json** の方へ対応表を足す。
+SEKIYU = os.path.join(NE, 'nouhin', 'sekiyu')
+SEKIYU_DP = os.path.join(KIKAKU, 'datapacks', 'jidai_craft', 'data', 'jidai',
+                         'functions', 'sekiyu')
+# 黒い染料そのもの（バニラの black_dye.json と同じ中身）。
+# ★ ここを間違えると、ふつうの黒い染料まで見た目が壊れる。
+SUMI_MOTO = {
+    'parent': 'minecraft:item/generated',
+    'textures': {'layer0': 'minecraft:item/black_dye'},
+}
 
 # 紙の見た目そのもの（バニラの paper.json と同じ中身）。
 # ★ ここを間違えると、ふつうの紙まで見た目が壊れる。
@@ -75,6 +100,36 @@ def kaku(p, nakami):
         json.dumps(nakami, ensure_ascii=False, indent=2) + '\n')
 
 
+def sekiyu_bangou():
+    """石油の CustomModelData を【データパックから】読む。
+
+    ★★ 数字を写さない ★★
+      ここに 8301 と書くと、データパックを直した時に黙って絵が出なくなる
+      （サーバーは正しく動くので、実機で見るまで気づけない）。
+    ★ 石油を作る所が複数あるので、**全部 同じ番号か**も確かめる。
+      1か所でも漏れると、そこで湧いた石油だけ黒い染料のまま出る。
+    """
+    ban = set()
+    for fai in ('dashi_give.mcfunction', 'waku.mcfunction'):
+        michi = os.path.join(SEKIYU_DP, fai)
+        if not os.path.exists(michi):
+            continue
+        t = io.open(michi, encoding='utf-8').read()
+        for gyou in t.splitlines():
+            if 'jidai_sekiyu:"oil"' not in gyou:
+                continue
+            if not ('give ' in gyou or 'summon ' in gyou):
+                continue            # clear（消す側）は番号を見ない。部分一致なので要らない
+            m = re.search(r'CustomModelData:(\d+)', gyou)
+            ban.add(int(m.group(1)) if m else None)
+    if not ban:
+        return None
+    if len(ban) > 1 or None in ban:
+        raise SystemExit('[中止] 石油の CustomModelData が揃っていません: %s'
+                         % sorted(x for x in ban if x is not None))
+    return ban.pop()
+
+
 def main():
     kumi = hyou()
     print('Shouri.java から 集める %d 件 読みました' % len(kumi))
@@ -94,16 +149,27 @@ def main():
     if nai:
         print('  ★ 絵がまだ無い遺物（紙のまま出る）: ' + ' / '.join(nai))
 
+    # ── 確定した絵だけ v8 から取る（2026-09-18 のご指示）──────
+    for fai in KOBETSU:
+        moto = os.path.join(NOUHIN_V8, 'assets', 'jidaiui', 'textures', 'item', fai + '.png')
+        if os.path.exists(moto):
+            dokoni[fai] = NOUHIN_V8
+            print('  ★ %s.png は v8（確定した絵）から取る' % fai)
+        else:
+            print('  ★ v8 に %s.png が無いので、以前の絵のまま' % fai)
+
     # ── 1) 絵を納品から持ってくる（sha256 で照合しながら）──
+    # ★ 鍵を【納品ごと】にする。前は名前だけだったので、別の納品から取った絵を
+    #   前の納品の sha256 と突き合わせて誤って止まる（v8 の護符 vs v5 の sha）。
     sha = {}
-    for nouhin in (NOUHIN, NOUHIN_IBUTSU):
+    for nouhin in (NOUHIN, NOUHIN_IBUTSU, NOUHIN_V8):
         mp = os.path.join(nouhin, 'manifest.json')
         if not os.path.exists(mp):
             continue
         man = json.loads(io.open(mp, encoding='utf-8').read())
         for f in man['files']:
             if f.get('category') == 'item_texture':
-                sha[os.path.basename(f['file'])] = f['sha256'].upper()
+                sha[(nouhin, os.path.basename(f['file']))] = f['sha256'].upper()
 
     e_saki = os.path.join(SAKI, 'jidaiui', 'textures', 'item')
     os.makedirs(e_saki, exist_ok=True)
@@ -114,7 +180,8 @@ def main():
         shutil.copy2(moto, os.path.join(e_saki, fai + '.png'))
         h = hashlib.sha256(open(os.path.join(e_saki, fai + '.png'), 'rb').read()) \
             .hexdigest().upper()
-        if sha.get(fai + '.png') and sha[fai + '.png'] != h:
+        kagi = (dokoni.get(fai, NOUHIN), fai + '.png')
+        if sha.get(kagi) and sha[kagi] != h:
             raise SystemExit('[中止] %s.png が納品と違います' % fai)
         print('  絵: %s.png (%s)' % (fai, h[:12]))
 
@@ -136,6 +203,33 @@ def main():
     kaku(os.path.join(SAKI, 'minecraft', 'models', 'item', 'paper.json'), kami)
 
     print('  模型: %d 枚 ＋ 紙の対応表' % len(kumi))
+
+    # ── 3b) 石油（黒い染料の対応表）──────────────────────
+    sekiyu_ban = sekiyu_bangou()
+    if sekiyu_ban is None:
+        print('  ★ 石油: データパックに CustomModelData が無いので、絵を入れない')
+    else:
+        moto = os.path.join(SEKIYU, 'assets', 'jidaiui', 'textures', 'item', 'sekiyu.png')
+        if not os.path.exists(moto):
+            raise SystemExit('[中止] 石油の絵がありません（tools/sekiyu_e.py を先に動かす）')
+        # ★ 納品の控えと sha256 を突き合わせる（特殊アイテムと同じやり方）
+        man = json.loads(io.open(os.path.join(SEKIYU, 'manifest.json'),
+                                 encoding='utf-8').read())
+        hazu = man['files'][0]['sha256'].upper()
+        shutil.copy2(moto, os.path.join(e_saki, 'sekiyu.png'))
+        h = hashlib.sha256(open(os.path.join(e_saki, 'sekiyu.png'), 'rb').read()) \
+            .hexdigest().upper()
+        if h != hazu:
+            raise SystemExit('[中止] sekiyu.png が納品と違います')
+        kaku(os.path.join(SAKI, 'jidaiui', 'models', 'item', 'sekiyu.json'),
+             {'parent': 'minecraft:item/generated',
+              'textures': {'layer0': 'jidaiui:item/sekiyu'}})
+        sumi = dict(SUMI_MOTO)
+        sumi['overrides'] = [{'predicate': {'custom_model_data': sekiyu_ban},
+                              'model': 'jidaiui:item/sekiyu'}]
+        kaku(os.path.join(SAKI, 'minecraft', 'models', 'item', 'black_dye.json'), sumi)
+        print('  石油: sekiyu.png (%s) ＋ 黒い染料の対応表 番号%d'
+              % (h[:12], sekiyu_ban))
 
     # ── 4) MOD が【名前で】絵を引けるように、Java の表も作る ──
     #

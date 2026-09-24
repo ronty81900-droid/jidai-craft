@@ -79,9 +79,11 @@ def bubble_yomu():
 SENSOU_JUNBI = 300           # 戦争_準備秒
 SENSOU_KOUSEN = 600          # 戦争_交戦秒
 SENSOU_KINSHI = 1800         # 戦争_禁止秒
-RYAKUDATSU_JOUGEN_KANE = 300   # 略奪_上限金（1交戦あたり）
-RYAKUDATSU_JOUGEN_OIL = 10     # 略奪_上限石油
-BEACON_KOWASERU = 100        # JidaiCraft.BEACON_KOWASERU（貯金がこれ以下で壊せる）
+# ★ 2026-09-09: 1回いくらの上限は廃止。1回で相手の総量の 1%（略奪_割る数=100）。
+#   100回 壊すと 0.99^100 ＝ 約37% が残る。空にはならない。
+RYAKUDATSU_WARU = 100          # 略奪_割る数（100 なら 1%）
+SENRYOU_KAISU = 100            # 占領_必要回数（銀行を壊す回数）
+RYAKUDATSU_KANKAKU = 10        # 略奪_間隔秒（壊した本人ごとのクールダウン）
 
 # 掘り: 石・花崗岩・閃緑岩・安山岩（深層岩は 1.5倍）
 HORI = [(0.15, 1), (0.08, 5), (0.04, 10), (0.01, 15)]   # (確率, 売値)
@@ -296,9 +298,21 @@ if __name__ == '__main__':
              (SENSOU_JUNBI + SENSOU_KOUSEN) / 60, SENSOU_KINSHI / 60))
     print('  4勢力を落とすので、最短でも %d分（同時に複数へ宣戦できる場合）'
           % ((SENSOU_JUNBI + SENSOU_KOUSEN) / 60 * 4))
-    print('  ★ 略奪の上限は1交戦 %d円。貯金 15,000 を略奪だけで 0 にはできない。'
-          % RYAKUDATSU_JOUGEN_KANE)
-    print('    相手が【時代を進めた直後】(貯金を使い切った所)を狙うのが唯一の現実解。')
+    # ★ 2026-09-09: 1回で相手の総量の 1%。上限は無いが、掛け算なので 0 にはならない。
+    nokori = (1 - 1.0 / RYAKUDATSU_WARU) ** SENRYOU_KAISU
+    print('  ★ 略奪は1回で相手の総量の %.0f%%。%d回 壊しても %.0f%% は残る（0 にはならない）。'
+          % (100.0 / RYAKUDATSU_WARU, SENRYOU_KAISU, nokori * 100))
+    print('    止めを刺すのはビーコン。銀行を %d回 壊すと壊せるようになる。'
+          % SENRYOU_KAISU)
+    # ★ 1人あたり RYAKUDATSU_KANKAKU 秒に1回しか壊せない。
+    #   交戦は SENSOU_KOUSEN 秒しかないので、**必要な人数**が決まる。
+    hitsuyou_byou = SENRYOU_KAISU * RYAKUDATSU_KANKAKU
+    for nin in (1, 3, 5, 10, 20):
+        byou = hitsuyou_byou / nin
+        ma = '交戦(%d分)に間に合う' % (SENSOU_KOUSEN / 60) if byou <= SENSOU_KOUSEN else '★間に合わない'
+        print('      %2d人で %4.0f秒（%.1f分） … %s' % (nin, byou, byou / 60, ma))
+    print('    ★ 1人では %d秒 かかり、交戦 %d秒 に収まらない。**攻めるには人数が要る**。'
+          % (hitsuyou_byou, SENSOU_KOUSEN))
 
 # =========================================================
 #  超特殊勝利（特殊5種）の見積り ── 追記

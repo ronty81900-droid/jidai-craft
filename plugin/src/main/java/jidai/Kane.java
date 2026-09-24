@@ -360,6 +360,16 @@ public final class Kane {
         return yomu("sagyou", mochinushi);
     }
 
+    /**
+     * データパックの設定値を1つ読む。★ 数字を持つのはデータパック。プラグインは覚えない。
+     *
+     * ★ 2026-09-09 に足した。ビーコンを壊せる回数（占領_必要回数）を読むため。
+     *   プラグイン側に 100 を書き写すと、設定を変えた時に片方だけ古くなる。
+     */
+    public int settei(String mochinushi) {
+        return yomu(SETTEI, mochinushi);
+    }
+
     /** 勢力の番号。★ 番号を決めるのはデータパック。プラグインは覚えない。 */
     public int bangou(String kuniMei) {
         return yomu(BANGOU, kuniMei);

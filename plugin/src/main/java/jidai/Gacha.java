@@ -373,7 +373,14 @@ public final class Gacha implements InventoryHolder {
         player.openInventory(inv);
     }
 
-    /** 中央のボタン。値段と、今どの景品が入っているかを説明に出す。 */
+    /**
+     * 中央のボタン。値段と、今の時代だけを説明に出す。
+     *
+     * ★★ 2026-09-18 のご指示「何が出るかは提示しなくてよい」★★
+     *   それまでは、その時代の景品を全部 並べていた（20行ほど）。
+     *   伏せる方が引く楽しみが残る。景品表の正本は Gacha.KEIHIN のままで、
+     *   運営用の資料（docs/資料_商品一覧.md）には載っている。
+     */
     private ItemStack button(int jidai) {
         ItemStack item = new ItemStack(Material.NETHER_STAR, 1);
         ItemMeta meta = item.getItemMeta();
@@ -382,12 +389,7 @@ public final class Gacha implements InventoryHolder {
         List<String> setsumei = new ArrayList<>();
         setsumei.add(moji("クリックで1回まわす"));
         setsumei.add(moji("今の時代: " + Kane.jidaiMei(jidai)));
-        setsumei.add(moji("出るもの:"));
-        for (Keihin k : KEIHIN) {
-            if (k.jidai() == jidai) {
-                setsumei.add(moji("  " + hyouji(k)));
-            }
-        }
+        // ★ 何が出るかは出さない（2026-09-18 のご指示）
         meta.setLore(setsumei);
         item.setItemMeta(meta);
         return item;
@@ -840,6 +842,44 @@ public final class Gacha implements InventoryHolder {
     }
 
     /**
+     * 集める5種を手に入れた時、全勢力へ知らせる（2026-08-31 のご指示）。
+     *
+     * ★★ 渡す時に呼ぶ。抽選の時ではない ★★
+     *   十連は伏せ札を1枚ずつめくる演出なので、抽選時に流すと結果がばれる。
+     *   遺物の知らせ（Ibutsu.teniireta）と同じ場所・同じ理由。
+     *
+     * ★ 遺物はここでは扱わない。遺物は Ibutsu 側が勢力の中へ効果まで伝える。
+     *   ここは【集める5種】だけ。勝敗そのものなので全勢力に見せる。
+     */
+    private void tokushuTsuchi(Player player, Kane kane, String namae) {
+        boolean atsumeru = false;
+        for (String m : Shouri.tokushuMei()) {
+            if (m.equals(namae)) {
+                atsumeru = true;
+            }
+        }
+        if (!atsumeru) {
+            return;
+        }
+        String kuni = kane.kinkoMei(player);
+        if (kuni == null) {
+            return;
+        }
+        // 何個目かを添える。超特殊勝利は5種そろえる勝ち方なので、
+        // 「あと何個か」が全員に見えると駆け引きになる。
+        Set<String> motteru = tokushuDeta.get(kuni);
+        int kazu = 0;
+        for (String m : Shouri.tokushuMei()) {
+            if (motteru != null && motteru.contains(m)) {
+                kazu++;
+            }
+        }
+        Enshutsu.zeninTsuchi(Enshutsu.kazaru(Enshutsu.ATARI,
+                kuni + " が " + namae + " を入手しました（"
+                        + kazu + "/" + Shouri.tokushuKazu() + "）"));
+    }
+
+    /**
      * 引いた景品に【勢力ごとに各1個まで】の決まりを当てる。
      *   特殊でない        … そのまま
      *   勢力に居ない      … ふつうの当たりに引き直す
@@ -1056,6 +1096,7 @@ public final class Gacha implements InventoryHolder {
                     player.getWorld().dropItem(player.getLocation(), nokori);
                 }
                 Ibutsu.teniireta(player, j.kane, k.namae());     // 遺物なら勢力に知らせる
+                tokushuTsuchi(player, j.kane, k.namae());        // 集める5種なら全勢力へ
             }
         }
         j.kane.kojinKousin(player, zangaku);
@@ -1360,6 +1401,7 @@ public final class Gacha implements InventoryHolder {
         if (player.isOnline()) {
             player.getInventory().addItem(watasuMono(atari));
             Ibutsu.teniireta(player, kane, atari.namae());     // 遺物なら勢力に知らせる
+            tokushuTsuchi(player, kane, atari.namae());        // 集める5種なら全勢力へ
         } else {
             // 離れている人の持ち物は触れない。取りこぼしを記録だけ残す。
             plugin.getLogger().warning("ガチャの景品を渡せませんでした（切断）: "

@@ -35,10 +35,10 @@ execute unless entity @e[type=marker,tag=jidai_plant] run return 0
 #
 # ★moto:"chuo" は「中央プラントが出した石油」の印。
 #   先行ペナルティ(取得コスト増)の対象を、これだけに限るために付ける。
-execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~10 ~ ~ {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
-execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~-10 ~ ~ {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
-execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~ ~ ~10 {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
-execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~ ~ ~-10 {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
+execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~10 ~ ~ {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",CustomModelData:8301,moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
+execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~-10 ~ ~ {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",CustomModelData:8301,moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
+execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~ ~ ~10 {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",CustomModelData:8301,moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
+execute as @e[type=marker,tag=jidai_plant,limit=1] at @s run summon minecraft:item ~ ~ ~-10 {Item:{id:"minecraft:black_dye",Count:1b,tag:{jidai_sekiyu:"oil",CustomModelData:8301,moto:"chuo",display:{Name:'{"text":"石油","color":"black"}'}}},Tags:["jidai_sekiyu"],Age:-32768,Invulnerable:1b,PickupDelay:0}
 
 # 湧いた総本数を数える
 # 1回で4本 落ちるので4つ数える。

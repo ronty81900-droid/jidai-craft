@@ -219,6 +219,43 @@ public final class Basho {
         return world + "," + x + "," + y + "," + z;
     }
 
+    /**
+     * その場所が、どこかの勢力の銀行から【半径 han マス】の中か。
+     *
+     * ★★ なぜ要るか（2026-09-18 のご指示）★★
+     *   「全勢力の銀行ブロックの半径三マスは設置も破壊もできないように。
+     *     下まで掘られたり、ブロックで覆われたりしたら面倒」。
+     *   銀行そのものは施設として守っているが、**まわりは素の地面**なので、
+     *   足元を掘って落とす・箱で覆って押せなくする、が通ってしまう。
+     *
+     * ★ 距離は縦横高さのうち【一番大きい差】で見る（7×7×7 の立方体）。
+     *   斜めだけ通れる、という分かりにくい形にしない。
+     * ★ 鍵は "世界名,x,y,z"。世界名の後ろから切るので、
+     *   世界名に読点が入っていても取り違えない。
+     */
+    public boolean ginkoNoMawari(Block block, int han) {
+        String w = block.getWorld().getName();
+        for (String k : ichiran(GINKO)) {
+            if (!k.startsWith(w + ",")) {
+                continue;
+            }
+            String[] b = k.substring(w.length() + 1).split(",");
+            if (b.length != 3) {
+                continue;
+            }
+            try {
+                if (Math.abs(Integer.parseInt(b[0]) - block.getX()) <= han
+                        && Math.abs(Integer.parseInt(b[1]) - block.getY()) <= han
+                        && Math.abs(Integer.parseInt(b[2]) - block.getZ()) <= han) {
+                    return true;
+                }
+            } catch (NumberFormatException e) {
+                // 壊れた記録は読み飛ばす（/jidai scan で作り直せる）
+            }
+        }
+        return false;
+    }
+
     /** その座標の種別。どこにも登録されていなければ null。 */
     public String shurui(String k) {
         for (String shu : zenShurui()) {

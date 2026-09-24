@@ -196,8 +196,9 @@ def main():
                      ("進行_建築_近代", 800), ("リセット_徴収率", 40),
                      ("腐敗_減少率", 10), ("腐敗_必要減少率", 10),
                      ("戦争_準備秒", 300), ("戦争_交戦秒", 600), ("戦争_禁止秒", 1800),
-                     ("略奪_金", 30), ("略奪_石油", 2), ("略奪_間隔秒", 10),
-                     ("略奪_上限金", 300), ("略奪_上限石油", 10),
+                     # ★ 2026-09-09: 1回いくらの固定額と上限は廃止。相手の総量の 1%
+                     ("略奪_割る数", 100), ("略奪_間隔秒", 10),
+                     ("占領_必要回数", 100),
                      ("下剋上_値段", 150), ("下剋上_解禁時代", 3)]:
             check(f"{k} = {v}", score(k, "settei") == v, f"実測={score(k, 'settei')}")
         check("世界の中央時代 = 1", score("世界", "chuo") == 1)
@@ -1346,13 +1347,28 @@ def main():
         # --- 交戦中の略奪 ---
         c("execute as @e[tag=t_k] run scoreboard players set @s ryakudatsu_kan 0")
         ryaku_k()
-        check("交戦中は相手の貯金から金30が減る", score("森林", "chokin") == 470,
-              f"実測={score('森林', 'chokin')}")
-        check("奪った金は自勢力へ入る (100→130)", score("丘陵", "chokin") == 130,
+        # ★★ 2026-09-09: 1回で相手の【総量の 1%】。500 の 1% = 5 ★★
+        check("交戦中は相手の貯金から 1% (500→495) が減る",
+              score("森林", "chokin") == 495, f"実測={score('森林', 'chokin')}")
+        check("奪った金は自勢力へ入る (100→105)", score("丘陵", "chokin") == 105,
               f"実測={score('丘陵', 'chokin')}")
-        check("奪った累計が【押した側(a)】に記録される",
-              war(1, 2, "ryakudatsu_kane_a") == 30,
+        check("奪った累計が【壊した側(a)】に記録される",
+              war(1, 2, "ryakudatsu_kane_a") == 5,
               f"実測={war(1, 2, 'ryakudatsu_kane_a')}")
+        check("★壊した回数が1 数えられる（100回でビーコンが壊せる）",
+              war(1, 2, "ryakudatsu_kai_a") == 1,
+              f"実測={war(1, 2, 'ryakudatsu_kai_a')}")
+        # ★ プラグインは戦争マーカーを読めないので、この関数に写してもらってから読む
+        c("scoreboard players set #q_kuni sagyou 1")
+        c("scoreboard players set #q_aite sagyou 2")
+        c("function jidai:sensou/kai_yomu")
+        check("★★kai_yomu が攻める側(a)の回数を作業用へ出す（プラグインの口）",
+              score("#q_kai", "sagyou") == 1, f"実測={score('#q_kai', 'sagyou')}")
+        c("scoreboard players set #q_kuni sagyou 2")
+        c("scoreboard players set #q_aite sagyou 1")
+        c("function jidai:sensou/kai_yomu")
+        check("★kai_yomu は向きを取り違えない（b側から見ると 0）",
+              score("#q_kai", "sagyou") == 0, f"実測={score('#q_kai', 'sagyou')}")
         check("★奪われた側(b)の累計は増えない (向きが混ざらない)",
               war(1, 2, "ryakudatsu_kane_b") == 0,
               f"実測={war(1, 2, 'ryakudatsu_kane_b')}")
@@ -1360,7 +1376,7 @@ def main():
               score("@e[tag=t_k,limit=1]", "ryakudatsu_kan") == 10,
               f"実測={score('@e[tag=t_k,limit=1]', 'ryakudatsu_kan')}")
         ryaku_k()
-        check("クールダウン中は連打しても動かない", score("森林", "chokin") == 470,
+        check("クールダウン中は連打しても動かない", score("森林", "chokin") == 495,
               f"実測={score('森林', 'chokin')}")
 
         # --- 自勢力の銀行は交戦中も預金として動く ---
@@ -1399,44 +1415,36 @@ def main():
         c("team leave @e[tag=t_n]")
 
         # --- 上限の効き方 (jidai:sensou/ryakudatsu_ryo を直接呼ぶ) ---
-        def ryo(bai, r_kane, r_sekiyu, aite_kane):
-            for nm, v in (("#bai", bai), ("#r_kane", r_kane),
-                          ("#r_sekiyu", r_sekiyu), ("#aite_kane", aite_kane)):
+        # ★★ 2026-09-09: 1回で【相手の総量の 1%】。上限は無い ★★
+        #   下剋上で始めた戦争は倍率2で 2%。相手が持っている限り必ず1は動く。
+        def ryo(bai, aite_kane, aite_sekiyu):
+            for nm, v in (("#bai", bai), ("#aite_kane", aite_kane),
+                          ("#aite_sekiyu", aite_sekiyu)):
                 c(f"scoreboard players set {nm} sagyou {v}")
             c("function jidai:sensou/ryakudatsu_ryo")
             return score("#gaku", "sagyou"), score("#hon", "sagyou")
 
-        g, h = ryo(1, 0, 0, 500)
-        check("ふつうは 金30 石油2", (g, h) == (30, 2), f"実測={g}/{h}")
-        g, h = ryo(1, 0, 10, 500)
-        check("石油は上限10で打ち止め、金は動く", (g, h) == (30, 0), f"実測={g}/{h}")
-        g, h = ryo(1, 0, 8, 500)
-        check("石油の残りが2なら、ちょうど2本まで", (g, h) == (30, 2), f"実測={g}/{h}")
-        g, h = ryo(1, 300, 0, 500)
-        check("金は上限300で打ち止め", (g, h) == (0, 2), f"実測={g}/{h}")
-        g, h = ryo(1, 290, 0, 500)
-        check("金の残りが10なら、10だけ動く", (g, h) == (10, 2), f"実測={g}/{h}")
-        g, h = ryo(1, 0, 0, 7)
-        check("相手の貯金が7なら、7しか動かない", (g, h) == (7, 2), f"実測={g}/{h}")
-        g, h = ryo(1, 0, 0, 0)
-        check("相手の貯金が0なら金は動かない", (g, h) == (0, 2), f"実測={g}/{h}")
-        g, h = ryo(2, 300, 10, 500)
-        check("下剋上の戦争は上限が2倍 (金300/石油10 でもまだ動く)",
-              (g, h) == (30, 2), f"実測={g}/{h}")
-        g, h = ryo(2, 600, 20, 500)
-        check("2倍でも上限に達すれば止まる", (g, h) == (0, 0), f"実測={g}/{h}")
-        # 金は10回、石油は5回で打ち止めになること
-        kane_kaisu, sekiyu_kaisu, rk, rs = 0, 0, 0, 0
-        for _ in range(20):
-            g, h = ryo(1, rk, rs, 100000)
-            if g > 0:
-                kane_kaisu += 1
-                rk += g
-            if h > 0:
-                sekiyu_kaisu += 1
-                rs += h
-        check("金は10回で打ち止め", kane_kaisu == 10, f"実測={kane_kaisu}回")
-        check("石油は5回で打ち止め", sekiyu_kaisu == 5, f"実測={sekiyu_kaisu}回")
+        g, h = ryo(1, 500, 200)
+        check("★1回で相手の総量の 1% (500→5 / 200→2)", (g, h) == (5, 2), f"実測={g}/{h}")
+        g, h = ryo(1, 100000, 5000)
+        check("多く持っているほど1回の被害が大きい (100000→1000)",
+              (g, h) == (1000, 50), f"実測={g}/{h}")
+        g, h = ryo(1, 99, 99)
+        check("★★100未満でも0にならない（最低1）", (g, h) == (1, 1), f"実測={g}/{h}")
+        g, h = ryo(1, 1, 1)
+        check("相手が1しか持っていなければ 1", (g, h) == (1, 1), f"実測={g}/{h}")
+        g, h = ryo(1, 0, 0)
+        check("相手が空なら何も動かない", (g, h) == (0, 0), f"実測={g}/{h}")
+        g, h = ryo(2, 500, 200)
+        check("★下剋上で始めた戦争は2倍（2%）", (g, h) == (10, 4), f"実測={g}/{h}")
+        # ★ 上限が無くても 0 にはならない。掛け算なので減り方が緩む。
+        #   100回 壊しても 0.99^100 ＝ 約37% が残る（止めを刺すのはビーコン）。
+        nokori = 100000
+        for _ in range(100):
+            g, _h = ryo(1, nokori, 0)
+            nokori -= g
+        check("★★100回 壊しても貯金は0にならない（約37%残る）",
+              30000 <= nokori <= 40000, f"実測={nokori}")
 
         # --- 石油を奪う相手の選び方 (最も多く持っている1人) ---
         c("execute as @e[tag=t_a] run scoreboard players set @s bangou 2")
@@ -1482,9 +1490,12 @@ def main():
         check("再戦禁止の残り秒は 戦争_禁止秒 (1800)",
               war(1, 2, "sensou_byou") == 1800,
               f"実測={war(1, 2, 'sensou_byou')}")
-        check("貯金0で終わった勢力に占領が付く (占領者=丘陵の番号1)",
-              score("森林", "senryou") == 1, f"実測={score('森林', 'senryou')}")
-        check("貯金が残っていた勢力は占領されない", score("丘陵", "senryou") == 0,
+        # ★★ 2026-09-09: 「交戦終了時に貯金0なら占領」は廃止（ご指示）★★
+        #   占領の入口はビーコンを壊す1本だけ。1回1%では貯金が0にならないので、
+        #   この道はどのみち成立しなかった。
+        check("★貯金0で終わっても占領は付かない（占領はビーコンだけ）",
+              score("森林", "senryou") == 0, f"実測={score('森林', 'senryou')}")
+        check("貯金が残っていた勢力も占領されない", score("丘陵", "senryou") == 0,
               f"実測={score('丘陵', 'senryou')}")
 
         # --- 30分以内の再戦を拒否する ---
@@ -1780,8 +1791,8 @@ def main():
         war_set(3, 4, "ryakudatsu_kane_a", 30)
         war_set(3, 4, "sensou_byou", 1)
         susumu()
-        check("内海 が貯金0で終戦し、川(番号3)に占領される",
-              score("内海", "senryou") == 3, f"実測={score('内海', 'senryou')}")
+        check("★★略奪していても、貯金0だけでは占領されない（2026-09-09 で廃止）",
+              score("内海", "senryou") == 0, f"実測={score('内海', 'senryou')}")
         # --- (c) 逆向き(b側が略奪していた場合)も同じように効くか ---
         c(f"execute as {SEN} run kill @s")
         c("scoreboard players set 内海 senryou 0")
@@ -1792,8 +1803,8 @@ def main():
         war_set(3, 4, "ryakudatsu_kane_b", 30)
         war_set(3, 4, "sensou_byou", 1)
         susumu()
-        check("★b側(内海)が略奪していれば、a側(川)を占領できる",
-              score("川", "senryou") == 4, f"実測={score('川', 'senryou')}")
+        check("★逆向き(b側が略奪)でも、貯金0だけでは占領されない",
+              score("川", "senryou") == 0, f"実測={score('川', 'senryou')}")
         c(f"execute as {SEN} run kill @s")
         c("scoreboard players set 内海 senryou 0")
         c("scoreboard players set 川 senryou 0")
@@ -1853,8 +1864,8 @@ def main():
         war_set(5, 2, "ryakudatsu_sekiyu_b", 2)
         war_set(5, 2, "sensou_byou", 1)
         susumu()
-        check("★★奪い合って両方0なら、互いに占領し合う",
-              score("岩場", "senryou") == 2 and score("森林", "senryou") == 5,
+        check("★★奪い合って両方0でも、互いに占領しない（ビーコンだけが入口）",
+              score("岩場", "senryou") == 0 and score("森林", "senryou") == 0,
               f"岩場={score('岩場', 'senryou')} 森林={score('森林', 'senryou')}")
         c("scoreboard players set 岩場 senryou 0")
         c("scoreboard players set 森林 senryou 0")
@@ -1921,6 +1932,80 @@ def main():
         txt = log.read_text(encoding="utf-8", errors="replace")
         rt = [l for l in txt.splitlines() if "Whilst executing" in l]
         check("実行時エラーがログに無い", not rt, str(rt[:2]))
+        # ==========================================================
+        #  ボスバー（中央の時代への進み具合）2026-08-31 のご指示
+        # ==========================================================
+        print()
+        print('-- ボスバー --')
+
+        def bar():
+            # ★ 実物の文言は「has a value of 3」。'value is' ではない（実測）
+            m = re.search(r'has a value of (-?\d+)',
+                          c('bossbar get jidai:chuo value'))
+            return int(m.group(1)) if m else None
+
+        check('ボスバーが作られている', bar() is not None,
+              c('bossbar get jidai:chuo value'))
+        m = re.search(r'has a maximum of (\d+)', c('bossbar get jidai:chuo max'))
+        check('満タンは 6（2勢力 × 3条件）', m and m.group(1) == '6',
+              c('bossbar get jidai:chuo max'))
+
+        # まっさらに戻す（全勢力を鉄器・条件0へ）
+        for kuni in ('丘陵', '森林', '川', '内海', '岩場'):
+            c(f'scoreboard players set {kuni} jidai 1')
+            for j in ('jouken_a', 'jouken_b', 'jouken_c'):
+                c(f'scoreboard players set {kuni} {j} 0')
+        c('scoreboard players set 世界 chuo 1')
+        c('function jidai:shinko/bar')
+        check('★条件が1つも無ければ 0', bar() == 0, f'実測={bar()}')
+
+        # 1勢力が3条件そろえたら 3（半分）
+        for j in ('jouken_a', 'jouken_b', 'jouken_c'):
+            c(f'scoreboard players set 丘陵 {j} 1')
+        c('function jidai:shinko/bar')
+        check('★1勢力が3条件そろえたら 3（半分）', bar() == 3, f'実測={bar()}')
+
+        # 2勢力目が1条件だけ満たしたら 4（なめらかに動く）
+        c('scoreboard players set 森林 jouken_a 1')
+        c('function jidai:shinko/bar')
+        check('★★2勢力目の1条件で 4（3段階ではなく なめらか）',
+              bar() == 4, f'実測={bar()}')
+
+        # 2勢力とも3条件そろえたら満タン
+        for j in ('jouken_b', 'jouken_c'):
+            c(f'scoreboard players set 森林 {j} 1')
+        c('function jidai:shinko/bar')
+        check('★2勢力が3条件そろえたら満タン 6', bar() == 6, f'実測={bar()}')
+
+        # 3勢力目がそろえても 6 を超えない
+        for j in ('jouken_a', 'jouken_b', 'jouken_c'):
+            c(f'scoreboard players set 川 {j} 1')
+        c('function jidai:shinko/bar')
+        check('★3勢力そろっても 6 を超えない', bar() == 6, f'実測={bar()}')
+
+        # 中央の時代が上がったら 0 に戻る
+        #   ★ 承認して時代が上がった状態を作る。丘陵と森林を中世へ。
+        c('scoreboard players set 丘陵 jidai 2')
+        c('scoreboard players set 森林 jidai 2')
+        c('scoreboard players set 世界 chuo 2')
+        for kuni in ('丘陵', '森林'):
+            for j in ('jouken_a', 'jouken_b', 'jouken_c'):
+                c(f'scoreboard players set {kuni} {j} 0')
+        c('scoreboard players set 川 jidai 1')
+        for j in ('jouken_a', 'jouken_b', 'jouken_c'):
+            c(f'scoreboard players set 川 {j} 0')
+        c('function jidai:shinko/bar')
+        check('★★次の時代へ進むと 0 に戻る', bar() == 0, f'実測={bar()}')
+
+        # 色と名前が中央の時代で変わる
+        c('scoreboard players set 世界 chuo 3')
+        c('function jidai:shinko/bar')
+        # ★ bossbar get に name は無い。value の出力が
+        #   「Custom bossbar [世界の時代　近代] has a value of N」なので、そこを見る。
+        check('中央が近代なら名前に「近代」が入る',
+              '近代' in c('bossbar get jidai:chuo value'),
+              c('bossbar get jidai:chuo value'))
+
         c("forceload remove all")
     except RconError as e:
         print(f"[環境エラー] RCON: {e}")

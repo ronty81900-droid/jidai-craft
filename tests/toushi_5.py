@@ -189,7 +189,8 @@ def main():
 
         # ---------- 6) 略奪 ----------
         print("\n[6] 略奪する")
-        c("scoreboard players set 森林 chokin 100")
+        # ★ 2026-09-09: 1回で相手の総量の 1%。100 だと 1 しか動かず目盛りが粗いので 500 で見る
+        c("scoreboard players set 森林 chokin 500")
         c("scoreboard players set 丘陵 chokin 0")
         c("execute as @e[tag=p_kyuryo_0] run scoreboard players set @s ryakudatsu_kan 0")
         # ★1.20.1 では関数に引数を渡せない。番号をスコアに置いてから呼ぶ。
@@ -197,11 +198,11 @@ def main():
         c("scoreboard players set #jibun_no sagyou 1")
         c("scoreboard players set #aite_no sagyou 2")
         c("execute as @e[tag=p_kyuryo_0] run function jidai:sensou/ryakudatsu")
-        check("★略奪で相手の貯金が減り、自分の貯金が増える (森林100→70 / 丘陵0→30)",
-              score("森林", "chokin") == 70 and score("丘陵", "chokin") == 30,
+        check("★略奪で相手の総量の1%が動く (森林500→495 / 丘陵0→5)",
+              score("森林", "chokin") == 495 and score("丘陵", "chokin") == 5,
               "森林=" + str(score("森林", "chokin")) + " 丘陵=" + str(score("丘陵", "chokin")))
         check("奪った累計が向きごとに記録される (a側だけ増えて b側は0)",
-              war(1, 2, "ryakudatsu_kane_a") == 30
+              war(1, 2, "ryakudatsu_kane_a") == 5
               and war(1, 2, "ryakudatsu_kane_b") == 0,
               "a=" + str(war(1, 2, "ryakudatsu_kane_a"))
               + " b=" + str(war(1, 2, "ryakudatsu_kane_b")))
@@ -219,10 +220,21 @@ def main():
         war_set(1, 2, "sensou_byou", 1)
         war_set(3, 4, "sensou_byou", 1)
         susumu()
-        check("★★略奪した丘陵は森林を占領できる", score("森林", "senryou") == 1,
-              "実測=" + str(score("森林", "senryou")))
-        check("★★一度も略奪していない川は、内海を占領できない",
+        # ★★ 2026-09-09: 貯金0での占領は廃止。占領の入口はビーコン1本 ★★
+        check("★貯金0で終わっても占領は付かない（2026-09-09 で廃止）",
+              score("森林", "senryou") == 0, "実測=" + str(score("森林", "senryou")))
+        check("★一度も略奪していない川も、内海を占領できない",
               score("内海", "senryou") == 0, "実測=" + str(score("内海", "senryou")))
+        # ★ ビーコンを壊した時の道。プラグインは #s_kuni / #s_aite を置いて
+        #   jidai:sensou/shokuminchi を呼ぶ。ここでは同じ形で呼ぶ。
+        c("scoreboard players set #s_kuni sagyou 1")
+        c("scoreboard players set #s_aite sagyou 2")
+        c("function jidai:sensou/shokuminchi")
+        check("★★ビーコンを壊すと 丘陵 が 森林 を占領する",
+              score("森林", "senryou") == 1, "実測=" + str(score("森林", "senryou")))
+        check("★★植民地の印も同時に付く（勝利条件が数える方）",
+              score("森林", "shokuminchi") == 1,
+              "実測=" + str(score("森林", "shokuminchi")))
         check("2つとも再戦禁止(3)になる",
               war(1, 2, "sensou") == 3 and war(3, 4, "sensou") == 3,
               "丘陵→森林=" + str(war(1, 2, "sensou"))

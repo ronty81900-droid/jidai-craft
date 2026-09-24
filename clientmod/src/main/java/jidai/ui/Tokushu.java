@@ -31,8 +31,8 @@ public final class Tokushu {
 
     /** 絵の実寸（HYOU と同じ並び）。MOD はこれを 16×16 に縮めて貼る。 */
     public static final int[][] OOKISA = {
-            {16, 16},
-            {16, 16},
+            {64, 64},
+            {64, 64},
             {16, 16},
             {16, 16},
             {16, 16},

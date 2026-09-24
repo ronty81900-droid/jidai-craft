@@ -50,7 +50,8 @@
     "info": "#4FA1B2",
     "success": "#77B789",
     "text": "#F5E8C8",
-    "muted": "#AEB8AE"
+    "muted": "#AEB8AE",
+    "era_gendai": "#B9A7D0"
   },
   "typography": {
     "renderer": "Minecraft standard font drawn by the Forge client MOD at runtime",
@@ -9676,6 +9677,111 @@
       ],
       "transparent_rgb_zero": true,
       "blank_regions_verified_flat": 21,
+      "contains_baked_text": false
+    },
+    {
+      "file": "assets/jidaiui/textures/gui/bar_frame.png",
+      "resource_location": "jidaiui:textures/gui/bar_frame.png",
+      "purpose": "世界の時代バーの枠（空の状態）",
+      "category": "bossbar",
+      "dimensions": [
+        728,
+        32
+      ],
+      "blank_regions": [],
+      "byte_size": 869,
+      "sha256": "40F70C5CBAB96BBC680126EA0008CF37A7475C3BB37E80EA3D210919F28503B0",
+      "rgba_color_count": 7,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "transparent_rgb_zero": true,
+      "blank_regions_verified_flat": 0,
+      "contains_baked_text": false
+    },
+    {
+      "file": "assets/jidaiui/textures/gui/bar_fill_tekki.png",
+      "resource_location": "jidaiui:textures/gui/bar_fill_tekki.png",
+      "purpose": "世界の時代バーの中身（鉄器・bossbar color white）",
+      "category": "bossbar",
+      "dimensions": [
+        720,
+        24
+      ],
+      "blank_regions": [],
+      "byte_size": 677,
+      "sha256": "DCC55495FEC5CCE8F2EECB6BE4446D8F78FB50323508F67B68CE089FE93F3BD5",
+      "rgba_color_count": 5,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "transparent_rgb_zero": true,
+      "blank_regions_verified_flat": 0,
+      "contains_baked_text": false
+    },
+    {
+      "file": "assets/jidaiui/textures/gui/bar_fill_chusei.png",
+      "resource_location": "jidaiui:textures/gui/bar_fill_chusei.png",
+      "purpose": "世界の時代バーの中身（中世・bossbar color yellow）",
+      "category": "bossbar",
+      "dimensions": [
+        720,
+        24
+      ],
+      "blank_regions": [],
+      "byte_size": 679,
+      "sha256": "D38176B468561F760B22AC3FC86F6E331BCA6CF5C7747B535CEFA3B30E09DA06",
+      "rgba_color_count": 5,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "transparent_rgb_zero": true,
+      "blank_regions_verified_flat": 0,
+      "contains_baked_text": false
+    },
+    {
+      "file": "assets/jidaiui/textures/gui/bar_fill_kindai.png",
+      "resource_location": "jidaiui:textures/gui/bar_fill_kindai.png",
+      "purpose": "世界の時代バーの中身（近代・bossbar color blue）",
+      "category": "bossbar",
+      "dimensions": [
+        720,
+        24
+      ],
+      "blank_regions": [],
+      "byte_size": 682,
+      "sha256": "BDDEBD2D31645E88DE324A6BA482289AD5AC4B0D3C67FC02D460E2089EC46700",
+      "rgba_color_count": 5,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "transparent_rgb_zero": true,
+      "blank_regions_verified_flat": 0,
+      "contains_baked_text": false
+    },
+    {
+      "file": "assets/jidaiui/textures/gui/bar_fill_gendai.png",
+      "resource_location": "jidaiui:textures/gui/bar_fill_gendai.png",
+      "purpose": "世界の時代バーの中身（現代・bossbar color purple）",
+      "category": "bossbar",
+      "dimensions": [
+        720,
+        24
+      ],
+      "blank_regions": [],
+      "byte_size": 679,
+      "sha256": "0F77ED573783322F1A138E842C5EB6842619574664CE7B92DD73BAF51323A9F4",
+      "rgba_color_count": 5,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "transparent_rgb_zero": true,
+      "blank_regions_verified_flat": 0,
       "contains_baked_text": false
     }
   ],

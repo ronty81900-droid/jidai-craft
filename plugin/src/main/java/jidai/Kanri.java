@@ -486,8 +486,15 @@ public final class Kanri {
             sender.sendMessage("  " + Seiryoku.mei(team) + " のビーコン: " + x + "," + y + "," + z);
         }
         basho.hozon(plugin);
+        // ★ 2026-09-09: 壊せる条件が「相手の貯金が100以下」から
+        //   「相手の銀行を 占領_必要回数 回 壊した」へ変わった（ご指示）。
+        //   回数はデータパックの settei が正本。ここでは読んだ値をそのまま出す。
+        int hitsuyou = kane.settei("占領_必要回数");
+        if (hitsuyou <= 0) {
+            hitsuyou = JidaiCraft.BEACON_KAISU_YOBI;
+        }
         sender.sendMessage("[運営] ビーコンを " + oita + " 拠点に置いて登録しました"
-                + "（貯金が " + JidaiCraft.BEACON_KOWASERU + " 以下の相手と交戦中なら壊せる）");
+                + "（交戦中の相手の銀行を " + hitsuyou + " 回 壊すと壊せる）");
         if (!nai.isEmpty()) {
             sender.sendMessage("  ★ 拠点の位置が未登録: " + String.join(" / ", nai) + " → /jidai scan");
         }

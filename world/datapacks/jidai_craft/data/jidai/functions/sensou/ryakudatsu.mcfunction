@@ -1,10 +1,11 @@
 # =============================================================
 # jidai:sensou/ryakudatsu ── 略奪する
-#   相手勢力の拠点の金ブロックを押した本人として走る(@s = その人)。
-#   jidai:kane/azukeru から、預金ではなく略奪として分岐して呼ばれる。
+#   相手勢力の銀行の金ブロックを【壊した】本人として走る(@s = その人)。
+#   ★ 2026-09-09: 入口が「画面から押す」から「ブロックを壊す」に変わった。
+#     プラグインの onBlockBreak が、壊す代わりにここを呼ぶ。
 #
 #   ★ 呼ぶ前に置いておくもの
-#     @s bangou      … 押した人の勢力の番号（jidai:clock が毎秒入れている）
+#     @s bangou      … 壊した人の勢力の番号（jidai:clock が毎秒入れている）
 #     #aite_no sagyou … その拠点を持つ勢力の番号（jidai:sensou/aite_yomu が入れる）
 #
 #   ★ 1.21 ではマクロで勢力名を受けていたが、1.20.1 には無い。番号だけで足りる。
@@ -33,8 +34,9 @@ execute if score #w_mitsuke sagyou matches 0 run tellraw @s [{"text":"[銀行] "
 execute unless score #w_jotai sagyou matches 2 run playsound minecraft:entity.villager.no player @s
 execute unless score #w_jotai sagyou matches 2 run return 0
 
-# --- 3) 押した本人ごとのクールダウン --------------------------
-# 連打で一気に上限まで持っていけないようにする。
+# --- 3) 壊した本人ごとのクールダウン --------------------------
+# ★ 1人で連打させないための間隔。100回を何分で貯めるかは、
+#   参加人数 × この間隔で決まる（20人なら約50秒）。
 execute if score @s ryakudatsu_kan matches 1.. run tellraw @s [{"text":"[略奪] ","color":"red"},{"text":"まだ手が離せない (あと ","color":"gray"},{"score":{"name":"@s","objective":"ryakudatsu_kan"},"color":"white"},{"text":" 秒)","color":"gray"}]
 execute if score @s ryakudatsu_kan matches 1.. run return 0
 
@@ -47,10 +49,18 @@ execute if score #aite_no sagyou matches 2 run scoreboard players operation #ait
 execute if score #aite_no sagyou matches 3 run scoreboard players operation #aite_kane sagyou = 川 chokin
 execute if score #aite_no sagyou matches 4 run scoreboard players operation #aite_kane sagyou = 内海 chokin
 execute if score #aite_no sagyou matches 5 run scoreboard players operation #aite_kane sagyou = 岩場 chokin
+# ★ 石油も「相手の総量の1%」にするので、勢力の合計が要る。
+#   sekiyu_gokei は jidai:clock が毎秒 作り直している派生値。
+scoreboard players set #aite_sekiyu sagyou 0
+execute if score #aite_no sagyou matches 1 run scoreboard players operation #aite_sekiyu sagyou = 丘陵 sekiyu_gokei
+execute if score #aite_no sagyou matches 2 run scoreboard players operation #aite_sekiyu sagyou = 森林 sekiyu_gokei
+execute if score #aite_no sagyou matches 3 run scoreboard players operation #aite_sekiyu sagyou = 川 sekiyu_gokei
+execute if score #aite_no sagyou matches 4 run scoreboard players operation #aite_sekiyu sagyou = 内海 sekiyu_gokei
+execute if score #aite_no sagyou matches 5 run scoreboard players operation #aite_sekiyu sagyou = 岩場 sekiyu_gokei
 function jidai:sensou/ryakudatsu_ryo
 
 # どちらも動かせないなら、押しても何も起きない
-execute if score #gaku sagyou matches ..0 if score #hon sagyou matches ..0 run tellraw @s [{"text":"[略奪] ","color":"red"},{"text":"これ以上は奪えない (上限に達したか、相手が空)","color":"gray"}]
+execute if score #gaku sagyou matches ..0 if score #hon sagyou matches ..0 run tellraw @s [{"text":"[略奪] ","color":"red"},{"text":"相手はもう金も石油も持っていない","color":"gray"}]
 execute if score #gaku sagyou matches ..0 if score #hon sagyou matches ..0 run playsound minecraft:entity.villager.no player @s
 execute if score #gaku sagyou matches ..0 if score #hon sagyou matches ..0 run return 0
 
@@ -100,6 +110,14 @@ scoreboard players operation #mei_no sagyou = #aite_no sagyou
 function jidai:sensou/mei
 execute if score #hon sagyou matches 1.. run tellraw @a [{"text":"[略奪] ","color":"dark_red","bold":true},{"selector":"@s"},{"text":" が ","color":"white"},{"storage":"jidai:kari","nbt":"mei","color":"white"},{"text":" から 金","color":"white"},{"score":{"name":"#gaku","objective":"sagyou"},"color":"yellow"},{"text":" 石油","color":"white"},{"score":{"name":"#hon","objective":"sagyou"},"color":"light_purple"},{"text":" を奪った (石油は ","color":"gray"},{"selector":"@a[tag=jidai_ubawareta]","color":"white"},{"text":" から / 相手の貯金 ","color":"gray"},{"score":{"name":"#mae","objective":"sagyou"},"color":"gray"},{"text":" → ","color":"gray"},{"score":{"name":"#ato","objective":"sagyou"},"color":"gray"},{"text":")","color":"gray"}]
 execute if score #hon sagyou matches ..0 run tellraw @a [{"text":"[略奪] ","color":"dark_red","bold":true},{"selector":"@s"},{"text":" が ","color":"white"},{"storage":"jidai:kari","nbt":"mei","color":"white"},{"text":" から 金","color":"white"},{"score":{"name":"#gaku","objective":"sagyou"},"color":"yellow"},{"text":" を奪った (相手の貯金 ","color":"gray"},{"score":{"name":"#mae","objective":"sagyou"},"color":"gray"},{"text":" → ","color":"gray"},{"score":{"name":"#ato","objective":"sagyou"},"color":"gray"},{"text":")","color":"gray"}]
+
+# --- 10) 壊した回数と、ビーコンまでの残りを本人へ ---------------
+#   ★ 100回でビーコンが壊せるようになる。あと何回かが見えないと
+#     「殴り続ける意味があるのか」が分からない。
+scoreboard players operation #nokori sagyou = 占領_必要回数 settei
+scoreboard players operation #nokori sagyou -= #r_kai sagyou
+execute if score #nokori sagyou matches 1.. run tellraw @s [{"text":"[略奪] ","color":"dark_red"},{"text":"銀行を壊した (","color":"gray"},{"score":{"name":"#r_kai","objective":"sagyou"},"color":"white"},{"text":"/","color":"gray"},{"score":{"name":"占領_必要回数","objective":"settei"},"color":"white"},{"text":" ・ビーコンまであと ","color":"gray"},{"score":{"name":"#nokori","objective":"sagyou"},"color":"yellow"},{"text":" 回)","color":"gray"}]
+execute if score #nokori sagyou matches ..0 run tellraw @a [{"text":"[戦争] ","color":"dark_red","bold":true},{"storage":"jidai:kari","nbt":"mei","color":"white"},{"text":" の銀行が ","color":"white"},{"score":{"name":"占領_必要回数","objective":"settei"},"color":"yellow"},{"text":" 回 壊された。ビーコンが壊せるようになった","color":"white"}]
 
 tag @a remove jidai_ubawareta
 playsound minecraft:entity.player.attack.crit player @s

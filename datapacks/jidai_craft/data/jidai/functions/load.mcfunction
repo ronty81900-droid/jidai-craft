@@ -23,6 +23,15 @@ scoreboard objectives add jouken_a dummy
 scoreboard objectives add jouken_b dummy
 scoreboard objectives add jouken_c dummy
 
+# ボスバー（中央の時代への進み具合。2026-08-31 のご指示）
+#   ★ add は既にあると失敗して以降が止まる。必ず remove してから作る。
+#   ★ 満タン=6（2勢力 × 3条件）。中身は jidai:shinko/bar が毎回 書く。
+bossbar remove jidai:chuo
+bossbar add jidai:chuo {"text":"世界の時代"}
+bossbar set jidai:chuo max 6
+bossbar set jidai:chuo players @a
+bossbar set jidai:chuo visible true
+
 # --- 世界(中央)が持つもの -------------------------------------
 scoreboard objectives add chuo dummy {"text":"中央の時代","color":"red"}
 scoreboard objectives add wakidashi dummy
@@ -61,6 +70,10 @@ scoreboard objectives add ryakudatsu_kane_a dummy
 scoreboard objectives add ryakudatsu_kane_b dummy
 scoreboard objectives add ryakudatsu_sekiyu_a dummy
 scoreboard objectives add ryakudatsu_sekiyu_b dummy
+# 銀行を壊した回数（向きごと）。★ 2026-09-09: これが 占領_必要回数 に届くと
+#   ビーコンが壊せるようになる。占領の入口はここ1本だけ。
+scoreboard objectives add ryakudatsu_kai_a dummy
+scoreboard objectives add ryakudatsu_kai_b dummy
 # 勢力ごとの要約（プラグインが読む）
 scoreboard objectives add sensou_aite dummy
 scoreboard objectives add sensou_tsuyosa dummy
@@ -231,14 +244,18 @@ execute unless score 戦争_交戦秒 settei matches 0.. run scoreboard players 
 execute unless score 戦争_禁止秒 settei matches 0.. run scoreboard players set 戦争_禁止秒 settei 1800
 
 # --- 略奪の設定 -----------------------------------------------
-# 1回で動く量と、押した本人ごとのクールダウン
-execute unless score 略奪_金 settei matches 0.. run scoreboard players set 略奪_金 settei 30
-execute unless score 略奪_石油 settei matches 0.. run scoreboard players set 略奪_石油 settei 2
+# ★★ 2026-09-09 のご指示で作り直した ★★
+#   前: 銀行の画面から1回 押すと 金30・石油2本。1戦争・1勢力あたり 金300・石油10本まで。
+#   今: **相手の銀行のブロックを1回壊すごとに、相手の総量の 1% を奪う**（石油も）。上限は無い。
+#
+# ★ 1% を「割る数」で持つ理由: 1.20.1 のスコアボードに小数が無い。
+#   100 なら 1%、50 なら 2%。下剋上で始めた戦争は倍率2で 2% になる。
+execute unless score 略奪_割る数 settei matches 1.. run scoreboard players set 略奪_割る数 settei 100
+# 壊した本人ごとのクールダウン（秒）。100回を何分で貯めるかは、ここで決まる。
+#   例: 20人が同時に殴れば 100回 ÷ 20人 × 10秒 ＝ 約50秒
 execute unless score 略奪_間隔秒 settei matches 0.. run scoreboard players set 略奪_間隔秒 settei 10
-# 1戦争・1勢力あたりの上限。下剋上で始めた戦争ではこの2倍になる。
-# ★石油は上限10 ÷ 1回2本 = 5回で打ち止め。回数を数える仕組みは要らない。
-execute unless score 略奪_上限金 settei matches 0.. run scoreboard players set 略奪_上限金 settei 300
-execute unless score 略奪_上限石油 settei matches 0.. run scoreboard players set 略奪_上限石油 settei 10
+# ビーコンが壊せるようになるまでに、攻める側が銀行を壊す回数
+execute unless score 占領_必要回数 settei matches 1.. run scoreboard players set 占領_必要回数 settei 100
 
 # --- 下剋上の設定 ---------------------------------------------
 # 販売所の商品。占領を解く唯一の手段

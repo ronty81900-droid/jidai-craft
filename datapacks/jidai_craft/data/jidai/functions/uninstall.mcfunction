@@ -33,6 +33,9 @@ scoreboard objectives remove ryakudatsu_kane_a
 scoreboard objectives remove ryakudatsu_kane_b
 scoreboard objectives remove ryakudatsu_sekiyu_a
 scoreboard objectives remove ryakudatsu_sekiyu_b
+# ★ 2026-09-09: 銀行を壊した回数（向きごと）。占領_必要回数 の判定に使う
+scoreboard objectives remove ryakudatsu_kai_a
+scoreboard objectives remove ryakudatsu_kai_b
 #   プラグインが読む「勢力ごとの要約」と、その作業用
 scoreboard objectives remove sensou_aite
 scoreboard objectives remove sensou_tsuyosa

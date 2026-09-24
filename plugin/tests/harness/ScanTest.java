@@ -16,6 +16,7 @@ import org.bukkit.entity.Marker;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.Inventory;
@@ -373,6 +374,73 @@ public class ScanTest {
                 block(Material.EMERALD_BLOCK, 999, 60, 999), proxy(Player.class, b2));
         onBreak.invoke(plugin, be2);
         check("未登録のブロックは普通に壊せる", !be2.isCancelled(), "cancelled=" + be2.isCancelled());
+
+        // ---------- 銀行のまわり3マス（2026-09-18 のご指示）----------
+        //   ★ 銀行は (-6,101,6) / (-3,101,6) / (0,101,6) に登録してある。
+        //     距離は縦横高さのうち【一番大きい差】で見る（7×7×7 の立方体）。
+        // ★★ 材質は【土】。石にすると、守りが外れた時にネザライト／遺物の抽選へ進み、
+        //   ハーネスが持っていない記録板に触れて**落ちてしまう**。
+        //   落ちると赤が出ないので、「守りが消えた」ことを検査が報せられなくなる。
+        int[][] chikaku = {{-5, 101, 6}, {-6, 104, 6}, {-3, 104, 9}};
+        int tometa = 0;
+        for (int[] za : chikaku) {
+            PlayerStub b = new PlayerStub("ronty", null);
+            BlockBreakEvent be = new BlockBreakEvent(
+                    block(Material.DIRT, za[0], za[1], za[2]), proxy(Player.class, b));
+            try { onBreak.invoke(plugin, be); } catch (InvocationTargetException ignored) { }
+            if (be.isCancelled() && b.saw("銀行のまわり")) tometa++;
+        }
+        check("★★銀行のまわり3マスは掘れない（隣・真上3・斜め3）", tometa == 3,
+                "止めた数=" + tometa);
+
+        PlayerStub soto = new PlayerStub("ronty", null);
+        BlockBreakEvent bsoto = new BlockBreakEvent(
+                block(Material.DIRT, -6, 105, 6), proxy(Player.class, soto));
+        onBreak.invoke(plugin, bsoto);
+        check("★4マス離れれば掘れる（守りが広がりすぎていない）", !bsoto.isCancelled(),
+                "cancelled=" + bsoto.isCancelled());
+
+        // ★★ 銀行そのものは、この守りで止めてはいけない ★★
+        //   止めると「銀行を壊す＝略奪」という戦争の入口が塞がる。
+        PlayerStub gb = new PlayerStub("ronty", null);
+        BlockBreakEvent bg = new BlockBreakEvent(
+                block(Material.GOLD_BLOCK, -6, 101, 6), proxy(Player.class, gb));
+        onBreak.invoke(plugin, bg);
+        check("★★★銀行そのものは『まわり』の守りで止めない（略奪の入口）",
+                !gb.saw("銀行のまわり"), "まわりの守りが銀行を飲み込んでいる: " + gb.messages);
+
+        // ---------- 置く方も同じ範囲で止める ----------
+        // ★ 見張りごと消えた時に落ちないよう、取れなければ赤で報せる
+        Method onPlace = null;
+        try {
+            onPlace = pluginClass.getMethod("onBlockPlace", BlockPlaceEvent.class);
+        } catch (NoSuchMethodException ignored) {
+            // 下の check が赤にする
+        }
+        check("★置く方の見張り（onBlockPlace）がある", onPlace != null, "メソッドが無い");
+        if (onPlace == null) {
+            // ★ 形だけ別のメソッドを呼ぶと、引数が合わずに【落ちて】しまう。
+            //   赤を2つ立てて、置く方の確認は飛ばす。
+            check("★★銀行のまわり3マスには置けない（覆わせない）", false, "見張りが無い");
+            check("4マス離れれば置ける", false, "見張りが無い");
+        }
+        if (onPlace != null) {
+            PlayerStub p1 = new PlayerStub("ronty", null);
+            BlockPlaceEvent pe = new BlockPlaceEvent(
+                    block(Material.STONE, -5, 101, 6), null, null, null,
+                    proxy(Player.class, p1), true, EquipmentSlot.HAND);
+            onPlace.invoke(plugin, pe);
+            check("★★銀行のまわり3マスには置けない（覆わせない）",
+                    pe.isCancelled() && p1.saw("銀行のまわり"),
+                    "cancelled=" + pe.isCancelled() + " " + p1.messages);
+
+            PlayerStub p2 = new PlayerStub("ronty", null);
+            BlockPlaceEvent pe2 = new BlockPlaceEvent(
+                    block(Material.STONE, -6, 105, 6), null, null, null,
+                    proxy(Player.class, p2), true, EquipmentSlot.HAND);
+            onPlace.invoke(plugin, pe2);
+            check("4マス離れれば置ける", !pe2.isCancelled(), "cancelled=" + pe2.isCancelled());
+        }
 
         // ---------- 手動の add が従来どおり動く ----------
         Method onCmd = pluginClass.getMethod("onCommand", CommandSender.class,

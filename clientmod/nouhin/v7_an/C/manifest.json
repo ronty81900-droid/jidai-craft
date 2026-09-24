@@ -1,0 +1,901 @@
+{
+  "schema_version": 1,
+  "package": {
+    "name": "JidaiCraft Tokushu v7 - proposal C (phase 1)",
+    "namespace": "jidaiui",
+    "minecraft": "1.20.1",
+    "phase": 1,
+    "proposal": "C",
+    "canonical_item_count": 16,
+    "drawn_item_count": 2,
+    "not_yet_drawn": [
+      "gofu",
+      "seihai",
+      "kaizu",
+      "haguruma",
+      "oukan",
+      "excalibur",
+      "tate",
+      "tegata",
+      "tenro",
+      "kinko",
+      "tebiki",
+      "penicillin",
+      "goggle",
+      "sumaho"
+    ],
+    "production_texture_count": 2,
+    "source_request_sha256": "4292DFD763173C8E4DA40C567B3C65FCF8647D3F92B0EA5ACB32CFC0676332C2",
+    "source_request_sha256_before_redaction": "7338F8A650B8B268475ECCE1B432081537D21843DB7A4C25459903F5EEAC89E9",
+    "source_request_redaction_note": "2026-09-24 公開のため、依頼文6行目の作業場所から個人の道順を外した（依頼の中身は1字も変えていない）",
+    "generator": "clientmod/tools/tokushu_e_tsukuru.py"
+  },
+  "provenance": {
+    "method": "deterministic: 16x16 shitae (character map) x32/x16, then integer-block details; cell centers untouched",
+    "image_generation_model_used": false,
+    "baked_text_used": false,
+    "anti_aliasing_used": false,
+    "randomness_used": "xorshift32 with fixed seed, speckle placement only",
+    "light_direction": "top_left",
+    "common_outline_rgba": "#102329FF",
+    "shrink_rule_nearest": "honban[S/2::S, S/2::S] == shitae (S = 32 for 512, 16 for 256)",
+    "shrink_rule_mean": "per cell: |mean alpha - shitae alpha| <= 25% of 255; for opaque shitae cells, |mean RGB over opaque pixels - shitae RGB| <= 40 per channel"
+  },
+  "proposals": {
+    "A": {
+      "name": "素朴",
+      "blocks_per_cell": 4,
+      "corner_cut": 0.0,
+      "rim": 0.0,
+      "texture_level": 1,
+      "bevel": false
+    },
+    "B": {
+      "name": "均整",
+      "blocks_per_cell": 8,
+      "corner_cut": 0.5,
+      "rim": 0.1,
+      "texture_level": 2,
+      "bevel": false
+    },
+    "C": {
+      "name": "細密",
+      "blocks_per_cell": 16,
+      "corner_cut": 0.6,
+      "rim": 0.1,
+      "texture_level": 3,
+      "bevel": true
+    }
+  },
+  "shared_palette": {
+    "transparent": "#00000000",
+    "outline": "#102329FF",
+    "brass_deep": "#6F4E28FF",
+    "brass_dark": "#9B6D32FF",
+    "brass": "#C4934BFF",
+    "brass_light": "#D6B06BFF",
+    "highlight": "#F5DE9BFF",
+    "iron_deep": "#303B3FFF",
+    "iron": "#586368FF",
+    "iron_light": "#7D8889FF",
+    "steel_light": "#A8B0ADFF",
+    "steel_bright": "#C9D0CCFF",
+    "leather_deep": "#4A2922FF",
+    "leather": "#784337FF",
+    "leather_light": "#A5684EFF",
+    "paper_deep": "#6E5A3DFF",
+    "paper_dark": "#A98D61FF",
+    "paper": "#D1B684FF",
+    "paper_light": "#E4CC9AFF",
+    "wood_deep": "#4B3325FF",
+    "wood": "#765039FF",
+    "wood_light": "#A47A50FF",
+    "white_deep": "#817C71FF",
+    "white": "#B9B09BFF",
+    "white_light": "#D8D0B8FF",
+    "red_deep": "#5B1F22FF",
+    "red": "#8E2D2DFF",
+    "red_light": "#B34A3DFF",
+    "enamel_blue": "#213A56FF",
+    "enamel_green": "#3C6A55FF",
+    "enamel_brown": "#7F3C32FF",
+    "jewel_blue": "#376B83FF",
+    "jewel_red": "#8F3A3FFF",
+    "hot_deep": "#721F18FF",
+    "hot": "#B83B24FF",
+    "hot_light": "#E86932FF",
+    "soot": "#0A1012FF",
+    "black": "#11171AFF",
+    "black_mid": "#222B2FFF",
+    "black_light": "#374247FF",
+    "glass_deep": "#426064FF",
+    "glass": "#789295FF",
+    "glass_light": "#AFC4BEFF",
+    "liquid_deep": "#667548FF",
+    "liquid": "#9DAE68FF",
+    "liquid_light": "#C5D58AFF",
+    "lens_deep": "#1F4A3AFF",
+    "lens": "#39725AFF",
+    "lens_light": "#66A277FF",
+    "screen": "#152B38FF",
+    "screen_light": "#244553FF",
+    "scuff": "#6A4B3DFF"
+  },
+  "new_colors": {},
+  "items": [
+    {
+      "name": "月の石",
+      "era": "現代",
+      "custom_model_data": 8205,
+      "proposal": "C",
+      "proposal_name": "細密",
+      "file": "assets/jidaiui/textures/item/tsukinoishi.png",
+      "shitae": "shitae/tsukinoishi.png",
+      "preview": "preview/tsukinoishi.png",
+      "preview_shitae": "preview_shitae/tsukinoishi.png",
+      "resource_location": "jidaiui:textures/item/tsukinoishi.png",
+      "size": [
+        512,
+        512
+      ],
+      "cell": 32,
+      "block": 2,
+      "intent": "黒い樹脂の台に載ったガラスの標本箱。中に灰色の月の岩。左上のガラスに反射が1か所",
+      "single_wear_point": "台の右側の擦れ1か所",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 82300
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 46230
+        },
+        {
+          "role": "black",
+          "rgba": "#11171AFF",
+          "pixel_count": 12288
+        },
+        {
+          "role": "black_mid",
+          "rgba": "#222B2FFF",
+          "pixel_count": 6828
+        },
+        {
+          "role": "iron_deep",
+          "rgba": "#303B3FFF",
+          "pixel_count": 15168
+        },
+        {
+          "role": "black_light",
+          "rgba": "#374247FF",
+          "pixel_count": 16194
+        },
+        {
+          "role": "glass_deep",
+          "rgba": "#426064FF",
+          "pixel_count": 16272
+        },
+        {
+          "role": "iron",
+          "rgba": "#586368FF",
+          "pixel_count": 14196
+        },
+        {
+          "role": "brass_deep",
+          "rgba": "#6F4E28FF",
+          "pixel_count": 392
+        },
+        {
+          "role": "glass",
+          "rgba": "#789295FF",
+          "pixel_count": 29000
+        },
+        {
+          "role": "iron_light",
+          "rgba": "#7D8889FF",
+          "pixel_count": 6412
+        },
+        {
+          "role": "steel_light",
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 3400
+        },
+        {
+          "role": "glass_light",
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 4450
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 4476
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 1276
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 3262
+        }
+      ]
+    },
+    {
+      "name": "ヒッタイトの戦車",
+      "era": "鉄器",
+      "custom_model_data": 8211,
+      "proposal": "C",
+      "proposal_name": "細密",
+      "file": "assets/jidaiui/textures/item/sensha.png",
+      "shitae": "shitae/sensha.png",
+      "preview": "preview/sensha.png",
+      "preview_shitae": "preview_shitae/sensha.png",
+      "resource_location": "jidaiui:textures/item/sensha.png",
+      "size": [
+        256,
+        256
+      ],
+      "cell": 16,
+      "block": 1,
+      "intent": "右向きの側面図。革張りの車台と木の床、左下に木の大車輪（十字の輻・青銅の轂）、前下から右上へ上がる轅と軛",
+      "single_wear_point": "車台の革の右下の擦れ1か所",
+      "palette": [
+        {
+          "role": "transparent",
+          "rgba": "#00000000",
+          "pixel_count": 34912
+        },
+        {
+          "role": "outline",
+          "rgba": "#102329FF",
+          "pixel_count": 13375
+        },
+        {
+          "role": "leather_deep",
+          "rgba": "#4A2922FF",
+          "pixel_count": 1066
+        },
+        {
+          "role": "wood_deep",
+          "rgba": "#4B3325FF",
+          "pixel_count": 1959
+        },
+        {
+          "role": "wood",
+          "rgba": "#765039FF",
+          "pixel_count": 5856
+        },
+        {
+          "role": "leather",
+          "rgba": "#784337FF",
+          "pixel_count": 3472
+        },
+        {
+          "role": "brass_dark",
+          "rgba": "#9B6D32FF",
+          "pixel_count": 820
+        },
+        {
+          "role": "wood_light",
+          "rgba": "#A47A50FF",
+          "pixel_count": 2245
+        },
+        {
+          "role": "leather_light",
+          "rgba": "#A5684EFF",
+          "pixel_count": 1606
+        },
+        {
+          "role": "brass",
+          "rgba": "#C4934BFF",
+          "pixel_count": 29
+        },
+        {
+          "role": "brass_light",
+          "rgba": "#D6B06BFF",
+          "pixel_count": 27
+        },
+        {
+          "role": "highlight",
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 169
+        }
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "assets/jidaiui/textures/item/tsukinoishi.png",
+      "category": "item_texture",
+      "dimensions": [
+        512,
+        512
+      ],
+      "byte_size": 3813,
+      "sha256": "04408026478B150783E5B656E8E4778A7DB8ACCCF9F115B9786B853787ECE54B",
+      "rgba_color_count": 16,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 82300
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 46230
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 12288
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 6828
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 15168
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 16194
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 16272
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 14196
+        },
+        {
+          "rgba": "#6F4E28FF",
+          "pixel_count": 392
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 29000
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 6412
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 3400
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 4450
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 4476
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 1276
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 3262
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "月の石",
+      "era": "現代",
+      "custom_model_data": 8205,
+      "proposal": "C"
+    },
+    {
+      "file": "shitae/tsukinoishi.png",
+      "category": "shitae",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 311,
+      "sha256": "BCBFAB92663D9CC19A2374A268F0C4B66A7CC970A287DDB4A45BA016D1799337",
+      "rgba_color_count": 15,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 80
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 50
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 12
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 6
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 13
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 12
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 18
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 16
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 26
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 6
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 4
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 4
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 1
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 3
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "月の石",
+      "era": "現代",
+      "custom_model_data": 8205,
+      "proposal": "C"
+    },
+    {
+      "file": "preview/tsukinoishi.png",
+      "category": "preview",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 2183,
+      "sha256": "55554076F8DFED7CD26D4D2D98A7D7068E594A3E575121EA970628043AFD06FA",
+      "rgba_color_count": 16,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 20570
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 11564
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 3072
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 1707
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 3812
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 4047
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 4068
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 3544
+        },
+        {
+          "rgba": "#6F4E28FF",
+          "pixel_count": 98
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 7255
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 1608
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 840
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 1100
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 1119
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 319
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 813
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "月の石",
+      "era": "現代",
+      "custom_model_data": 8205,
+      "proposal": "C"
+    },
+    {
+      "file": "preview_shitae/tsukinoishi.png",
+      "category": "preview_shitae",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 572,
+      "sha256": "C23F370CE13B7C4A3C4032C1D7962A519292727F039EF1210BAB69717C7E193B",
+      "rgba_color_count": 15,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 5120
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3200
+        },
+        {
+          "rgba": "#11171AFF",
+          "pixel_count": 768
+        },
+        {
+          "rgba": "#222B2FFF",
+          "pixel_count": 384
+        },
+        {
+          "rgba": "#303B3FFF",
+          "pixel_count": 832
+        },
+        {
+          "rgba": "#374247FF",
+          "pixel_count": 768
+        },
+        {
+          "rgba": "#426064FF",
+          "pixel_count": 1152
+        },
+        {
+          "rgba": "#586368FF",
+          "pixel_count": 1024
+        },
+        {
+          "rgba": "#789295FF",
+          "pixel_count": 1664
+        },
+        {
+          "rgba": "#7D8889FF",
+          "pixel_count": 384
+        },
+        {
+          "rgba": "#A8B0ADFF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#AFC4BEFF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 64
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 192
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "月の石",
+      "era": "現代",
+      "custom_model_data": 8205,
+      "proposal": "C"
+    },
+    {
+      "file": "assets/jidaiui/textures/item/sensha.png",
+      "category": "item_texture",
+      "dimensions": [
+        256,
+        256
+      ],
+      "byte_size": 2356,
+      "sha256": "EFD420E38D1B84D1F6448269BFF03E6B0678B39718FC77A5AE90054380A909C7",
+      "rgba_color_count": 12,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 34912
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 13375
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 1066
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 1959
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 5856
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 3472
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 820
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 2245
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 1606
+        },
+        {
+          "rgba": "#C4934BFF",
+          "pixel_count": 29
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 27
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 169
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "ヒッタイトの戦車",
+      "era": "鉄器",
+      "custom_model_data": 8211,
+      "proposal": "C"
+    },
+    {
+      "file": "shitae/sensha.png",
+      "category": "shitae",
+      "dimensions": [
+        16,
+        16
+      ],
+      "byte_size": 281,
+      "sha256": "A4685C5C6DB306462994850A37B68CD1D93282D8B89A9C2DA699D8DE157A88B0",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 135
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 55
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 4
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 5
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 28
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 14
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 8
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 6
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 1
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "ヒッタイトの戦車",
+      "era": "鉄器",
+      "custom_model_data": 8211,
+      "proposal": "C"
+    },
+    {
+      "file": "preview/sensha.png",
+      "category": "preview",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 1194,
+      "sha256": "0EE3ED823281096C3F3250C709A7073889F75F384E2F3E32DECF9C7E9E90DBDB",
+      "rgba_color_count": 11,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 8733
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3334
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 305
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 573
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 1498
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 879
+        },
+        {
+          "rgba": "#9B6D32FF",
+          "pixel_count": 213
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 448
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 352
+        },
+        {
+          "rgba": "#D6B06BFF",
+          "pixel_count": 13
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 36
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "ヒッタイトの戦車",
+      "era": "鉄器",
+      "custom_model_data": 8211,
+      "proposal": "C"
+    },
+    {
+      "file": "preview_shitae/sensha.png",
+      "category": "preview_shitae",
+      "dimensions": [
+        128,
+        128
+      ],
+      "byte_size": 552,
+      "sha256": "ACE425BC10FF831A0A97FC357EE3C5014A3025F18610AF3ED01F64106CEDF052",
+      "rgba_color_count": 9,
+      "alpha_values": [
+        0,
+        255
+      ],
+      "rgba_colors": [
+        {
+          "rgba": "#00000000",
+          "pixel_count": 8640
+        },
+        {
+          "rgba": "#102329FF",
+          "pixel_count": 3520
+        },
+        {
+          "rgba": "#4A2922FF",
+          "pixel_count": 256
+        },
+        {
+          "rgba": "#4B3325FF",
+          "pixel_count": 320
+        },
+        {
+          "rgba": "#765039FF",
+          "pixel_count": 1792
+        },
+        {
+          "rgba": "#784337FF",
+          "pixel_count": 896
+        },
+        {
+          "rgba": "#A47A50FF",
+          "pixel_count": 512
+        },
+        {
+          "rgba": "#A5684EFF",
+          "pixel_count": 384
+        },
+        {
+          "rgba": "#F5DE9BFF",
+          "pixel_count": 64
+        }
+      ],
+      "contains_baked_text": false,
+      "name": "ヒッタイトの戦車",
+      "era": "鉄器",
+      "custom_model_data": 8211,
+      "proposal": "C"
+    }
+  ]
+}

@@ -29,6 +29,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -382,6 +383,17 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
         //   これが無いと、止めた瞬間に全員の材料と焼き上がりが消える。
         if (kamado != null) {
             kamado.hozon();
+        }
+        // ★ 3秒で戻す約束の途中で止まると、銀行が消えたままになる。
+        //   まわりの守りのせいで運営でも置き直せないので、ここで戻す。
+        if (ginkoModosu != null) {
+            for (java.util.Map.Entry<org.bukkit.Location, Material> e : ginkoModosu.entrySet()) {
+                e.getKey().getBlock().setType(e.getValue());
+            }
+            if (!ginkoModosu.isEmpty()) {
+                getLogger().info("壊れていた銀行を " + ginkoModosu.size() + " 個 戻しました");
+            }
+            ginkoModosu.clear();
         }
         getLogger().info("停止しました");
     }
@@ -1424,6 +1436,26 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
             return;
         }
 
+        // --- 拠点の銀行のまわりは掘らせない（2026-09-18 のご指示）-------
+        //
+        // ★★ なぜ要るか ★★
+        //   銀行そのものは施設として守っているが、**まわりは素の地面**。
+        //   足元を掘って落とす・覆って押せなくする、が通ってしまう。
+        //
+        // ★ 施設そのもの（shu != null）はここでは弾かない。
+        //   銀行を壊す＝略奪、という【戦争の入口】を塞いでしまうため。
+        // ★★ ネザライトの抽選より【前】に置くこと ★★
+        //   後ろに置くと、壊せないのにドロップだけ出て【無限に湧く】。
+        String shu = basho.shurui(Basho.kagi(event.getBlock()));
+        // ★ 運営（op）は素通り。守りのせいで直せなくなる事故を避ける逃げ道。
+        if (shu == null && !event.getPlayer().isOp()
+                && basho.ginkoNoMawari(event.getBlock(), GINKO_MAMORU)) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage("[銀行] 銀行のまわり "
+                    + GINKO_MAMORU + " マスは掘れません");
+            return;
+        }
+
         // --- 石を掘った時のネザライト -----------------------------
         // ★ 0.1% で1個 出る。銀行で 30 で売れる。
         //   落とす形にしているのは、持ち物がいっぱいでも消えないため。
@@ -1449,14 +1481,83 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
             }
         }
 
-        String shu = basho.shurui(Basho.kagi(event.getBlock()));
         if (shu == null) {
+            return;
+        }
+
+        // --- 他の勢力の銀行を壊した = 略奪（2026-09-09 のご指示）-------
+        //
+        // ★★ ブロックは壊させない ★★
+        //   金ブロックが本当に消えると、その拠点は二度と略奪できなくなり、
+        //   運営にも参加者にも原因が分からない状態になる。
+        //   壊す動作そのものを1回と数え、演出だけ「壊れた」ように見せる。
+        //   Effect.STEP_SOUND は壊れた時の粒と音を両方 出す
+        //   （paper-api-1.20.1.jar を開いて実在を確認した）。
+        // ★ ginko の null 確認は、検証ハーネス（Unsafe で作るのでフィールドが入らない）
+        //   のため。onShinda の tatakai と同じ書き方にそろえてある。
+        if (shu.equals(Basho.GINKO) && ginko != null
+                && ginko.kowasareta(event.getPlayer(), event.getBlock(), kane, seiryoku)) {
+            // ★★ 2026-09-18 のご指示: 壊させて、3秒で戻す ★★
+            //   前は壊させずに演出だけ出していた。実際に壊れて戻る方が伝わる。
+            // ★ 落とし物は出さない。出すと金ブロックが増えてしまう。
+            // ★ 戻るまでの間に埋められないのは、まわり3マスの守りが
+            //   銀行そのものにも効いているため（置く方は座標が一致すれば止まる）。
+            event.setDropItems(false);
+            ginkoModosuYoyaku(event.getBlock());
             return;
         }
         // ★ 販売所・売却所・銀行・ガチャの4種すべてを守る。
         //   データパックが処理する施設でも、壊されたら動かなくなるのは同じ。
         event.setCancelled(true);
         event.getPlayer().sendMessage("[" + Basho.shuruiMei(shu) + "] ここは施設です。壊せません");
+    }
+
+    /**
+     * 壊された銀行を、GINKO_MODORU tick 後に元へ戻す約束をする。
+     *
+     * ★ 戻すまでの間にサーバーが止まったら戻らない。
+     *   そのまま消えると、**まわりの守りのせいで運営でも置き直せない**ので、
+     *   onDisable でまとめて戻している。
+     */
+    private void ginkoModosuYoyaku(Block block) {
+        final org.bukkit.Location basho2 = block.getLocation();
+        final Material moto = block.getType();
+        modosuMachi().put(basho2, moto);
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            modosuMachi().remove(basho2);
+            basho2.getBlock().setType(moto);
+        }, GINKO_MODORU);
+    }
+
+    /** ★ Unsafe で作ると初期化子を通らないので、使う時に作る。 */
+    private java.util.Map<org.bukkit.Location, Material> modosuMachi() {
+        if (ginkoModosu == null) {
+            ginkoModosu = new java.util.HashMap<>();
+        }
+        return ginkoModosu;
+    }
+
+    /**
+     * ブロックが置かれた時に、サーバーが呼ぶ。
+     *
+     * ★★ 2026-09-18 のご指示: 銀行のまわりは覆わせない ★★
+     *   壊す方だけ止めても、箱やブロックで囲めば銀行は押せなくなる。
+     *   置く方も同じ範囲で止める。
+     *
+     * ★ basho の null 確認は検証ハーネス（Unsafe で作るのでフィールドが入らない）
+     *   のため。onShinda の tatakai と同じ書き方にそろえてある。
+     */
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        if (basho == null) {
+            return;
+        }
+        if (!event.getPlayer().isOp()
+                && basho.ginkoNoMawari(event.getBlock(), GINKO_MAMORU)) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage("[銀行] 銀行のまわり "
+                    + GINKO_MAMORU + " マスにはブロックを置けません");
+        }
     }
 
     /**
@@ -1467,15 +1568,47 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
      *   壊せるのは、次の3つが【同時に】そろった時だけ。
      *     1. 壊す人が勢力に入っている
      *     2. その勢力が、ビーコンの持ち主と【交戦中】(sensou=2)
-     *     3. 持ち主の貯金が BEACON_KOWASERU（100）以下 ★ 2026-08-22 に 0 → 100 へ（ご指示）
+     *     3. 攻める側が、相手の銀行を 占領_必要回数（100）回 壊した
+     *        ★ 2026-09-09 に「持ち主の貯金が 100 以下」から替えた（ご指示）。
+     *          1回1%の略奪では貯金は 0 にならない（100回でも約37%残る）ので、
+     *          貯金を条件にすると永久に落とせなくなる。
      *   1つでも欠けたら、理由を出して断る。黙って壊せないのが一番困る。
      *
      * ★ 壊した後: 植民地の印・勝利判定はデータパック（jidai:sensou/shokuminchi）。
      *   プラグインは続けて【戦争を終わらせ】、花火5発と「終戦」の合図を全員に出す
      *   （2026-08-22 のご指示。制圧できずに時間切れの時は、この演出は出ない）。
      */
-    /** ビーコンを壊せるようになる、持ち主の貯金の上限。これ以下なら壊せる。 */
-    static final int BEACON_KOWASERU = 100;
+    /**
+     * ビーコンを壊せるようになるまでに、銀行を壊す回数の【予備の値】。
+     *
+     * ★ 本来の値はデータパックの `占領_必要回数 settei`。ここはそれが
+     *   読めなかった時（データパックが未読み込み等）にだけ使う。
+     *   プラグインに数字を持たせると、設定を変えた時に片方だけ古くなる。
+     */
+    static final int BEACON_KAISU_YOBI = 100;
+
+    /**
+     * 拠点の銀行を守る範囲（マス）。この中は置くのも壊すのもできない。
+     *
+     * ★ 2026-09-18 のご指示。銀行そのものは施設として守っているが、
+     *   まわりを掘られる・覆われると使えなくなるため。
+     *   縦横高さのうち一番大きい差で見る（7×7×7 の立方体）。
+     */
+    static final int GINKO_MAMORU = 3;
+
+    /**
+     * 壊された銀行が戻るまでの時間（tick）。20 tick = 1秒なので 60 = 3秒。
+     * ★ 2026-09-18 のご指示「3秒で再設置される」。
+     */
+    static final int GINKO_MODORU = 60;
+
+    /**
+     * 戻す約束をした銀行（場所 → 元のブロック）。
+     *
+     * ★ Unsafe で作ると初期化子を通らないので、**使う時に作る**（modosuMachi）。
+     *   このプロジェクトで3回 踏んでいる罠。
+     */
+    private java.util.Map<org.bukkit.Location, Material> ginkoModosu;
 
     /** 制圧の花火。5発を 12tick おき（約3秒で打ち終わる）。 */
     static final int SEIATSU_HANABI = 5;
@@ -1508,18 +1641,33 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
             return false;
         }
 
-        // (3) 相手の貯金が 100 以下か（★ 0 でなくてよい。2026-08-22 のご指示）
-        int nokori = kane.seiryokuZandaka(aiteMei);
-        if (nokori > BEACON_KOWASERU) {
+        // (3) 攻める側が、相手の銀行を 占領_必要回数 だけ壊したか（2026-09-09 のご指示）
+        //
+        // ★ 回数は【戦争のマーカー】が持っている。マーカーのスコアはプラグインからは
+        //   読めないので、データパックに固定の作業用へ写してもらってから読む
+        //   （jidai:sensou/aite_yomu と同じ型。「呼んでから読む」）。
+        int semeNo = Seiryoku.bangou(jibun, kane);
+        int mamoruNo = Seiryoku.bangou(mochinushi, kane);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
+                "scoreboard players set #q_kuni sagyou " + semeNo);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
+                "scoreboard players set #q_aite sagyou " + mamoruNo);
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "function jidai:sensou/kai_yomu");
+        int kaisu = kane.sagyou("#q_kai");
+        int hitsuyou = kane.settei("占領_必要回数");
+        if (hitsuyou <= 0) {
+            hitsuyou = BEACON_KAISU_YOBI;      // データパックがまだ読めていない時
+        }
+        if (kaisu < hitsuyou) {
             player.sendMessage(Enshutsu.kazaru(Enshutsu.SENSO,
-                    aiteMei + " の貯金が " + BEACON_KOWASERU + " を超えています (今 " + nokori + ")。"
-                            + "略奪で " + BEACON_KOWASERU + " 以下にしてから壊してください"));
+                    aiteMei + " の銀行を壊した回数が足りません (" + kaisu + "/" + hitsuyou + ")。"
+                            + "あと " + (hitsuyou - kaisu) + " 回 壊してから、このビーコンを壊してください"));
             return false;
         }
 
         // --- 条件がそろった。壊させて、植民地にする ---
         getLogger().info("拠点が落ちた: " + jibunMei + " → " + aiteMei
-                + " (" + player.getName() + ")");
+                + " (" + player.getName() + " / 壊した回数 " + kaisu + ")");
         String cmd = "scoreboard players set #s_kuni sagyou "
                 + Seiryoku.bangou(jibun, kane);
         Bukkit.dispatchCommand(Bukkit.getConsoleSender(), cmd);

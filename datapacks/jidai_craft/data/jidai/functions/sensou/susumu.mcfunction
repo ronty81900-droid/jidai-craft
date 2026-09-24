@@ -55,8 +55,11 @@ scoreboard players operation #ryaku_a sagyou += @s ryakudatsu_sekiyu_a
 scoreboard players operation #ryaku_b sagyou = @s ryakudatsu_kane_b
 scoreboard players operation #ryaku_b sagyou += @s ryakudatsu_sekiyu_b
 
-# 占領の判定は長いので別の関数へ切り出してある
-execute if score #jotai sagyou matches 2 run function jidai:sensou/senryou_hantei
+# ★★ 2026-09-09: 「交戦終了時に貯金が0なら占領」は廃止した ★★
+#   占領の入口は【ビーコンを壊す】1本だけにする（ご指示）。
+#   1回1%の設計では貯金は 0 にならない（100回でも約37%残る）ので、
+#   この判定はどのみちほぼ発動しなかった。
+#   判定の中身だった jidai:sensou/senryou_hantei は消してある。
 
 # --- 5) 再戦禁止 → 関係なし ----------------------------------
 execute if score #jotai sagyou matches 3 run tellraw @a [{"text":"[戦争] ","color":"gray"},{"storage":"jidai:kari","nbt":"mei","color":"gray"},{"text":" と ","color":"gray"},{"storage":"jidai:kari","nbt":"mei2","color":"gray"},{"text":" は再び宣戦できるようになった","color":"gray"}]

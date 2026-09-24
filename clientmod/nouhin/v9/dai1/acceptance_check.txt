@@ -1,0 +1,249 @@
+[PASS] manifest.json がある
+[PASS] manifest.package.batch が 1〜5
+[PASS] 第1便の絵 = ['kaizu', 'haguruma', 'tsukinoishi']
+[PASS] manifest の source_request_sha256 が依頼文と一致
+[PASS] 追加色が 4 色以内（0）
+[PASS] 案A kaizu.png が実在する
+[PASS] 案A haguruma.png が実在する
+[PASS] 案A tsukinoishi.png が実在する
+[PASS] 案B kaizu.png が実在する
+[PASS] 案B haguruma.png が実在する
+[PASS] 案B tsukinoishi.png が実在する
+[PASS] 案C kaizu.png が実在する
+[PASS] 案C haguruma.png が実在する
+[PASS] 案C tsukinoishi.png が実在する
+[PASS] 本番 9 枚がすべて実在（9）
+[PASS] 案A haguruma: 256×256（64 か 256）
+[PASS] 案A haguruma: 不透明度が 0/255 だけ
+[PASS] 案A haguruma: 透明画素の RGB が 0
+[PASS] 案A haguruma: 色数 8 (64以下)
+[PASS] 案A haguruma: 全色が共有パレット＋追加色 
+[PASS] 案A haguruma: 外周 8px が outline
+[PASS] 案A haguruma: 続く 8px が brass
+[PASS] 案A haguruma: 内部に outline 色が無い
+[PASS] 案A haguruma: 透明余白 (12, 12, 12, 12)（8〜32）
+[PASS] 案A haguruma: highlight のまとまりが 1（1）
+[PASS] 案A haguruma: シルエットが 1 つ（1）
+[PASS] 案A haguruma: 256×256
+[PASS] 案A haguruma: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案A haguruma: manifest に載っている
+[PASS] 案A haguruma: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案A haguruma: preview 48 がある
+[PASS] 案A haguruma: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A haguruma: preview 32 がある
+[PASS] 案A haguruma: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A haguruma: preview 16 がある
+[PASS] 案A haguruma: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A kaizu: 256×256（64 か 256）
+[PASS] 案A kaizu: 不透明度が 0/255 だけ
+[PASS] 案A kaizu: 透明画素の RGB が 0
+[PASS] 案A kaizu: 色数 18 (64以下)
+[PASS] 案A kaizu: 全色が共有パレット＋追加色 
+[PASS] 案A kaizu: 外周 8px が outline
+[PASS] 案A kaizu: 続く 8px が brass
+[PASS] 案A kaizu: 内部に outline 色が無い
+[PASS] 案A kaizu: 透明余白 (12, 16, 12, 16)（8〜32）
+[PASS] 案A kaizu: highlight のまとまりが 1（1）
+[PASS] 案A kaizu: シルエットが 1 つ（1）
+[PASS] 案A kaizu: 256×256
+[PASS] 案A kaizu: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案A kaizu: manifest に載っている
+[PASS] 案A kaizu: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案A kaizu: preview 48 がある
+[PASS] 案A kaizu: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A kaizu: preview 32 がある
+[PASS] 案A kaizu: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A kaizu: preview 16 がある
+[PASS] 案A kaizu: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A kaizu: 翠（lens 系）を使っている
+[PASS] 案A kaizu: 肌色（hada 系）を使っている
+[PASS] 案A tsukinoishi: 256×256（64 か 256）
+[PASS] 案A tsukinoishi: 不透明度が 0/255 だけ
+[PASS] 案A tsukinoishi: 透明画素の RGB が 0
+[PASS] 案A tsukinoishi: 色数 14 (64以下)
+[PASS] 案A tsukinoishi: 全色が共有パレット＋追加色 
+[PASS] 案A tsukinoishi: 外周 8px が outline
+[PASS] 案A tsukinoishi: 続く 8px が brass
+[PASS] 案A tsukinoishi: 内部に outline 色が無い
+[PASS] 案A tsukinoishi: 透明余白 (16, 16, 16, 16)（8〜32）
+[PASS] 案A tsukinoishi: highlight のまとまりが 1（1）
+[PASS] 案A tsukinoishi: シルエットが 1 つ（1）
+[PASS] 案A tsukinoishi: 256×256
+[PASS] 案A tsukinoishi: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案A tsukinoishi: manifest に載っている
+[PASS] 案A tsukinoishi: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案A tsukinoishi: preview 48 がある
+[PASS] 案A tsukinoishi: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A tsukinoishi: preview 32 がある
+[PASS] 案A tsukinoishi: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案A tsukinoishi: preview 16 がある
+[PASS] 案A tsukinoishi: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B haguruma: 256×256（64 か 256）
+[PASS] 案B haguruma: 不透明度が 0/255 だけ
+[PASS] 案B haguruma: 透明画素の RGB が 0
+[PASS] 案B haguruma: 色数 11 (64以下)
+[PASS] 案B haguruma: 全色が共有パレット＋追加色 
+[PASS] 案B haguruma: 外周 8px が outline
+[PASS] 案B haguruma: 続く 8px が brass
+[PASS] 案B haguruma: 内部に outline 色が無い
+[PASS] 案B haguruma: 透明余白 (16, 16, 16, 16)（8〜32）
+[PASS] 案B haguruma: highlight のまとまりが 1（1）
+[PASS] 案B haguruma: シルエットが 1 つ（1）
+[PASS] 案B haguruma: 256×256
+[PASS] 案B haguruma: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案B haguruma: manifest に載っている
+[PASS] 案B haguruma: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案B haguruma: preview 48 がある
+[PASS] 案B haguruma: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B haguruma: preview 32 がある
+[PASS] 案B haguruma: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B haguruma: preview 16 がある
+[PASS] 案B haguruma: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B kaizu: 256×256（64 か 256）
+[PASS] 案B kaizu: 不透明度が 0/255 だけ
+[PASS] 案B kaizu: 透明画素の RGB が 0
+[PASS] 案B kaizu: 色数 18 (64以下)
+[PASS] 案B kaizu: 全色が共有パレット＋追加色 
+[PASS] 案B kaizu: 外周 8px が outline
+[PASS] 案B kaizu: 続く 8px が brass
+[PASS] 案B kaizu: 内部に outline 色が無い
+[PASS] 案B kaizu: 透明余白 (12, 12, 12, 12)（8〜32）
+[PASS] 案B kaizu: highlight のまとまりが 1（1）
+[PASS] 案B kaizu: シルエットが 1 つ（1）
+[PASS] 案B kaizu: 256×256
+[PASS] 案B kaizu: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案B kaizu: manifest に載っている
+[PASS] 案B kaizu: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案B kaizu: preview 48 がある
+[PASS] 案B kaizu: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B kaizu: preview 32 がある
+[PASS] 案B kaizu: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B kaizu: preview 16 がある
+[PASS] 案B kaizu: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B kaizu: 翠（lens 系）を使っている
+[PASS] 案B kaizu: 肌色（hada 系）を使っている
+[PASS] 案B tsukinoishi: 256×256（64 か 256）
+[PASS] 案B tsukinoishi: 不透明度が 0/255 だけ
+[PASS] 案B tsukinoishi: 透明画素の RGB が 0
+[PASS] 案B tsukinoishi: 色数 11 (64以下)
+[PASS] 案B tsukinoishi: 全色が共有パレット＋追加色 
+[PASS] 案B tsukinoishi: 外周 8px が outline
+[PASS] 案B tsukinoishi: 続く 8px が brass
+[PASS] 案B tsukinoishi: 内部に outline 色が無い
+[PASS] 案B tsukinoishi: 透明余白 (20, 12, 20, 16)（8〜32）
+[PASS] 案B tsukinoishi: highlight のまとまりが 1（1）
+[PASS] 案B tsukinoishi: シルエットが 1 つ（1）
+[PASS] 案B tsukinoishi: 256×256
+[PASS] 案B tsukinoishi: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案B tsukinoishi: manifest に載っている
+[PASS] 案B tsukinoishi: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案B tsukinoishi: preview 48 がある
+[PASS] 案B tsukinoishi: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B tsukinoishi: preview 32 がある
+[PASS] 案B tsukinoishi: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案B tsukinoishi: preview 16 がある
+[PASS] 案B tsukinoishi: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C haguruma: 256×256（64 か 256）
+[PASS] 案C haguruma: 不透明度が 0/255 だけ
+[PASS] 案C haguruma: 透明画素の RGB が 0
+[PASS] 案C haguruma: 色数 9 (64以下)
+[PASS] 案C haguruma: 全色が共有パレット＋追加色 
+[PASS] 案C haguruma: 外周 8px が outline
+[PASS] 案C haguruma: 続く 8px が brass
+[PASS] 案C haguruma: 内部に outline 色が無い
+[PASS] 案C haguruma: 透明余白 (8, 24, 8, 16)（8〜32）
+[PASS] 案C haguruma: highlight のまとまりが 1（1）
+[PASS] 案C haguruma: シルエットが 1 つ（1）
+[PASS] 案C haguruma: 256×256
+[PASS] 案C haguruma: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案C haguruma: manifest に載っている
+[PASS] 案C haguruma: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案C haguruma: preview 48 がある
+[PASS] 案C haguruma: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C haguruma: preview 32 がある
+[PASS] 案C haguruma: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C haguruma: preview 16 がある
+[PASS] 案C haguruma: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C kaizu: 256×256（64 か 256）
+[PASS] 案C kaizu: 不透明度が 0/255 だけ
+[PASS] 案C kaizu: 透明画素の RGB が 0
+[PASS] 案C kaizu: 色数 18 (64以下)
+[PASS] 案C kaizu: 全色が共有パレット＋追加色 
+[PASS] 案C kaizu: 外周 8px が outline
+[PASS] 案C kaizu: 続く 8px が brass
+[PASS] 案C kaizu: 内部に outline 色が無い
+[PASS] 案C kaizu: 透明余白 (12, 12, 12, 12)（8〜32）
+[PASS] 案C kaizu: highlight のまとまりが 1（1）
+[PASS] 案C kaizu: シルエットが 1 つ（1）
+[PASS] 案C kaizu: 256×256
+[PASS] 案C kaizu: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案C kaizu: manifest に載っている
+[PASS] 案C kaizu: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案C kaizu: preview 48 がある
+[PASS] 案C kaizu: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C kaizu: preview 32 がある
+[PASS] 案C kaizu: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C kaizu: preview 16 がある
+[PASS] 案C kaizu: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C kaizu: 翠（lens 系）を使っている
+[PASS] 案C kaizu: 肌色（hada 系）を使っている
+[PASS] 案C tsukinoishi: 256×256（64 か 256）
+[PASS] 案C tsukinoishi: 不透明度が 0/255 だけ
+[PASS] 案C tsukinoishi: 透明画素の RGB が 0
+[PASS] 案C tsukinoishi: 色数 9 (64以下)
+[PASS] 案C tsukinoishi: 全色が共有パレット＋追加色 
+[PASS] 案C tsukinoishi: 外周 8px が outline
+[PASS] 案C tsukinoishi: 続く 8px が brass
+[PASS] 案C tsukinoishi: 内部に outline 色が無い
+[PASS] 案C tsukinoishi: 透明余白 (12, 16, 16, 16)（8〜32）
+[PASS] 案C tsukinoishi: highlight のまとまりが 1（1）
+[PASS] 案C tsukinoishi: シルエットが 1 つ（1）
+[PASS] 案C tsukinoishi: 256×256
+[PASS] 案C tsukinoishi: 3px 未満の細い要素が 0.0%（10% 以下）
+[PASS] 案C tsukinoishi: manifest に載っている
+[PASS] 案C tsukinoishi: manifest の sha256（大文字）・byte 数・寸法・色数が実物と一致
+[PASS] 案C tsukinoishi: preview 48 がある
+[PASS] 案C tsukinoishi: preview 48 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C tsukinoishi: preview 32 がある
+[PASS] 案C tsukinoishi: preview 32 は本番の nearest 縮小と 1 画素も違わない
+[PASS] 案C tsukinoishi: preview 16 がある
+[PASS] 案C tsukinoishi: preview 16 は本番の nearest 縮小と 1 画素も違わない
+[PASS] kaizu: 案A と 案B が別の絵（反転・回転のコピーでない）
+[PASS] kaizu: 案A と 案C が別の絵（反転・回転のコピーでない）
+[PASS] kaizu: 案B と 案C が別の絵（反転・回転のコピーでない）
+[PASS] haguruma: 案A と 案B が別の絵（反転・回転のコピーでない）
+[PASS] haguruma: 案A と 案C が別の絵（反転・回転のコピーでない）
+[PASS] haguruma: 案B と 案C が別の絵（反転・回転のコピーでない）
+[PASS] tsukinoishi: 案A と 案B が別の絵（反転・回転のコピーでない）
+[PASS] tsukinoishi: 案A と 案C が別の絵（反転・回転のコピーでない）
+[PASS] tsukinoishi: 案B と 案C が別の絵（反転・回転のコピーでない）
+[PASS] a/haguruma と a/kaizu が別の絵
+[PASS] a/haguruma と a/tsukinoishi が別の絵
+[PASS] a/haguruma と b/kaizu が別の絵
+[PASS] a/haguruma と b/tsukinoishi が別の絵
+[PASS] a/haguruma と c/kaizu が別の絵
+[PASS] a/haguruma と c/tsukinoishi が別の絵
+[PASS] a/kaizu と a/tsukinoishi が別の絵
+[PASS] a/kaizu と b/haguruma が別の絵
+[PASS] a/kaizu と b/tsukinoishi が別の絵
+[PASS] a/kaizu と c/haguruma が別の絵
+[PASS] a/kaizu と c/tsukinoishi が別の絵
+[PASS] a/tsukinoishi と b/haguruma が別の絵
+[PASS] a/tsukinoishi と b/kaizu が別の絵
+[PASS] a/tsukinoishi と c/haguruma が別の絵
+[PASS] a/tsukinoishi と c/kaizu が別の絵
+[PASS] b/haguruma と b/kaizu が別の絵
+[PASS] b/haguruma と b/tsukinoishi が別の絵
+[PASS] b/haguruma と c/kaizu が別の絵
+[PASS] b/haguruma と c/tsukinoishi が別の絵
+[PASS] b/kaizu と b/tsukinoishi が別の絵
+[PASS] b/kaizu と c/haguruma が別の絵
+[PASS] b/kaizu と c/tsukinoishi が別の絵
+[PASS] b/tsukinoishi と c/haguruma が別の絵
+[PASS] b/tsukinoishi と c/kaizu が別の絵
+[PASS] c/haguruma と c/kaizu が別の絵
+[PASS] c/haguruma と c/tsukinoishi が別の絵
+[PASS] c/kaizu と c/tsukinoishi が別の絵
+
+============================================================
+結果: PASS 246 / FAIL 0

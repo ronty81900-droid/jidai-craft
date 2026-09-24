@@ -820,6 +820,9 @@ public class SeiryokuTest {
         Method osareta = ginkoClass.getMethod("osareta", Player.class,
                 org.bukkit.block.Block.class, kaneClass, seiClass);
         Method oshita = ginkoClass.getMethod("oshita", Player.class, int.class, kaneClass);
+        // ★ 2026-09-09: 略奪の入口。押した時ではなく【壊した時】に呼ばれる
+        Method kowasareta = ginkoClass.getMethod("kowasareta", Player.class,
+                org.bukkit.block.Block.class, kaneClass, seiClass);
 
         // 金ブロックの張りぼて。近くの印で「誰の拠点か」を決める
         final String[] nushiTag = {"jidai_kyoten_kyuryo"};
@@ -871,12 +874,21 @@ public class SeiryokuTest {
         catch (InvocationTargetException e) { }
         check("★再戦禁止中も略奪へ回さない", CMDS.isEmpty(), "送信=" + CMDS);
 
-        // H-1. 交戦中の相手の拠点 → 略奪へ回す（画面は開かない）
+        // H-1. 交戦中の相手の拠点
+        //   ★★ 2026-09-09 のご指示で入口が替わった ★★
+        //     押しても略奪しない（「壊せば奪える」と案内するだけ）。
+        //     略奪へ回るのは【壊した時】＝ Ginko.kowasareta。
         sensouOku("丘陵", "森林", 2);
         member.clear(); CMDS.clear();
         try { osareta.invoke(ginko, pMember, kinBlock, kane, sei); }
         catch (InvocationTargetException e) { }
-        check("★★★交戦中の相手の拠点を押すと略奪へ回す（データパックの担当）",
+        check("★★★交戦中でも【押しただけ】では略奪へ回さない（2026-09-09）",
+                CMDS.isEmpty(), "送信=" + CMDS);
+
+        member.clear(); CMDS.clear();
+        try { kowasareta.invoke(ginko, pMember, kinBlock, kane, sei); }
+        catch (InvocationTargetException e) { }
+        check("★★★交戦中の相手の銀行を壊すと略奪へ回す（データパックの担当）",
                 CMDS.size() == 3 && CMDS.get(2).endsWith("function jidai:sensou/ryakudatsu"),
                 String.valueOf(CMDS));
         // ★1.20.1 は `with storage` が使えないので、番号をスコアで渡す。

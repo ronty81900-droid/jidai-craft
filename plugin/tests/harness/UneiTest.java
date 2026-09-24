@@ -307,6 +307,31 @@ public class UneiTest {
         check("(字) 持ち物ではなく地面へ落とす（いっぱいでも消えない）",
                 jcs.contains("dropItemNaturally"), "持ち物へ入れている");
 
+        // ---------- 銀行のまわり3マス（2026-09-18 のご指示）----------
+        // ★ 守りの入口は「施設でない（shu == null）」かつ「運営でない」時だけ。
+        //   条件が増えても壊れないよう、呼び出しの字そのもので位置を取る。
+        int mamoru = jcs.indexOf("basho.ginkoNoMawari(event.getBlock(), GINKO_MAMORU)");
+        int neza = jcs.indexOf("NETHERITE_INGOT");
+        check("★★(字) 銀行のまわりの守りが【ネザライトの抽選より前】にある",
+                mamoru >= 0 && neza >= 0 && mamoru < neza,
+                "守り=" + mamoru + " ネザライト=" + neza
+                        + "（後ろだと、壊せないのにドロップだけ出て無限に湧く）");
+        check("★★(字) 施設そのもの（銀行を含む）はこの守りで弾かない",
+                jcs.contains("shu == null && !event.getPlayer().isOp()"),
+                "銀行を壊す＝略奪、という戦争の入口を塞いでしまう");
+        check("(字) 運営（op）は守りを素通りできる（詰んだ時の逃げ道）",
+                jcs.contains("!event.getPlayer().isOp()"), "逃げ道が無い");
+        check("★★(字) 壊した銀行は落とし物を出さず、あとで戻す",
+                jcs.contains("event.setDropItems(false)")
+                        && jcs.contains("ginkoModosuYoyaku(event.getBlock())"),
+                "金ブロックが増える／戻らない");
+        check("★★(字) 止める時に、戻し残した銀行を戻す",
+                jcs.contains("壊れていた銀行を"), "落ちたまま消えると運営でも置き直せない");
+        check("(字) 置く方も同じ範囲で止める",
+                jcs.contains("public void onBlockPlace(BlockPlaceEvent event)")
+                        && jcs.contains("basho.ginkoNoMawari(event.getBlock(), GINKO_MAMORU)"),
+                "壊す方だけだと箱で囲める");
+
         // ---------- 戦争勝利（ビーコンを壊す条件） ----------
         System.out.println();
         System.out.println("-- 戦争勝利 --");
@@ -320,9 +345,12 @@ public class UneiTest {
                 bkBody.contains("jibun.equals(mochinushi)"), "壊せてしまう");
         check("★★(字) 交戦中(2)でなければ壊せない",
                 bkBody.contains("sensouJotai(jibunMei) != 2"), "見ていない");
-        check("★★(字) 相手の貯金が 100 を超えていれば壊せない（2026-08-22: 0→100）",
-                bkBody.contains("seiryokuZandaka(aiteMei)")
-                        && bkBody.contains("nokori > BEACON_KOWASERU"), "見ていない");
+        check("★★(字) 銀行を壊した回数が足りなければ壊せない（2026-09-09: 貯金→回数）",
+                bkBody.contains("function jidai:sensou/kai_yomu")
+                        && bkBody.contains("kane.sagyou(\"#q_kai\")")
+                        && bkBody.contains("kaisu < hitsuyou"), "見ていない");
+        check("★★(字) 必要回数はデータパックの settei から読む（数字を持たない）",
+                bkBody.contains("kane.settei(\"占領_必要回数\")"), "プラグインが数字を持っている");
         check("★(字) 壊れた後の処理はデータパックへ渡す",
                 bkBody.contains("function jidai:sensou/shokuminchi"), "自前でやっている");
         check("(実物) Basho がビーコンの持ち主を覚えている",

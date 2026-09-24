@@ -157,6 +157,8 @@ public class KanriTest {
         set("sekiyu", "ronty", 40);
         set("choshu", "ronty", 2);
         set("settei", "石油_停止", 0);
+        // ★ 2026-09-09: ビーコンの案内が読む設定。置かないと読み出しで落ちる
+        set("settei", "占領_必要回数", 100);
 
         Method mReset = kc.getDeclaredMethod("scoreRisetto", boolean.class);
         mReset.setAccessible(true);
@@ -294,10 +296,18 @@ public class KanriTest {
         // ---- 制圧（ビーコンを落とす）----
         if (jsrc != null) {
             Class<?> jcls = Class.forName("jidai.JidaiCraft");
-            int kowaseru = (Integer) teisuu(jcls, "BEACON_KOWASERU");
-            check("★★ビーコンを壊せる貯金の上限は 100（ご指示）", kowaseru == 100, "実際=" + kowaseru);
-            check("★(字) 貯金 0 でなく「100 以下」で壊せる判定（nokori > BEACON_KOWASERU）",
-                    jsrc.contains("if (nokori > BEACON_KOWASERU) {"), "判定が古い");
+            // ★★ 2026-09-09: 条件が「相手の貯金 100以下」から
+            //   「相手の銀行を 占領_必要回数 回 壊した」へ替わった（ご指示）。
+            //   1回1%の略奪では貯金が 0 にならないので、貯金では永久に落とせない。
+            int yobi = (Integer) teisuu(jcls, "BEACON_KAISU_YOBI");
+            check("★★ビーコンを壊せる回数の予備の値は 100", yobi == 100, "実際=" + yobi);
+            check("★★(字) 必要回数はデータパックの settei が正本（プラグインは覚えない）",
+                    jsrc.contains("kane.settei(\"占領_必要回数\")"), "プラグインが数字を持っている");
+            check("★(字) 壊した回数が足りなければ落とせない判定",
+                    jsrc.contains("if (kaisu < hitsuyou) {"), "判定が古い");
+            check("★(字) 回数はマーカーから写してもらってから読む（kai_yomu）",
+                    jsrc.contains("function jidai:sensou/kai_yomu")
+                            && jsrc.contains("kane.sagyou(\"#q_kai\")"), "読み方が違う");
             check("★★(字) 制圧したら戦争を【再戦禁止】へ進める（マーカーは読まず命令で）",
                     jsrc.contains("run scoreboard players set @s sensou 3")
                             && jsrc.contains("sensou_byou = 戦争_禁止秒 settei")

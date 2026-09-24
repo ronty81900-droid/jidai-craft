@@ -15,6 +15,7 @@ import io
 import json
 import os
 import sys
+import struct as _struct
 import zipfile
 
 KOKO = os.path.dirname(os.path.abspath(__file__))
@@ -118,6 +119,11 @@ KITAI = [
     ('Mc.java', 'net/minecraft/client/player/LocalPlayer', 'connection',      'f_108617_'),
     ('Mc.java', 'net/minecraft/client/gui/GuiGraphics',     'blit',            'm_280411_'),
     ('Mc.java', 'net/minecraft/client/multiplayer/ClientPacketListener', 'sendCommand', 'm_246623_'),
+    # ── ボスバーの描き直し（2026-09-09）──
+    ('Mc.java', 'net/minecraft/client/gui/Font', 'lineHeight',        'f_92710_'),
+    ('Bosubaa.java', 'net/minecraft/world/BossEvent', 'getName',      'm_18861_'),
+    ('Bosubaa.java', 'net/minecraft/world/BossEvent', 'getColor',     'm_18862_'),
+    ('Bosubaa.java', 'net/minecraft/world/BossEvent', 'getProgress',  'm_142717_'),
 ]
 
 pass_ = 0
@@ -334,6 +340,101 @@ def main():
                 check('見た目の番号が 16 種すべて別（集める5＋遺物11）',
                       len(set(ban_zen)) == len(ban_zen) == 16,
                       '重なりか数の違い: %s' % sorted(ban_zen))
+
+    # ── 8) 石油の絵（2026-09-20・ユーザーからいただいたドット絵）────
+    #
+    # ★★ 石油は特殊アイテムではない ★★
+    #   正体は **黒い染料に名前と目印を付けた物**（独自アイテムを登録していない）。
+    #   だから紙ではなく **black_dye.json** の方に対応表が要る。
+    #
+    # ★★ ここが「黙って壊れる」形が4つある ★★
+    #   ① 石油を作る所は5つ。1か所でも番号が漏れると、そこの石油だけ染料のまま
+    #   ② 番号の正本が3つに散っている（データパック・プラグイン・対応表）
+    #   ③ black_dye.json の親を間違えると、ふつうの黒い染料まで樽になる
+    #   ④ 絵の背景が不透明だと、灰色の四角が出る
+    print('')
+    print('-- 8) 石油の絵 --')
+    KIKAKU = os.path.dirname(NE)
+    DPS = os.path.join(KIKAKU, 'datapacks', 'jidai_craft', 'data', 'jidai',
+                       'functions', 'sekiyu')
+
+    # ① 石油を【作る】行を全部 集め、番号が揃っているか
+    tsukuru = []
+    for fai in ('dashi_give.mcfunction', 'waku.mcfunction'):
+        michi = os.path.join(DPS, fai)
+        if not os.path.exists(michi):
+            continue
+        for gyou in io.open(michi, encoding='utf-8').read().splitlines():
+            if 'jidai_sekiyu:"oil"' in gyou and ('give ' in gyou or 'summon ' in gyou):
+                m = _re.search(r'CustomModelData:(\d+)', gyou)
+                tsukuru.append((fai, int(m.group(1)) if m else None))
+    check('データパックで石油を作っている所が 5 つ', len(tsukuru) == 5,
+          '実際=%d か所' % len(tsukuru))
+    nashi = [f for f, b in tsukuru if b is None]
+    check('★石油を作る所すべてに見た目の番号がある', not nashi,
+          '番号が無い: %s（そこで湧いた石油だけ黒い染料のまま出る）' % sorted(set(nashi)))
+    ban_dp = sorted({b for _f, b in tsukuru if b is not None})
+    check('★石油の番号がどこも同じ', len(ban_dp) == 1, '食い違い: %s' % ban_dp)
+
+    if len(ban_dp) == 1:
+        sban = ban_dp[0]
+        # ② プラグインの写しが同じか（正本はデータパック）
+        gp = os.path.join(KIKAKU, 'plugin', 'src', 'main', 'java', 'jidai', 'Ginko.java')
+        gs = io.open(gp, encoding='utf-8').read() if os.path.exists(gp) else ''
+        check('★プラグインの石油の番号がデータパックと同じ (%d)' % sban,
+              ('SEKIYU_MITAME = %d;' % sban) in gs,
+              '銀行のボタンだけ黒い染料のままになる')
+
+        if os.path.exists(JAR):
+            with zipfile.ZipFile(JAR) as z:
+                naka2 = z.namelist()
+                check('石油の絵が jar にある',
+                      'assets/jidaiui/textures/item/sekiyu.png' in naka2, '無い')
+                check('石油の模型が jar にある',
+                      'assets/jidaiui/models/item/sekiyu.json' in naka2, '無い')
+                aru = 'assets/minecraft/models/item/black_dye.json' in naka2
+                check('黒い染料の対応表が jar にある', aru, '無い＝絵が出ない')
+                if aru:
+                    sumi = json.loads(
+                        z.read('assets/minecraft/models/item/black_dye.json').decode('utf-8'))
+                    # ③ ふつうの黒い染料を壊していないか
+                    check('★対応表の地はバニラの黒い染料のまま',
+                          sumi.get('textures', {}).get('layer0') == 'minecraft:item/black_dye',
+                          'ふつうの黒い染料まで見た目が変わる')
+                    ov = sumi.get('overrides', [])
+                    check('★対応表の番号がデータパックと同じ (%d)' % sban,
+                          any(o.get('predicate', {}).get('custom_model_data') == sban
+                              and o.get('model') == 'jidaiui:item/sekiyu' for o in ov),
+                          '番号か絵の名前が食い違っている＝絵が出ない')
+                    # ★ 特殊アイテム16種と番号が重なっていないか
+                    check('★石油の番号が特殊アイテム16種と重なっていない',
+                          str(sban) not in kami,
+                          '重なると別の絵が出る')
+                if 'assets/jidaiui/textures/item/sekiyu.png' in naka2:
+                    png = z.read('assets/jidaiui/textures/item/sekiyu.png')
+                    w, h = _struct.unpack('>II', png[16:24])
+                    iro = png[25]          # IHDR の色の種類。6 = RGBA
+                    check('石油の絵が 64×64', (w, h) == (64, 64), '実際=%dx%d' % (w, h))
+                    # ④ 背景が【本当に】透明か
+                    #
+                    # ★★ ここは一度 穴が開いていた ★★
+                    #   最初は「アルファの層があるか」だけ見ていた。
+                    #   背景を消し忘れた絵（全部 不透明）でも層はあるので、
+                    #   **灰色の四角が出る絵を緑で通した**（わざと壊して発覚）。
+                    #   層の有無ではなく、**透明な画素が実際にあるか**を数える。
+                    check('★石油の絵にアルファの層がある', iro == 6,
+                          '色の種類=%d（6=RGBA でないと透明にできない）' % iro)
+                    if iro == 6:
+                        from PIL import Image as _Im
+                        import io as _io
+                        _a = _Im.open(_io.BytesIO(png)).convert('RGBA')
+                        _p = list(_a.getdata())
+                        _suke = sum(1 for _x in _p if _x[3] == 0) / float(len(_p))
+                        # ★ 樽は縦長。四角に収めると 3割ほどは必ず余る。
+                        #   2割を下回ったら「背景を消し忘れた」と見てよい。
+                        check('★石油の絵の背景が透明（透明な画素 %.0f%%）' % (_suke * 100),
+                              _suke >= 0.20,
+                              '背景を消し忘れている＝灰色の四角が出る')
 
     print('')
     print('=' * 60)

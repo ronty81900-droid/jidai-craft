@@ -15,7 +15,7 @@
 execute unless score #hon sagyou matches 1.. run return 0
 
 # 1本渡す
-give @s minecraft:black_dye{jidai_sekiyu:"oil",display:{Name:'{"text":"石油","color":"black"}'}} 1
+give @s minecraft:black_dye{jidai_sekiyu:"oil",CustomModelData:8301,display:{Name:'{"text":"石油","color":"black"}'}} 1
 
 # 残りを1減らして、もう一度自分を呼ぶ
 scoreboard players remove #hon sagyou 1
