@@ -67,8 +67,8 @@ public final class Tatakai {
      *
      * ★ 矢や弾で撃った場合、殴った物は【飛び道具】であって人ではない。
      *   撃った人（shooter）まで辿らないと、味方への誤射が素通りする。
-     * ★ TaCZ の弾がここに来るかは実機でしか分からない。
-     *   来なくても、チームの friendlyFire=false（データパック側）が保険になる。
+     * ★ TaCZ の弾がここに来るかは実機でしか分からない（docs/実機確認リスト.md の 2-b）。
+     *   剣と弓は、チームの friendlyFire=false が先に止めるので、ここには来ない（fusegu の説明）。
      */
     static Player utta(org.bukkit.entity.Entity damager) {
         if (damager instanceof Player p) {
@@ -86,6 +86,12 @@ public final class Tatakai {
     /**
      * 同じ勢力なら傷つけない。止めたら true（呼び出し側が打ち切る）。
      *
+     * ★★ 剣と弓は、ここまで来ない（2026-09-28 ボットで実測）★★
+     *   データパックのチームの friendlyFire=false を、サーバー本体が【先に】見て止める
+     *   （ServerPlayer.hurt の中。Bukkit のダメージの知らせより前）。だから下の知らせも出ない。
+     *   ここは、チームの判定を通り抜けて来たダメージ（MOD の武器など）を止める2枚目の門。
+     *   その間だけ friendlyFire を true にすると、ここが止めて知らせが出ることも確かめた。
+     *   「仲間を殴っても文は出さない（今のまま）」で確定（2026-09-28 のご判断）。
      * ★ 知らせは殴った側にだけ、しかも連打で埋まらないよう1秒に1回だけ出す。
      */
     boolean fusegu(org.bukkit.entity.Entity damager, org.bukkit.entity.Entity ukeru, Kane kane) {

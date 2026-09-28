@@ -389,6 +389,8 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
         if (ginkoModosu != null) {
             for (java.util.Map.Entry<org.bukkit.Location, Material> e : ginkoModosu.entrySet()) {
                 e.getKey().getBlock().setType(e.getValue());
+                // ★ 戻し待ちの印も外す。残すと、データパックがその銀行を二度と直さない
+                modoriShirushi(e.getKey(), false);
             }
             if (!ginkoModosu.isEmpty()) {
                 getLogger().info("壊れていた銀行を " + ginkoModosu.size() + " 個 戻しました");
@@ -496,6 +498,16 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
     private void jidoScan() {
         // ★ データパックの確認もここで行う。onEnable では早すぎるため。
         datapackKakunin();
+
+        // ★ 銀行の「戻し待ち」の印の残りを外す（2026-09-28）
+        //   戻す前にサーバーが落ちる（onDisable が走らない）と、印だけが残り、
+        //   データパックがその銀行を二度と直さなくなる。
+        //   起動した時点で戻し待ちの銀行は1つも無いので、残っている印は全部外してよい。
+        //   外せば、欠けた金ブロックは jidai:clock が1秒以内に置き直す。
+        // ★ execute as にしてあるのは、該当が無い時に何も言わせないため
+        //   （tag @e[...] remove は、該当が無いとコンソールに失敗を出す）。
+        Bukkit.dispatchCommand(Bukkit.getConsoleSender(),
+                "execute as @e[type=marker,tag=" + GINKO_MODORI + "] run tag @s remove " + GINKO_MODORI);
 
         Basho.Kekka k = basho.scan();
         if (k.karappo()) {
@@ -1254,8 +1266,10 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
      * ★ 判定は「同じ【勢力】か」なので、
      *   勢力に入っていない人は素通りする。
      * ★ 矢や弾は、撃った人まで辿ってから見る（Tatakai.utta）。
-     * ★ TaCZ の弾がこのイベントに来るかは実機でしか分からない。
-     *   来なくても、データパックの friendlyFire=false が保険になる。
+     * ★★ 剣と弓では、このイベントは来ない（2026-09-28 ボットで実測）★★
+     *   データパックのチームの friendlyFire=false を、サーバー本体が先に見て止めるため。
+     *   ここは2枚目の門（詳しくは Tatakai.fusegu）。文は出さないで確定（2026-09-28）。
+     * ★ TaCZ の弾がどちらで止まるかは実機でしか分からない（実機確認リストの 2-b）。
      */
     @EventHandler(ignoreCancelled = true)
     public void onNakamaUchi(EntityDamageByEntityEvent event) {
@@ -1518,15 +1532,54 @@ public final class JidaiCraft extends JavaPlugin implements Listener {
      * ★ 戻すまでの間にサーバーが止まったら戻らない。
      *   そのまま消えると、**まわりの守りのせいで運営でも置き直せない**ので、
      *   onDisable でまとめて戻している。
+     * ★★ 戻すまでの間、銀行の印に「戻し待ち」の印を付ける（2026-09-28）★★
+     *   データパックの jidai:clock は毎秒「銀行の印の所に金ブロックが無ければ置く」をしている。
+     *   印が無いと、そちらが 3秒を待たずに 0.01〜1秒で戻してしまい、
+     *   壊れたのがほとんど見えなかった（ボットで14回 実測）。
      */
     private void ginkoModosuYoyaku(Block block) {
         final org.bukkit.Location basho2 = block.getLocation();
         final Material moto = block.getType();
         modosuMachi().put(basho2, moto);
+        modoriShirushi(basho2, true);
         Bukkit.getScheduler().runTaskLater(this, () -> {
             modosuMachi().remove(basho2);
             basho2.getBlock().setType(moto);
+            modoriShirushi(basho2, false);
         }, GINKO_MODORU);
+    }
+
+    /**
+     * 「戻し待ち」の印の名前。データパックの jidai:clock は、これが付いた銀行を直さない。
+     * ★ datapacks/CONTRACT.md §4 に書いてある。名前を変える時は両方直す。
+     */
+    static final String GINKO_MODORI = "jidai_ginko_modori";
+
+    /**
+     * その場所の銀行の印（データパックが置いたマーカー）に、戻し待ちの印を付ける／外す。
+     *
+     * ★ マーカーはブロックの底の真ん中（x と z が .5）に立っている。
+     *   setup/kyoten が `execute positioned 0 101 -410` で呼ぶと、整数の x と z は
+     *   ブロックの真ん中へずらされるため（実測。角だと思い込むと選び損ねる）。
+     *   近くを探してから、ブロックの座標がぴったり同じ物だけに付ける。
+     *   隣の施設（販売所は4マス先）の印には付けないため。
+     */
+    private static void modoriShirushi(org.bukkit.Location basho, boolean tsukeru) {
+        for (org.bukkit.entity.Entity e : basho.getWorld().getNearbyEntities(
+                basho.clone().add(0.5, 0.5, 0.5), 1, 1, 1)) {
+            org.bukkit.Location l = e.getLocation();
+            if (!e.getScoreboardTags().contains("jidai_ginko")
+                    || l.getBlockX() != basho.getBlockX()
+                    || l.getBlockY() != basho.getBlockY()
+                    || l.getBlockZ() != basho.getBlockZ()) {
+                continue;
+            }
+            if (tsukeru) {
+                e.addScoreboardTag(GINKO_MODORI);
+            } else {
+                e.removeScoreboardTag(GINKO_MODORI);
+            }
+        }
     }
 
     /** ★ Unsafe で作ると初期化子を通らないので、使う時に作る。 */

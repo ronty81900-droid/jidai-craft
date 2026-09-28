@@ -80,10 +80,15 @@ FILE = [
     ("次のチャットへ.md", "docs/開発の引き継ぎ書.md"),
 ]
 
-# clientmod/tools と tests は .py だけ（client.txt 7.6MB と cache 4.6MB は入れない。
+# clientmod/tools と tests は .py と .js だけ（client.txt 7.6MB と cache 4.6MB は入れない。
 # どちらも Mojang の配布物から作り直せる）
+# ★ 下の階は見ない（tests/ の下には試験用サーバーがある）。要る階は名指しで足す。
+#   e_v8 / e_v10 = 特殊アイテムの絵を描いた道具（2026-09-28 に足した）。
+#   nouhin/v10 の manifest が「この絵は tools/e_v10/<絵>.py で描いた」と書くので、写さないと公開先で案内が切れる。
 PY_DAKE = [
     ("clientmod/tools", "clientmod/tools"),
+    ("clientmod/tools/e_v8", "clientmod/tools/e_v8"),
+    ("clientmod/tools/e_v10", "clientmod/tools/e_v10"),
     ("tests", "tests"),
 ]
 
@@ -186,13 +191,15 @@ def main():
     for moto, saki in PY_DAKE:
         m = os.path.join(MOTO, moto)
         for f in sorted(os.listdir(m)):
-            if not f.endswith(".py"):
+            # ★ .js も写す（2026-09-28）。tests/bot_kakunin.js（ボットでのマルチ確認）を
+            #   実機確認リストが案内しているため。写さないと公開先で案内が切れる。
+            if not (f.endswith(".py") or f.endswith(".js")):
                 continue
             s = os.path.join(SAKI, saki, f)
             mkdir(os.path.dirname(s))
             shutil.copy2(os.path.join(m, f), s)
             kazu += 1
-        print("  %-34s .py だけ" % (moto + " →"))
+        print("  %-34s .py と .js だけ" % (moto + " →"))
 
     # --- サーバーの設定 -------------------------------------
     sv = os.path.join(SAKI, "server")

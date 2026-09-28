@@ -332,6 +332,55 @@ public class UneiTest {
                         && jcs.contains("basho.ginkoNoMawari(event.getBlock(), GINKO_MAMORU)"),
                 "壊す方だけだと箱で囲める");
 
+        // ---------- 壊した銀行は3秒で戻る（2026-09-28 のボットの実測から）----------
+        // ★★ データパックの jidai:clock が毎秒 置き直していて、3秒を待たずに 0.01〜1秒で戻っていた ★★
+        //   戻し待ちの間は銀行の印に GINKO_MODORI を付け、clock はその銀行を飛ばす。
+        int gy = jcs.indexOf("private void ginkoModosuYoyaku(Block block)");
+        String gyBody = gy < 0 ? "" : jcs.substring(gy, Math.min(jcs.length(), gy + 1200));
+        int tsuke = gyBody.indexOf("modoriShirushi(basho2, true)");
+        int yoyaku = gyBody.indexOf("runTaskLater");
+        int modosu = gyBody.indexOf("basho2.getBlock().setType(moto)");
+        int hazusu = gyBody.indexOf("modoriShirushi(basho2, false)");
+        check("★★(字) 壊した銀行に「戻し待ち」の印を付けてから、3秒後の約束をする",
+                tsuke >= 0 && yoyaku >= 0 && tsuke < yoyaku,
+                "付けていない／順番が逆（付ける前に clock が回ると 1秒以内に戻る）");
+        check("★★(字) 3秒後に戻したあとで印を外す（約束の中で）",
+                modosu > yoyaku && hazusu > modosu, "外していない（残ると clock が二度と直さない）");
+        check("★(字) 止める時にも印を外す",
+                jcs.contains("modoriShirushi(e.getKey(), false)"), "残ると clock が二度と直さない");
+        check("★(字) 起動時に残った印を外す（落ちて onDisable が走らなかった時の保険）",
+                jcs.contains("run tag @s remove \" + GINKO_MODORI"), "無い");
+        java.util.regex.Matcher gm = java.util.regex.Pattern
+                .compile("GINKO_MODORI = \"([a-z_]+)\"").matcher(jcs);
+        String modoriMei = gm.find() ? gm.group(1) : null;
+        check("(字) 戻し待ちの印の名前を読めた（" + modoriMei + "）", modoriMei != null, "無い");
+        String clock = null;
+        for (String q : new String[]{
+                "../../datapacks/jidai_craft/data/jidai/functions/clock.mcfunction",
+                "datapacks/jidai_craft/data/jidai/functions/clock.mcfunction"}) {
+            java.nio.file.Path w = java.nio.file.Paths.get(q);
+            if (java.nio.file.Files.exists(w)) {
+                clock = java.nio.file.Files.readString(w);
+                break;
+            }
+        }
+        check("データパックの clock が読めた", clock != null, "見つからない");
+        if (clock != null && modoriMei != null) {
+            // 銀行を直す行（コメントでない・銀行の印・setblock）を全部 取り出して見る
+            java.util.List<String> gyou = new java.util.ArrayList<>();
+            for (String l : clock.split("\n")) {
+                if (!l.startsWith("#") && l.contains("tag=jidai_ginko") && l.contains("setblock")) {
+                    gyou.add(l.trim());
+                }
+            }
+            boolean zenbu = !gyou.isEmpty();
+            for (String l : gyou) {
+                zenbu = zenbu && l.contains("tag=!" + modoriMei);
+            }
+            check("★★ clock の銀行を直す行が、戻し待ち（" + modoriMei + "）の銀行を飛ばす",
+                    zenbu, "飛ばしていない: " + gyou);
+        }
+
         // ---------- 戦争勝利（ビーコンを壊す条件） ----------
         System.out.println();
         System.out.println("-- 戦争勝利 --");

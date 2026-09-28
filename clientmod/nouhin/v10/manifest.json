@@ -1,0 +1,189 @@
+{
+ "schema_version": 1,
+ "package": "JidaiCraft 特殊アイテムの絵 v10（512×512・自前）",
+ "rules": "128 マスで描いて 4 倍・外周 16px outline＋16px brass・v6 共有パレット＋追加色（dotto.TSUIKA）",
+ "files": [
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/kaizu.png",
+   "sha256": "38AD6FD24A7BFF44AD40D08369907591201F2901E3B81F595B109A4D022E4584",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "海図A",
+   "drawn_by": "tools/e_v10/kaizu.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/haguruma.png",
+   "sha256": "5B3116672297DF7F5F52A9C48A1464143BE4C4FB7B681502EE7987BC0A272EDF",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "歯車A",
+   "drawn_by": "tools/e_v10/haguruma.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/tenro.png",
+   "sha256": "C835B7B93ECBB86F1E3A6F7330EFB1C8D8411BD3526BFC0AE1CE62B18ED676C9",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "ベッセマーA",
+   "drawn_by": "tools/e_v10/tenro.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/kinko.png",
+   "sha256": "A5103983DAF56B1C7E1B15B14C9B6D733B15AD781120472C96ED690CC601C251",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "金庫A",
+   "drawn_by": "tools/e_v10/kinko.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/tsukinoishi.png",
+   "sha256": "0D1A6B00B1A4FC07F9DA9BE18E6FFD6F8983B9E5236810F1F67896DA81826044",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "月の石A",
+   "drawn_by": "tools/e_v10/tsukinoishi.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/oukan.png",
+   "sha256": "B3F53E0F8B7B931BBD6F80E4D7D6C3FD1F85B634064635AEA614A4EC86D3F4AD",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "王冠A",
+   "drawn_by": "tools/e_v10/oukan.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/tate.png",
+   "sha256": "24CB957BCC092E790301DC044E4795B9804670077E00436126D7ABB74D3AD27C",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "B",
+   "chosen_on": "2026-09-28",
+   "user_words": "盾B",
+   "drawn_by": "tools/e_v10/tate.py の an_b()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/tegata.png",
+   "sha256": "22758FFD25DC8139538F70ED43030D4D6349F69AC791D4703E228DD76AE7059B",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "手紙A",
+   "drawn_by": "tools/e_v10/tegata.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/tebiki.png",
+   "sha256": "17B8B8E45E79CC8344D9B2F3296F5FF3694DC5F53F5AE6430E2E9BFB984AC50E",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "手引書A",
+   "drawn_by": "tools/e_v10/tebiki.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/penicillin.png",
+   "sha256": "6296558201D6A81D196AE76912FFF706B5F5E1AD7724D5A9B3519D29A26A649A",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "A",
+   "chosen_on": "2026-09-28",
+   "user_words": "ペニシリンA",
+   "drawn_by": "tools/e_v10/penicillin.py の an_a()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/goggle.png",
+   "sha256": "50954934CC46203D7B6AB337241B44A3262FEA30038D554BB118863873BA03B7",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "B",
+   "chosen_on": "2026-09-28",
+   "user_words": "ゴーグルB",
+   "drawn_by": "tools/e_v10/goggle.py の an_b()"
+  },
+  {
+   "category": "item_texture",
+   "file": "assets/jidaiui/textures/item/sumaho.png",
+   "sha256": "06A0BA95CF15A52E5B7126CE0F56D600352781BA6D5E0F40E262D8649A01028D",
+   "size": [
+    512,
+    512
+   ],
+   "proposal": "B",
+   "chosen_on": "2026-09-28",
+   "user_words": "スマホB",
+   "drawn_by": "tools/e_v10/sumaho.py の an_b()"
+  }
+ ],
+ "kept_current": [
+  {
+   "file": "assets/jidaiui/textures/item/sensha.png",
+   "decided_on": "2026-09-28",
+   "user_words": "戦車今",
+   "note": "案を見たうえで いまの絵（v6）のまま"
+  },
+  {
+   "file": "assets/jidaiui/textures/item/excalibur.png",
+   "decided_on": "2026-09-28",
+   "user_words": "エクスカリバー今",
+   "note": "案を見たうえで いまの絵（v6）のまま"
+  },
+  {
+   "file": "assets/jidaiui/textures/item/gofu.png",
+   "decided_on": "2026-09-28",
+   "user_words": "護符今",
+   "note": "案を見たうえで いまの絵（v6）のまま"
+  },
+  {
+   "file": "assets/jidaiui/textures/item/seihai.png",
+   "decided_on": "2026-09-28",
+   "user_words": "聖杯今",
+   "note": "案を見たうえで いまの絵（v6）のまま"
+  }
+ ]
+}

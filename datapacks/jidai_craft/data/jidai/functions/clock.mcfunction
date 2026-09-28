@@ -97,7 +97,11 @@ execute as @a run scoreboard players enable @s sekiyu_dashi
 # --- 5) 施設ブロックを直す ------------------------------------
 # 壊されても1秒以内に戻る。壊しても何も落ちない(ルートテーブルで空にした)。
 execute as @e[type=marker,tag=jidai_uru] at @s unless block ~ ~ ~ minecraft:emerald_block run setblock ~ ~ ~ minecraft:emerald_block
-execute as @e[type=marker,tag=jidai_ginko] at @s unless block ~ ~ ~ minecraft:gold_block run setblock ~ ~ ~ minecraft:gold_block
+# ★ 銀行だけは【戻し待ち】の印(jidai_ginko_modori)が付いている間は直さない(2026-09-28)。
+#   戦争で壊された銀行は、プラグインが3秒後に戻す(ご指示「3秒で戻す」)。
+#   ここで毎秒直すと、そちらより先に 0.01〜1秒で戻ってしまい、壊れたのが見えなかった(ボットで実測)。
+#   印はプラグインが付けて、戻した時に外す。止めた時と起動した時にも外す(残らないように)。
+execute as @e[type=marker,tag=jidai_ginko,tag=!jidai_ginko_modori] at @s unless block ~ ~ ~ minecraft:gold_block run setblock ~ ~ ~ minecraft:gold_block
 execute as @e[type=marker,tag=jidai_gacha] at @s unless block ~ ~ ~ minecraft:diamond_block run setblock ~ ~ ~ minecraft:diamond_block
 
 # --- 6) 「買い物中」の印を時間切れにする(暫定UIのチェスト用) --

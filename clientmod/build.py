@@ -98,11 +98,24 @@ def main():
     src = java_files()
     print('[2] コンパイルします (java %d 本 / classpath %d 本)' % (len(src), len(cp)))
     ku = os.pathsep.join(cp)
+    # ★★ classpath は @ファイルで渡す（2026-09-28）★★
+    #   ランチャーが部品を足すたびに本数が増え、290 本・約3.5万文字になった所で
+    #   Windows のコマンドの長さの上限（32,767 文字）を超え、javac が起動すらしなかった
+    #   （WinError 206「ファイル名または拡張子が長すぎます」）。
+    #   javac の @ファイル（引数を書いたファイル）なら長さの上限が無い。
+    #   ★ 中身は ASCII だけ（.minecraft の部品の道）。日本語の道（-d と .java）は今までどおり直に渡す。
+    import tempfile
+    fd, argfile = tempfile.mkstemp(suffix='_javac_cp.txt')
+    with os.fdopen(fd, 'w', encoding='ascii') as f:
+        f.write('-cp "%s"\n' % ku.replace('\\', '/'))
     cmd = ['javac', '--release', '17', '-encoding', 'UTF-8',
-           '-nowarn', '-cp', ku, '-d', OUT] + src
+           '-nowarn', '@' + argfile, '-d', OUT] + src
     # ★ この環境の javac は日本語のエラーを cp932 で出す。
     #   utf-8 で読むと全部 文字化けして、何が悪いのか分からなくなる（実際に困った）。
-    r = subprocess.run(cmd, capture_output=True)
+    try:
+        r = subprocess.run(cmd, capture_output=True)
+    finally:
+        os.remove(argfile)
     if r.returncode != 0:
         for b in (r.stdout, r.stderr):
             print(b.decode('cp932', 'replace'))

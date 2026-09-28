@@ -238,6 +238,23 @@ def main():
         c("function jidai:clock")
         check("clock で元に戻る",
               "Test passed" in c("execute if block 0 101 -404 minecraft:gold_block"))
+        # ★★ 2026-09-28: 戦争で壊された銀行は、プラグインが3秒後に戻す ★★
+        #   その間はプラグインが銀行の印に jidai_ginko_modori を付ける。clock はそれを飛ばす。
+        #   飛ばさないと 0.01〜1秒で戻ってしまい、壊れたのが見えなかった（ボットで実測）。
+        # ★ 印はブロックの底の真ん中 (0.5, 101, -403.5) に立っている（positioned が整数を
+        #   真ん中へずらすため）。ブロックの真ん中から 1 マスで選ぶ（角から 0.5 だと外れた）。
+        c("tag @e[type=marker,tag=jidai_ginko,x=0.5,y=101.5,z=-403.5,distance=..1] add jidai_ginko_modori")
+        check("(戻し待ち) 印を付けたのは拠点1の銀行の1つだけ",
+              n_ent("@e[type=marker,tag=jidai_ginko_modori]") == 1,
+              f"実測={n_ent('@e[type=marker,tag=jidai_ginko_modori]')}")
+        c("setblock 0 101 -404 minecraft:air replace")
+        c("function jidai:clock")
+        check("★★(戻し待ち) 印の付いた銀行は clock が直さない（プラグインの3秒を待つ）",
+              "Test passed" in c("execute if block 0 101 -404 minecraft:air"))
+        c("tag @e[type=marker,tag=jidai_ginko_modori] remove jidai_ginko_modori")
+        c("function jidai:clock")
+        check("★(戻し待ち) 印を外すと clock がまた直す（落ちた時の保険が効く）",
+              "Test passed" in c("execute if block 0 101 -404 minecraft:gold_block"))
         c("forceload add -32 -32 32 32")
         c("setblock 20 100 20 minecraft:emerald_block replace")
         c("setblock 20 99 20 minecraft:barrel replace")

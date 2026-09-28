@@ -8,7 +8,8 @@
 //
 //   ★ ここは【実物の Tatakai を呼んで】測る。字の検査ではない。
 //   ★ 測れないこと: TaCZ の弾が EntityDamageByEntityEvent に来るか。
-//     来なくてもチームの friendlyFire=false が保険になる（両方 見る）。
+//     剣と弓は、チームの friendlyFire=false が【先に】止める（2026-09-28 ボットで実測）。
+//     プラグインの門は2枚目。ここでは両方 見る。
 // =============================================================
 
 import java.io.FileNotFoundException;
@@ -271,7 +272,7 @@ public class TatakaiTest {
 
         String load = src("datapacks", "jidai_craft", "data", "jidai", "functions", "load.mcfunction");
         for (String t : new String[]{"kyuryo", "shinrin", "kawa", "naikai", "iwaba"}) {
-            check("★保険: " + t + " は friendlyFire false",
+            check("★1枚目の門（剣と弓はこちらが先に止める）: " + t + " は friendlyFire false",
                     load.contains("team modify " + t + " friendlyFire false"), "無い");
         }
 

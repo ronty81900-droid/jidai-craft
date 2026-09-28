@@ -48,6 +48,11 @@ NOUHIN_IBUTSU = os.path.join(NE, 'nouhin', 'v6')
 #   残り14枚は Codex 第7回がそろうまで v5/v6 のまま。
 NOUHIN_V8 = os.path.join(NE, 'nouhin', 'v8')
 KOBETSU = ('gofu', 'seihai')
+# ★★ 2026-09-28: 512×512 で作り直した絵は v10 から取る（ご指示）★★
+#   「海図A、歯車A、ベッセマーA、金庫Aで行きます」。どの案を採ったかの正本は
+#   tools/e_v10/saiyou.py の SAIYOU。ここは nouhin/v10 にある絵を【そのまま全部】差し替える
+#   （名前をここにも書くと、片方だけ直した時に黙って食い違うため）。
+NOUHIN_V10 = os.path.join(NE, 'nouhin', 'v10')
 SAKI = os.path.join(NE, 'tokushu', 'assets')
 
 # ★★ 2026-09-20: 石油の絵（ユーザーからいただいたドット絵）★★
@@ -158,11 +163,24 @@ def main():
         else:
             print('  ★ v8 に %s.png が無いので、以前の絵のまま' % fai)
 
+    # ── 512×512 で作り直した絵は v10 から取る（2026-09-28 のご指示）──
+    v10_e = os.path.join(NOUHIN_V10, 'assets', 'jidaiui', 'textures', 'item')
+    if os.path.isdir(v10_e):
+        shitte = {fai for _m, fai, _b in kumi}
+        for f in sorted(os.listdir(v10_e)):
+            fai = f[:-4] if f.endswith('.png') else None
+            if fai is None:
+                continue
+            if fai not in shitte:
+                raise SystemExit('[中止] v10 に知らない絵がある（Shouri.java に無い名前）: ' + f)
+            dokoni[fai] = NOUHIN_V10
+            print('  ★ %s.png は v10（512×512・作り直した絵）から取る' % fai)
+
     # ── 1) 絵を納品から持ってくる（sha256 で照合しながら）──
     # ★ 鍵を【納品ごと】にする。前は名前だけだったので、別の納品から取った絵を
     #   前の納品の sha256 と突き合わせて誤って止まる（v8 の護符 vs v5 の sha）。
     sha = {}
-    for nouhin in (NOUHIN, NOUHIN_IBUTSU, NOUHIN_V8):
+    for nouhin in (NOUHIN, NOUHIN_IBUTSU, NOUHIN_V8, NOUHIN_V10):
         mp = os.path.join(nouhin, 'manifest.json')
         if not os.path.exists(mp):
             continue
