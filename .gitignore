@@ -16,8 +16,10 @@ libraries/
 
 # サーバー本体・部品
 arclight*
-# ★ 上の行は自作の確認道具（Arclight の写しを立てて見る）にも当たるので、名指しで通す（2026-09-28）
+# ★ 上の行は自作の確認道具（Arclight の写しを立てて見る）と、サーバー設定のひな型にも当たるので、名指しで通す（2026-09-28）
+#   arclight.conf は Arclight が最初の起動で作る設定。言語を日本語（ja_jp）にしてある。秘密は入っていない
 !tests/arclight_kakunin.py
+!server/arclight.conf
 paper-*
 forge-*.jar
 minecraft_server*
